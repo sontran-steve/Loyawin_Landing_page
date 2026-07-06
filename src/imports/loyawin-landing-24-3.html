@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LoyaWin — Next-Generation Loyalty Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@400;600;700;800&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #574ADB;
+  --primary-light: #7B71E8;
+  --primary-dark: #3D33C4;
+  --primary-xlight: rgba(87,74,219,0.12);
+  --primary-glow: rgba(87,74,219,0.35);
+  --bg: #ffffff;
+  --bg2: #f8f7ff;
+  --bg3: #f2f1fc;
+  --neutral-900: #1a1830;
+  --neutral-700: #3d3a6b;
+  --neutral-500: #6b6890;
+  --neutral-300: #b8b5d8;
+  --neutral-100: #eceaf9;
+  --glass-bg: rgba(255,255,255,0.65);
+  --glass-border: rgba(87,74,219,0.18);
+  --glass-shadow: 0 8px 40px rgba(87,74,219,0.12);
+  --font-head: 'MuseoModerno', sans-serif;
+  --font-body: 'Be Vietnam Pro', sans-serif;
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--neutral-900);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ─── BG ORBS ─── */
+.bg-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: 0;
+}
+.orb1 { width: 600px; height: 600px; background: radial-gradient(circle, #574ADB, #a89ef0); top: -200px; left: -150px; animation: orbFloat 14s ease-in-out infinite; }
+.orb2 { width: 500px; height: 500px; background: radial-gradient(circle, #a89ef0, #574ADB); top: 40%; right: -180px; animation: orbFloat 18s ease-in-out infinite reverse; }
+.orb3 { width: 350px; height: 350px; background: radial-gradient(circle, #7B71E8, #c4bff5); bottom: 5%; left: 20%; animation: orbFloat 12s ease-in-out infinite 3s; }
+
+@keyframes orbFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-40px) scale(1.05); }
+}
+
+/* ─── GRID PATTERN ─── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(87,74,219,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(87,74,219,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── LAYOUT ─── */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 64px; position: relative; z-index: 1; }
+
+/* ─── NAVBAR ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 16px 0;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  background: rgba(255,255,255,0.8);
+  border-bottom: 1px solid var(--glass-border);
+  transition: all 0.3s ease;
+}
+nav.scrolled {
+  background: rgba(255,255,255,0.92);
+  box-shadow: 0 4px 30px rgba(87,74,219,0.08);
+}
+.nav-inner { display: flex; align-items: center; gap: 32px; }
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--font-head);
+  font-size: 22px; font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.nav-logo .logo-icon {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 18px; font-weight: 800;
+  box-shadow: 0 4px 14px var(--primary-glow);
+}
+.nav-links {
+  display: flex; align-items: center; gap: 8px;
+  list-style: none;
+  flex: 1; justify-content: center;
+}
+.nav-links a {
+  text-decoration: none;
+  font-size: 14px; font-weight: 500;
+  color: var(--neutral-700);
+  padding: 8px 16px;
+  border-radius: 100px;
+  transition: all 0.2s;
+}
+.nav-links a:hover { background: var(--primary-xlight); color: var(--primary); }
+.btn-nav {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: white;
+  border: none; cursor: pointer;
+  padding: 10px 24px;
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 14px; font-weight: 600;
+  box-shadow: 0 4px 16px var(--primary-glow);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.btn-nav:hover { transform: translateY(-2px); box-shadow: 0 8px 24px var(--primary-glow); }
+
+/* ─── HERO ─── */
+.hero {
+  padding: 160px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 100px;
+  padding: 6px 16px 6px 8px;
+  font-size: 13px; font-weight: 500;
+  color: var(--primary);
+  margin-bottom: 28px;
+}
+.hero-badge .dot {
+  width: 8px; height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(0.85)} }
+
+.hero h1 {
+  font-family: var(--font-head);
+  font-size: 64px; font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--neutral-900);
+  margin-bottom: 24px;
+}
+.hero h1 .accent {
+  background: linear-gradient(135deg, var(--primary), #a89ef0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero p {
+  font-size: 18px; color: var(--neutral-500);
+  line-height: 1.7; margin-bottom: 40px;
+  max-width: 460px;
+}
+.hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: white; border: none; cursor: pointer;
+  padding: 16px 36px; border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 16px; font-weight: 600;
+  box-shadow: 0 6px 28px var(--primary-glow);
+  transition: all 0.25s;
+  text-decoration: none; display: inline-block;
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px var(--primary-glow); }
+
+.btn-ghost {
+  background: transparent;
+  border: 1.5px solid var(--neutral-300);
+  color: var(--neutral-700); cursor: pointer;
+  padding: 15px 28px; border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 16px; font-weight: 500;
+  transition: all 0.2s;
+  display: inline-flex; align-items: center; gap: 8px;
+  text-decoration: none;
+}
+.btn-ghost:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-xlight); }
+
+.hero-stats {
+  display: flex; gap: 36px; margin-top: 48px;
+  padding-top: 36px;
+  border-top: 1px solid var(--neutral-100);
+}
+.stat-item { display: flex; flex-direction: column; gap: 4px; }
+.stat-num {
+  font-family: var(--font-head);
+  font-size: 30px; font-weight: 700;
+  color: var(--primary);
+}
+.stat-label { font-size: 13px; color: var(--neutral-500); }
+
+/* Hero Visual */
+.hero-visual { position: relative; }
+.hero-card-main {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--glass-shadow);
+  position: relative;
+  z-index: 2;
+}
+.loyalty-card {
+  background: linear-gradient(135deg, var(--primary), #8B82F0, #a89ef0);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  color: white;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.loyalty-card::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+}
+.loyalty-card::after {
+  content: '';
+  position: absolute;
+  bottom: -30px; left: -20px;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.07);
+}
+.card-chip { width: 40px; height: 30px; background: rgba(255,255,255,0.25); border-radius: 6px; margin-bottom: 20px; display: grid; place-items: center; }
+.card-chip::before { content: ''; width: 24px; height: 18px; background: rgba(255,255,255,0.4); border-radius: 3px; }
+.card-name { font-family: var(--font-head); font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+.card-points { font-size: 12px; opacity: 0.8; margin-bottom: 16px; }
+.card-progress-wrap { background: rgba(255,255,255,0.2); border-radius: 100px; height: 6px; }
+.card-progress { background: white; height: 6px; border-radius: 100px; width: 68%; }
+.card-footer { display: flex; justify-content: space-between; margin-top: 12px; font-size: 12px; opacity: 0.9; }
+
+.mini-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+.mini-stat {
+  background: white;
+  border: 1px solid var(--neutral-100);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  text-align: center;
+}
+.mini-stat .ms-num { font-family: var(--font-head); font-size: 20px; font-weight: 700; color: var(--primary); }
+.mini-stat .ms-label { font-size: 11px; color: var(--neutral-500); margin-top: 2px; }
+
+/* Floating cards */
+.float-card {
+  position: absolute;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  box-shadow: var(--glass-shadow);
+  z-index: 3;
+  animation: floatCard 6s ease-in-out infinite;
+}
+.float-card.fc1 { top: -24px; right: -20px; animation-delay: 0s; }
+.float-card.fc2 { bottom: 20px; left: -32px; animation-delay: 2s; }
+@keyframes floatCard {
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+.fc-label { font-size: 11px; color: var(--neutral-500); }
+.fc-value { font-family: var(--font-head); font-size: 16px; font-weight: 700; color: var(--primary); margin-top: 2px; }
+.fc-icon { font-size: 20px; margin-bottom: 4px; }
+
+/* ─── SECTION BASE ─── */
+section { padding: 100px 0; position: relative; }
+.section-label {
+  display: inline-block;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--primary);
+  background: var(--primary-xlight);
+  border: 1px solid rgba(87,74,219,0.2);
+  padding: 5px 14px; border-radius: 100px;
+  margin-bottom: 18px;
+}
+.section-title {
+  font-family: var(--font-head);
+  font-size: 44px; font-weight: 700;
+  line-height: 1.1; letter-spacing: -0.02em;
+  color: var(--neutral-900);
+  margin-bottom: 16px;
+}
+.section-sub { font-size: 17px; color: var(--neutral-500); line-height: 1.7; max-width: 560px; }
+.section-head-center { text-align: center; }
+.section-head-center .section-sub { margin: 0 auto; }
+
+/* ─── FEATURES ─── */
+.features { background: var(--bg2); }
+.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 64px; }
+.feature-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.feature-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(87,74,219,0.15); }
+.feature-card:hover::before { opacity: 1; }
+.feat-icon {
+  width: 52px; height: 52px;
+  background: linear-gradient(135deg, var(--primary-xlight), rgba(87,74,219,0.06));
+  border: 1px solid rgba(87,74,219,0.2);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.feature-card h3 { font-family: var(--font-head); font-size: 20px; font-weight: 600; color: var(--neutral-900); margin-bottom: 10px; }
+.feature-card p { font-size: 14px; color: var(--neutral-500); line-height: 1.7; }
+
+/* ─── PARTNERS ─── */
+.partners-wrap { margin-top: 56px; }
+.partners-label { text-align: center; font-size: 14px; color: var(--neutral-400, #b0adcc); margin-bottom: 36px; font-weight: 500; }
+.partners-track-wrap { overflow: hidden; position: relative; }
+.partners-track-wrap::before,
+.partners-track-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 120px; z-index: 2;
+}
+.partners-track-wrap::before { left: 0; background: linear-gradient(90deg, var(--bg), transparent); }
+.partners-track-wrap::after  { right: 0; background: linear-gradient(-90deg, var(--bg), transparent); }
+
+.partners-track {
+  display: flex; gap: 48px; align-items: center;
+  animation: scroll 22s linear infinite;
+  width: max-content;
+}
+.partners-track:hover { animation-play-state: paused; }
+@keyframes scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+.partner-logo {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  padding: 16px 32px;
+  font-family: var(--font-head);
+  font-size: 16px; font-weight: 600;
+  color: var(--neutral-500);
+  white-space: nowrap;
+  transition: all 0.2s;
+  display: flex; align-items: center; gap: 10px;
+}
+.partner-logo:hover { color: var(--primary); border-color: rgba(87,74,219,0.4); }
+.partner-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--primary); opacity: 0.5; }
+
+/* ─── PRICING ─── */
+.pricing { background: var(--bg2); }
+.pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 64px; }
+.price-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 44px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.price-card:hover { transform: translateY(-6px); box-shadow: 0 24px 64px rgba(87,74,219,0.15); }
+.price-card.featured {
+  background: linear-gradient(135deg, var(--primary) 0%, #6B62E8 50%, #8B82F0 100%);
+  border-color: transparent;
+  color: white;
+}
+.price-card.featured * { --neutral-900: white; --neutral-500: rgba(255,255,255,0.75); --neutral-700: rgba(255,255,255,0.9); }
+.price-badge {
+  position: absolute; top: 24px; right: 24px;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 4px 12px; border-radius: 100px;
+  font-size: 12px; font-weight: 600; color: white;
+}
+.price-tag-label {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--primary);
+  margin-bottom: 12px;
+}
+.price-card.featured .price-tag-label { color: rgba(255,255,255,0.8); }
+.price-title {
+  font-family: var(--font-head);
+  font-size: 26px; font-weight: 700;
+  color: var(--neutral-900);
+  margin-bottom: 6px;
+}
+.price-card.featured .price-title { color: white; }
+.price-sub { font-size: 13px; color: var(--neutral-500); margin-bottom: 28px; font-style: italic; }
+.price-card.featured .price-sub { color: rgba(255,255,255,0.7); }
+.price-amount {
+  font-family: var(--font-head);
+  font-size: 48px; font-weight: 800;
+  color: var(--neutral-900);
+  margin-bottom: 4px;
+  line-height: 1;
+}
+.price-card.featured .price-amount { color: white; }
+.price-amount span { font-size: 20px; font-weight: 500; }
+.price-freq { font-size: 13px; color: var(--neutral-500); margin-bottom: 32px; }
+.price-card.featured .price-freq { color: rgba(255,255,255,0.7); }
+.price-divider { height: 1px; background: var(--neutral-100); margin: 28px 0; }
+.price-card.featured .price-divider { background: rgba(255,255,255,0.2); }
+.price-section-title {
+  font-size: 13px; font-weight: 600; color: var(--neutral-700);
+  margin-bottom: 14px; letter-spacing: 0.04em;
+}
+.price-card.featured .price-section-title { color: rgba(255,255,255,0.85); }
+.price-items { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+.price-items li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: var(--neutral-700); line-height: 1.5;
+}
+.price-card.featured .price-items li { color: rgba(255,255,255,0.9); }
+.pi-arrow {
+  width: 18px; height: 18px; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 5px;
+  display: grid; place-items: center;
+  margin-top: 2px;
+}
+.price-card.featured .pi-arrow { background: rgba(255,255,255,0.25); }
+.pi-arrow::before { content: '›'; color: white; font-size: 14px; font-weight: 700; line-height: 1; }
+.price-value-prop {
+  background: rgba(87,74,219,0.07);
+  border: 1px solid rgba(87,74,219,0.15);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  font-size: 13px; color: var(--neutral-700); line-height: 1.6;
+  margin-bottom: 28px;
+}
+.price-card.featured .price-value-prop {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.9);
+}
+.btn-price-primary {
+  width: 100%; padding: 16px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: white; border: none; cursor: pointer;
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 15px; font-weight: 600;
+  box-shadow: 0 6px 24px var(--primary-glow);
+  transition: all 0.2s;
+}
+.btn-price-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px var(--primary-glow); }
+.btn-price-ghost {
+  width: 100%; padding: 15px;
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.5);
+  color: white; cursor: pointer;
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 15px; font-weight: 600;
+  transition: all 0.2s;
+}
+.btn-price-ghost:hover { background: rgba(255,255,255,0.15); border-color: white; }
+
+/* ─── TESTIMONIALS ─── */
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 64px; }
+.testi-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  transition: all 0.3s;
+}
+.testi-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(87,74,219,0.12); }
+.testi-stars { display: flex; gap: 4px; margin-bottom: 16px; }
+.testi-stars span { font-size: 15px; }
+.testi-quote {
+  font-size: 15px; color: var(--neutral-700);
+  line-height: 1.75; margin-bottom: 24px;
+  font-style: italic;
+}
+.testi-quote::before { content: '"'; color: var(--primary); font-size: 40px; font-family: var(--font-head); line-height: 0; vertical-align: -15px; margin-right: 4px; }
+.testi-author { display: flex; align-items: center; gap: 12px; }
+.testi-avatar {
+  width: 44px; height: 44px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-head); font-size: 16px; font-weight: 700;
+  color: white; flex-shrink: 0;
+}
+.testi-name { font-weight: 600; font-size: 14px; color: var(--neutral-900); }
+.testi-role { font-size: 12px; color: var(--neutral-500); margin-top: 1px; }
+
+/* ─── CONTACT ─── */
+.contact { background: var(--bg2); }
+.contact-wrap {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: start; margin-top: 64px;
+}
+.contact-info h3 {
+  font-family: var(--font-head);
+  font-size: 28px; font-weight: 700;
+  color: var(--neutral-900); margin-bottom: 14px;
+}
+.contact-info p { font-size: 15px; color: var(--neutral-500); line-height: 1.8; margin-bottom: 36px; }
+.contact-detail {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 18px;
+}
+.cd-icon {
+  width: 44px; height: 44px;
+  background: var(--primary-xlight);
+  border: 1px solid rgba(87,74,219,0.2);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+.cd-text .cd-label { font-size: 12px; color: var(--neutral-500); }
+.cd-text .cd-value { font-size: 14px; font-weight: 600; color: var(--neutral-900); }
+
+.contact-form {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 44px;
+  box-shadow: var(--glass-shadow);
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.form-group label { font-size: 13px; font-weight: 600; color: var(--neutral-700); }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 13px 16px;
+  border: 1px solid var(--neutral-100);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 14px; color: var(--neutral-900);
+  background: white;
+  outline: none;
+  transition: all 0.2s;
+  resize: vertical;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(87,74,219,0.1);
+}
+.form-group textarea { min-height: 110px; }
+.form-group select { cursor: pointer; }
+.btn-submit {
+  width: 100%; padding: 16px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: white; border: none; cursor: pointer;
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 16px; font-weight: 600;
+  box-shadow: 0 6px 28px var(--primary-glow);
+  transition: all 0.25s; margin-top: 8px;
+}
+.btn-submit:hover { transform: translateY(-3px); box-shadow: 0 12px 40px var(--primary-glow); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--neutral-900);
+  padding: 80px 0 40px;
+  position: relative; overflow: hidden;
+}
+footer::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(87,74,219,0.08) 0%, transparent 40%);
+}
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+.footer-brand .nav-logo { color: white; margin-bottom: 16px; }
+.footer-brand .nav-logo .logo-icon { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+.footer-brand p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; max-width: 280px; }
+.footer-col h4 {
+  font-family: var(--font-head);
+  font-size: 14px; font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 18px; letter-spacing: 0.04em;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul a {
+  font-size: 14px; color: rgba(255,255,255,0.45);
+  text-decoration: none; transition: color 0.2s;
+}
+.footer-col ul a:hover { color: var(--primary-light); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 28px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-copy { font-size: 13px; color: rgba(255,255,255,0.35); }
+.social-links { display: flex; gap: 12px; }
+.social-link {
+  width: 38px; height: 38px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none; font-size: 16px;
+  transition: all 0.2s;
+}
+.social-link:hover { background: var(--primary); border-color: var(--primary); color: white; }
+
+/* ─── ANIMATIONS ─── */
+.reveal {
+  opacity: 0; transform: translateY(32px);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ─── CTA BAND ─── */
+.cta-band {
+  background: linear-gradient(135deg, var(--primary), #6B62E8, #8B82F0);
+  padding: 80px 0; text-align: center; position: relative; overflow: hidden;
+}
+.cta-band::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.08) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 50%, rgba(255,255,255,0.06) 0%, transparent 50%);
+}
+.cta-band h2 {
+  font-family: var(--font-head);
+  font-size: 48px; font-weight: 700;
+  color: white; margin-bottom: 16px;
+  position: relative;
+}
+.cta-band p { font-size: 18px; color: rgba(255,255,255,0.8); margin-bottom: 36px; position: relative; }
+.btn-cta-white {
+  background: white; color: var(--primary);
+  border: none; cursor: pointer;
+  padding: 16px 40px; border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 16px; font-weight: 700;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  transition: all 0.2s; position: relative;
+  text-decoration: none; display: inline-block;
+}
+.btn-cta-white:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 16px 48px rgba(0,0,0,0.25); }
+</style>
+</head>
+<body>
+
+<!-- BG Orbs -->
+<div class="bg-orb orb1"></div>
+<div class="bg-orb orb2"></div>
+<div class="bg-orb orb3"></div>
+
+<!-- ─── NAVBAR ─── -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="logo-icon">L</div>
+        LoyaWin
+      </a>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#testimonials">Customers</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="btn-nav" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Start Free Trial →</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-badge reveal">
+          <span class="dot"></span>
+          🏆 #1 Loyalty Platform in Southeast Asia
+        </div>
+        <h1 class="reveal reveal-delay-1">
+          Grow your<br>
+          <span class="accent">loyal customers</span><br>
+          smarter than ever
+        </h1>
+        <p class="reveal reveal-delay-2">LoyaWin empowers businesses to build powerful points programs, rewards ecosystems, and deeply engaged customer communities — all in one unified platform.</p>
+        <div class="hero-actions reveal reveal-delay-3">
+          <a href="#contact" class="btn-primary">Start for Free</a>
+          <a href="#features" class="btn-ghost">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+            Watch demo
+          </a>
+        </div>
+        <div class="hero-stats reveal reveal-delay-4">
+          <div class="stat-item">
+            <span class="stat-num">2,500+</span>
+            <span class="stat-label">Active stores</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">4.2M+</span>
+            <span class="stat-label">Loyalty members</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">68%</span>
+            <span class="stat-label">Higher return rate</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal reveal-delay-2">
+        <!-- Float card top-right -->
+        <div class="float-card fc1">
+          <div class="fc-icon">📈</div>
+          <div class="fc-label">Revenue this month</div>
+          <div class="fc-value">+34.6%</div>
+        </div>
+        <!-- Float card bottom-left -->
+        <div class="float-card fc2">
+          <div class="fc-icon">🎁</div>
+          <div class="fc-label">Rewards redeemed</div>
+          <div class="fc-value">12,840</div>
+        </div>
+        <!-- Main card -->
+        <div class="hero-card-main">
+          <div class="loyalty-card">
+            <div class="card-chip"></div>
+            <div class="card-name">Andrew Collins</div>
+            <div class="card-points">12,450 points earned</div>
+            <div class="card-progress-wrap">
+              <div class="card-progress"></div>
+            </div>
+            <div class="card-footer">
+              <span>Gold Member</span>
+              <span>1,550 pts to Platinum</span>
+            </div>
+          </div>
+          <div class="mini-stats">
+            <div class="mini-stat">
+              <div class="ms-num">47</div>
+              <div class="ms-label">Purchases</div>
+            </div>
+            <div class="mini-stat">
+              <div class="ms-num">$8.9K</div>
+              <div class="ms-label">Total spent</div>
+            </div>
+            <div class="mini-stat">
+              <div class="ms-num">23</div>
+              <div class="ms-label">Rewards used</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FEATURES ─── -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-head-center reveal">
+      <div class="section-label">Core Features</div>
+      <h2 class="section-title">Everything you need to keep<br>customers coming back</h2>
+      <p class="section-sub">From simple points programs to complex loyalty ecosystems — LoyaWin handles it all.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feat-icon">🎯</div>
+        <h3>Flexible Points Engine</h3>
+        <p>Configure earning rules by product, category, sales channel, or special time windows — total control over your reward logic.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feat-icon">🎁</div>
+        <h3>Rewards Management</h3>
+        <p>Create a rich rewards catalog — gift items, discount vouchers, free products, and creative incentives your customers love.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feat-icon">📊</div>
+        <h3>Real-time Analytics</h3>
+        <p>Visual dashboards to track customer behavior, campaign ROI, and growth forecasts — all updated in real time.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feat-icon">🔔</div>
+        <h3>Marketing Automation</h3>
+        <p>Send personalized notifications via SMS, email, and push — triggered at exactly the right moment in each customer journey.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feat-icon">🏪</div>
+        <h3>Multi-store Management</h3>
+        <p>One platform for your entire chain — sync points, customer data, and loyalty programs across all branches seamlessly.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feat-icon">🔗</div>
+        <h3>Easy Integrations</h3>
+        <p>Connect with POS, CRM, eCommerce, and 50+ popular retail applications — plug in and go live in hours, not weeks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PARTNERS ─── -->
+<section id="partners" style="padding: 80px 0;">
+  <div class="container">
+    <div class="section-head-center reveal">
+      <div class="section-label">Trusted Partners</div>
+      <h2 class="section-title">Trusted by leading<br>brands worldwide</h2>
+    </div>
+    <div class="partners-wrap reveal">
+      <p class="partners-label">200+ brands and retail chains are running on LoyaWin right now</p>
+      <div class="partners-track-wrap">
+        <div class="partners-track" id="track">
+          <!-- Set 1 -->
+          <div class="partner-logo"><span class="partner-dot"></span>Starbucks</div>
+          <div class="partner-logo"><span class="partner-dot"></span>Sephora</div>
+          <div class="partner-logo"><span class="partner-dot"></span>Circle K</div>
+          <div class="partner-logo"><span class="partner-dot"></span>The Coffee Bean</div>
+          <div class="partner-logo"><span class="partner-dot"></span>Pizza Hut</div>
+          <div class="partner-logo"><span class="partner-dot"></span>Lotte Mart</div>
+          <div class="partner-logo"><span class="partner-dot"></span>Jollibee</div>
+          <div class="partner-logo"><span class="partner-dot"></span>FPT Retail</div>
+          <!-- Set 2 (clone) -->
+          <div class="partner-logo"><span class="partner-dot"></span>Starbucks</div>
+          <div class="partner-logo"><span class="partner-dot"></span>Sephora</div>
+          <div class="partner-logo"><span class="partner-dot"></span>Circle K</div>
+          <div class="partner-logo"><span class="partner-dot"></span>The Coffee Bean</div>
+          <div class="partner-logo"><span class="partner-dot"></span>Pizza Hut</div>
+          <div class="partner-logo"><span class="partner-dot"></span>Lotte Mart</div>
+          <div class="partner-logo"><span class="partner-dot"></span>Jollibee</div>
+          <div class="partner-logo"><span class="partner-dot"></span>FPT Retail</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRICING ─── -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-head-center reveal">
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title">A sustainable B2B model</h2>
+      <p class="section-sub">Dual revenue strategy: Standard License &amp; Enterprise Solutions — you own the license, no perpetual subscription lock-in.</p>
+    </div>
+    <div class="pricing-grid">
+      <!-- Standard -->
+      <div class="price-card reveal reveal-delay-1">
+        <div class="price-tag-label">Standard License</div>
+        <div class="price-title">The "Buy-Once" Model</div>
+        <div class="price-sub">Own the license forever — no surprise price hikes</div>
+        <div class="price-amount"><span>€</span>2,000</div>
+        <div class="price-freq">One-time payment · includes your first store</div>
+        <div class="price-divider"></div>
+        <div class="price-section-title">🎯 Target</div>
+        <ul class="price-items">
+          <li><div class="pi-arrow"></div>SMEs and small-to-mid retail chains</li>
+          <li><div class="pi-arrow"></div>Businesses looking to control long-term operating costs</li>
+        </ul>
+        <div class="price-section-title">💰 Expansion Costs</div>
+        <ul class="price-items">
+          <li><div class="pi-arrow"></div>+€300 per additional store</li>
+          <li><div class="pi-arrow"></div>€10/month maintenance fee (billed annually)</li>
+        </ul>
+        <div class="price-value-prop">
+          ✅ Clients own the license with minimal monthly operating costs — significantly cheaper than traditional SaaS in the long run.
+        </div>
+        <button class="btn-price-primary">Get the License →</button>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="price-card featured reveal reveal-delay-2">
+        <div class="price-badge">⭐ Most Popular</div>
+        <div class="price-tag-label">Enterprise Core</div>
+        <div class="price-title">Custom / White-label</div>
+        <div class="price-sub">Built entirely around your ecosystem</div>
+        <div class="price-amount">Custom</div>
+        <div class="price-freq">Project-based quote · contact us for a consultation</div>
+        <div class="price-divider"></div>
+        <div class="price-section-title">🏢 Target</div>
+        <ul class="price-items">
+          <li><div class="pi-arrow"></div>Large corporations and franchise brands requiring data isolation</li>
+          <li><div class="pi-arrow"></div>Brands wanting full white-label ownership of the system</li>
+        </ul>
+        <div class="price-section-title">📦 Includes</div>
+        <ul class="price-items">
+          <li><div class="pi-arrow"></div>Core Source Code License — full ownership</li>
+          <li><div class="pi-arrow"></div>Custom Development &amp; Integration to your spec</li>
+          <li><div class="pi-arrow"></div>Private Server Deployment — complete data isolation</li>
+        </ul>
+        <div class="price-value-prop">
+          🔒 Data sovereignty, full customization, and separation from the shared SaaS infrastructure.
+        </div>
+        <button class="btn-price-ghost">Get a Free Quote →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-head-center reveal">
+      <div class="section-label">What customers say</div>
+      <h2 class="section-title">Real results from<br>real businesses</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="testi-stars"><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span></div>
+        <p class="testi-quote">After 6 months with LoyaWin, our customer return rate jumped 72%. The dashboard is incredibly intuitive — our team needed almost no training.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">JR</div>
+          <div>
+            <div class="testi-name">James Reynolds</div>
+            <div class="testi-role">CEO · F&amp;B Chain, 15 locations</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="testi-stars"><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span></div>
+        <p class="testi-quote">The Buy-Once model is a perfect fit for us. No stress about subscription costs spiking during peak seasons. The multi-store sync is rock solid.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SL</div>
+          <div>
+            <div class="testi-name">Sophie Laurent</div>
+            <div class="testi-role">Head of Operations · Retail Chain</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-3">
+        <div class="testi-stars"><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span></div>
+        <p class="testi-quote">The Enterprise package let us white-label everything completely. Our customers have no idea they're using a third-party platform — that's exactly what we needed.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">DK</div>
+          <div>
+            <div class="testi-name">David Kim</div>
+            <div class="testi-role">CTO · Retail Group, 80+ branches</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA BAND ─── -->
+<div class="cta-band">
+  <div class="container">
+    <h2 class="reveal">Ready to grow<br>with LoyaWin?</h2>
+    <p class="reveal reveal-delay-1">Join 2,500+ businesses building sustainable loyalty programs</p>
+    <a href="#contact" class="btn-cta-white reveal reveal-delay-2">Start your free 30-day trial</a>
+  </div>
+</div>
+
+<!-- ─── CONTACT ─── -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Get in touch</div>
+      <h2 class="section-title">Leave your details,<br>we'll reach out right away</h2>
+    </div>
+    <div class="contact-wrap">
+      <div class="contact-info reveal reveal-delay-1">
+        <h3>Get a free consultation<br>within 24 hours</h3>
+        <p>LoyaWin's expert team will analyze your needs and recommend the best solution tailored to your business.</p>
+        <div class="contact-detail">
+          <div class="cd-icon">📧</div>
+          <div class="cd-text">
+            <div class="cd-label">Email</div>
+            <div class="cd-value">hello@loyawin.com</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon">📞</div>
+          <div class="cd-text">
+            <div class="cd-label">Phone</div>
+            <div class="cd-value">+1 (800) 569-2468 (Toll-free)</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon">📍</div>
+          <div class="cd-text">
+            <div class="cd-label">Offices</div>
+            <div class="cd-value">San Francisco · London · Singapore</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon">⏰</div>
+          <div class="cd-text">
+            <div class="cd-label">Business hours</div>
+            <div class="cd-value">Mon – Sat · 8:00 AM – 6:00 PM</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form reveal reveal-delay-2">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full name *</label>
+            <input type="text" placeholder="John Smith">
+          </div>
+          <div class="form-group">
+            <label>Phone number *</label>
+            <input type="tel" placeholder="+1 (555) 000-0000">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Business email *</label>
+          <input type="email" placeholder="john@company.com">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Company name</label>
+            <input type="text" placeholder="Your company / brand">
+          </div>
+          <div class="form-group">
+            <label>Number of stores</label>
+            <select>
+              <option value="">Select store count</option>
+              <option>1 store</option>
+              <option>2 – 5 stores</option>
+              <option>6 – 20 stores</option>
+              <option>20 – 100 stores</option>
+              <option>100+ stores</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Plan of interest</label>
+          <select>
+            <option value="">Select a plan</option>
+            <option>Standard License (Buy-Once)</option>
+            <option>Enterprise Core (Custom / White-label)</option>
+            <option>Not sure yet — need consultation</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>How can we help?</label>
+          <textarea placeholder="Tell us briefly about your business and what you're looking to achieve..."></textarea>
+        </div>
+        <button class="btn-submit" onclick="this.textContent='✅ Sent! We\'ll be in touch within 24 hours'">Send my inquiry →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo" style="color:white;margin-bottom:16px;display:inline-flex">
+          <div class="logo-icon">L</div>
+          LoyaWin
+        </a>
+        <p>The next-generation loyalty platform — helping businesses worldwide build lasting relationships with their customers.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">API Docs</a></li>
+          <li><a href="#">Changelog</a></li>
+          <li><a href="#">Roadmap</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Case Studies</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">User Guides</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">SLA &amp; Uptime</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 LoyaWin. All rights reserved. LoyaWin Inc.</span>
+      <div class="social-links">
+        <a href="#" class="social-link" title="Facebook">f</a>
+        <a href="#" class="social-link" title="LinkedIn" style="font-size:12px;font-weight:700">in</a>
+        <a href="#" class="social-link" title="YouTube" style="font-size:12px">▶</a>
+        <a href="#" class="social-link" title="Zalo" style="font-size:11px;font-weight:700">Z</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Navbar scroll
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Reveal on scroll
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+revealEls.forEach(el => observer.observe(el));
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
