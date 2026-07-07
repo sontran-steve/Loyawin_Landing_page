@@ -134,7 +134,7 @@ export function GastroHubPage() {
                 style={{
                   color: "var(--loyawin-primary)",
                   background: "var(--loyawin-primary-xlight)",
-                  borderColor: "rgba(87,74,219,0.2)",
+                  borderColor: "rgba(87,74,219,0.2)"
                 }}
               >
                 <Sparkles className="w-3 h-3" />

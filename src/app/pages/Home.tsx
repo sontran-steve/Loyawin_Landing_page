@@ -1,13 +1,12 @@
 import image_Ads_1 from '@/imports/Ads-1.png'
 import image_my_card from '@/imports/Iluss.png'
-import image_Ads from '@/imports/Ads.png'
 import image_LoyawinQR from '@/imports/LoyawinQR.jpeg'
-import { Fragment, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Monitor, Banknote, ShieldCheck, Megaphone,
   WalletCards, RefreshCw, Ticket, MapPin,
   ArrowRight, Check, Smartphone, QrCode,
-  Star, ChevronLeft, ChevronRight, Zap,
+  Star, Zap,
 } from "lucide-react";
 
 // ─── Scroll-reveal hook ───────────────────────────────────────────────────────

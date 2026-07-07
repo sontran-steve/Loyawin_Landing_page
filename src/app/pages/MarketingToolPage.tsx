@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { Sparkles, Calendar, TrendingUp, ArrowRight, Check, Zap } from "lucide-react";
+import { Sparkles, Calendar, TrendingUp, ArrowRight, Check } from "lucide-react";
 
 const features = [
   {
@@ -19,8 +19,6 @@ const features = [
   },
 ];
 
-const BURGER_IMG = "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600&auto=format&fit=crop";
-import image_mock from "@/imports/mock.png";
 import image_marketing from "@/imports/marketing.png";
 import image_sample from "@/imports/Sample.png";
 
