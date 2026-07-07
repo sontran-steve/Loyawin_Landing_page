@@ -21,7 +21,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 
-const GASTROHUB_URL = "https://gastrohub.app";
+const GASTROHUB_URL = "";
 
 const highlights = [
   {

@@ -152,7 +152,7 @@ export function MarketingToolPage() {
       {/* ── Interactive Editor Preview ── */}
       <section className="py-12 sm:py-16 md:py-20 relative" style={{ background: "var(--loyawin-bg)" }}>
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
-          <div className="mb-10 sm:mb-12">
+          <div className="mb-10 sm:mb-12 text-center flex flex-col items-center">
             <div
               className="reveal inline-block text-xs font-semibold tracking-[0.12em] uppercase px-3.5 py-1.5 rounded-full mb-4 border"
               style={{ color: "var(--loyawin-primary)", background: "var(--loyawin-primary-xlight)", borderColor: "rgba(87,74,219,0.2)" }}
@@ -160,12 +160,12 @@ export function MarketingToolPage() {
               Interactive Editor Preview
             </div>
             <h2
-              className="reveal text-[26px] sm:text-[32px] md:text-[36px] leading-[1.1] tracking-[-0.02em] mb-3"
+              className="reveal text-[26px] sm:text-[32px] md:text-[36px] leading-[1.1] tracking-[-0.02em] mb-3 max-w-[700px]"
               style={{ fontFamily: "var(--font-head)", fontWeight: 700, color: "var(--loyawin-neutral-900)" }}
             >
               Craft beautiful updates in a unified dashboard
             </h2>
-            <p className="reveal text-sm sm:text-base leading-[1.7] max-w-[560px]" style={{ color: "var(--loyawin-neutral-500)" }}>
+            <p className="reveal text-sm sm:text-base leading-[1.7] max-w-[560px] mx-auto" style={{ color: "var(--loyawin-neutral-500)" }}>
               Take a look at how straightforward it is. We pair the creative power of AI with real visual previews, giving you total confidence before you hit publish.
             </p>
           </div>
