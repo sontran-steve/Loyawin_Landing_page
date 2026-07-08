@@ -4,6 +4,7 @@
  * @description Trang giới thiệu hệ điều hành vận hành nhà hàng GastroHub.
  */
 import image_gasillus from "@/imports/gasillus.png";
+import image_functions1 from "@/imports/functions1.png";
 import {
   Languages,
   Image,
@@ -143,7 +144,6 @@ export function GastroHubPage() {
                   borderColor: "rgba(87,74,219,0.2)"
                 }}
               >
-                <Sparkles className="w-3 h-3" />
                 Part of the LoyaWin Ecosystem
               </div>
 
@@ -392,247 +392,11 @@ export function GastroHubPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-            {[
-              {
-                icon: Languages,
-                category: "Culinary AI",
-                title: "AI Menu Translation",
-                description:
-                  "Preserve layout fonts and column grids while translating menus into 40+ languages instantly.",
-                iconColor: "var(--loyawin-primary)",
-                cardBorder: "rgba(87,74,219,0.15)",
-                cardBg: "rgba(87,74,219,0.03)",
-                flagship: true,
-              },
-              {
-                icon: Image,
-                category: "Stable Diff",
-                title: "AI Food Images",
-                description:
-                  "Generate hyper-realistic food and beverage photography matched to your ingredients list.",
-                iconColor: "#7C3AED",
-                cardBorder: "rgba(124,58,237,0.12)",
-                cardBg: "rgba(124,58,237,0.03)",
-              },
-              {
-                icon: TrendingUp,
-                category: "FinOps",
-                title: "Menu Price Sync",
-                description:
-                  "Analyze menu profitability and perform instant batch pricing modifications in seconds.",
-                iconColor: "var(--loyawin-primary)",
-                cardBorder: "rgba(87,74,219,0.12)",
-                cardBg: "rgba(87,74,219,0.02)",
-              },
-              {
-                icon: QrCode,
-                category: "Vector Export",
-                title: "Smart QR Codes",
-                description:
-                  "Generate beautiful, brand-customized scan-to-order QR codes with embedded language flags.",
-                iconColor: "#7C3AED",
-                cardBorder: "rgba(232,121,249,0.15)",
-                cardBg: "rgba(232,121,249,0.03)",
-              },
-              {
-                icon: ShieldAlert,
-                category: "Compliance",
-                title: "Allergen Intelligence",
-                description:
-                  "Scan recipes automatically to flag dietary warnings, cross-contamination, and vegan options.",
-                iconColor: "#DC2626",
-                cardBorder: "rgba(220,38,38,0.12)",
-                cardBg: "rgba(220,38,38,0.02)",
-              },
-              {
-                icon: Calendar,
-                category: "HR Scheduler",
-                title: "AI Shift Planner",
-                description:
-                  "Drag-and-drop worker shifts, set weekly budgets, and automatically compute holiday premiums.",
-                iconColor: "var(--loyawin-primary)",
-                cardBorder: "rgba(87,74,219,0.12)",
-                cardBg: "rgba(87,74,219,0.02)",
-              },
-              {
-                icon: Clock,
-                category: "Liveness",
-                title: "Attendance & Check-in",
-                description:
-                  "Real-time employee clock-in log, location verification, and shift duration calculations.",
-                iconColor: "#2563EB",
-                cardBorder: "rgba(37,99,235,0.12)",
-                cardBg: "rgba(37,99,235,0.02)",
-              },
-              {
-                icon: DollarSign,
-                category: "Finance OS",
-                title: "Payroll Reconciliation",
-                description:
-                  "Reconcile hours logged with dual-ledger payroll files and export formats ready for accounting.",
-                iconColor: "#059669",
-                cardBorder: "rgba(5,150,105,0.12)",
-                cardBg: "rgba(5,150,105,0.02)",
-              },
-              {
-                icon: Layers,
-                category: "Workplace",
-                title: "Leave & Flextime",
-                description:
-                  "Track sick days, flexible vacation models, and verify contract target hours compliance.",
-                iconColor: "var(--loyawin-primary)",
-                cardBorder: "rgba(236,72,153,0.12)",
-                cardBg: "rgba(236,72,153,0.02)",
-              },
-              {
-                icon: Users,
-                category: "RBAC Admin",
-                title: "Staff & Permission Roles",
-                description:
-                  "Admin panel to configure user accounts, department bounds, and specific access restrictions.",
-                iconColor: "#0D9488",
-                cardBorder: "rgba(13,148,136,0.12)",
-                cardBg: "rgba(13,148,136,0.02)",
-              },
-              {
-                icon: UtensilsCrossed,
-                category: "Guest Relations",
-                title: "GastroHub Table Booking",
-                description:
-                  "Commission-free table reservation engine, client database, and beautiful dining layout logger.",
-                iconColor: "var(--loyawin-primary)",
-                cardBorder: "rgba(87,74,219,0.15)",
-                cardBg: "rgba(87,74,219,0.04)",
-              },
-              {
-                icon: Megaphone,
-                category: "Copilot",
-                title: "Social Auto-Post",
-                description:
-                  "Synthesize marketing copy and post menu announcements directly to connected social feeds.",
-                iconColor: "var(--loyawin-primary)",
-                cardBorder: "rgba(124,58,237,0.12)",
-                cardBg: "rgba(124,58,237,0.02)",
-              },
-              {
-                icon: Search,
-                category: "Lighthouse Audit",
-                title: "GastroHub SEO Snapshot",
-                description:
-                  "Run a maps rankings assessment, detect citation irregularities, and boost neighborhood traffic.",
-                iconColor: "#374151",
-                cardBorder: "rgba(55,65,81,0.12)",
-                cardBg: "rgba(55,65,81,0.02)",
-              },
-              {
-                icon: SlidersVertical,
-                category: "Campaign Auto",
-                title: "GastroHub Campaign Engine",
-                description:
-                  "Design high-converting SMS coupon campaigns and trigger them automatically before your empty hours.",
-                iconColor: "var(--loyawin-primary)",
-                cardBorder: "rgba(232,121,249,0.15)",
-                cardBg: "rgba(232,121,249,0.02)",
-              },
-            ].map((mod, i) => (
-              <div
-                key={mod.title}
-                className={`reveal reveal-delay-${(i % 3) + 1} relative border rounded-2xl p-6 flex flex-col justify-between group transition-all duration-200 overflow-hidden`}
-                style={{
-                  background: mod.cardBg,
-                  borderColor: mod.cardBorder,
-                  boxShadow: "0 2px 12px rgba(87,74,219,0.05)",
-                }}
-              >
-                {(mod as any).flagship && (
-                  <div
-                    className="absolute top-0 right-0 text-white text-[9px] font-bold uppercase tracking-wider px-3 py-1 rounded-bl-xl flex items-center gap-1"
-                    style={{
-                      background: "var(--loyawin-primary)",
-                    }}
-                  >
-                    <Sparkles className="w-3 h-3" />
-                    Flagship
-                  </div>
-                )}
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div
-                      className="w-10 h-10 rounded-xl bg-white flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform"
-                      style={{
-                        border:
-                          "1px solid var(--loyawin-neutral-100)",
-                        boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
-                      }}
-                    >
-                      <mod.icon
-                        className="w-5 h-5"
-                        style={{ color: mod.iconColor }}
-                      />
-                    </div>
-                    <span
-                      className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full"
-                      style={{
-                        background:
-                          "var(--loyawin-neutral-100)",
-                        color: "var(--loyawin-neutral-500)",
-                      }}
-                    >
-                      {mod.category}
-                    </span>
-                  </div>
-                  <h3
-                    className="text-[15px] font-bold mb-2 flex items-center gap-1 group-hover:text-[var(--loyawin-primary)] transition-colors"
-                    style={{
-                      color: "var(--loyawin-neutral-900)",
-                      fontFamily: "var(--font-head)",
-                    }}
-                  >
-                    {mod.title}
-                    <ChevronRight
-                      className="w-4 h-4 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
-                      style={{
-                        color: "var(--loyawin-primary)",
-                      }}
-                    />
-                  </h3>
-                  <p
-                    className="text-xs sm:text-[13px] leading-[1.6]"
-                    style={{
-                      color: "var(--loyawin-neutral-500)",
-                    }}
-                  >
-                    {mod.description}
-                  </p>
-                </div>
-                <div
-                  className="flex items-center justify-between mt-5 pt-4 text-xs font-semibold"
-                  style={{
-                    borderTop:
-                      "1px solid var(--loyawin-neutral-100)",
-                  }}
-                >
-                  <span
-                    className="flex items-center gap-1.5"
-                    style={{
-                      color: "var(--loyawin-neutral-500)",
-                    }}
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    Available on GastroHub
-                  </span>
-                  <span
-                    className="inline-flex items-center gap-1 group-hover:underline"
-                    style={{ color: "var(--loyawin-primary)" }}
-                  >
-                    Try it{" "}
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
+          <img
+            src={image_functions1}
+            alt="GastroHub Modules"
+            className="reveal mx-auto mt-8 w-full max-w-[800px] h-auto drop-shadow-[0_10px_30px_rgba(118,81,252,0.15)]"
+          />
         </div>
       </section>
 
@@ -658,7 +422,6 @@ export function GastroHubPage() {
               borderColor: "rgba(87,74,219,0.3)",
             }}
           >
-            <ArrowUpRight className="w-3 h-3" />
             Standalone Platform
           </div>
           <h2

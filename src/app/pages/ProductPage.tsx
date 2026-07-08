@@ -6,11 +6,12 @@
 import { useEffect, useRef, useState } from "react";
 import {
   Check, Zap, Smartphone, LayoutDashboard,
-  ShieldOff, Megaphone,
+  ShieldOff, Megaphone, ShieldCheck, Zap as ZapIcon,
   TrendingUp, Clock, Store, Lock, CreditCard,
   ChevronRight, BarChart2, Tag, MapPin, Users, ArrowRight,
 } from "lucide-react";
 import { Link } from "react-router";
+import image_productIllus from "@/imports/productIllus.png";
 
 // ─── Scroll-reveal hook ───────────────────────────────────────────────────────
 function useReveal() {
@@ -45,7 +46,7 @@ function SectionLabel({ light = false, children }: { light?: boolean; children: 
   );
 }
 
-function CheckItem({ text, light = false }: { text: string; light?: boolean }) {
+function CheckItem({ text, light = false }: { text: React.ReactNode; light?: boolean }) {
   return (
     <li className="flex items-start gap-2.5">
       <div
@@ -64,30 +65,30 @@ function CheckItem({ text, light = false }: { text: string; light?: boolean }) {
 // ─── Section 1 - Platform Overview ───────────────────────────────────────────
 const PLATFORM_CARDS = [
   {
-    num: "01", title: "Staff Web App", sub: "The Frontline Powerhouse", highlighted: false, icon: Zap,
+    num: "01", title: "Staff", sub: "The Frontline Powerhouse", highlighted: false, icon: Zap,
     features: [
-      "QR / Phone check-in completed in under 3 seconds",
-      "New staff master the flow in 15 minutes or less",
-      "Works on any device - tablet, phone, or desktop browser",
-      "PIN-protected actions with full audit trails",
+      "3-Second Check-in",
+      "Zero-Training Setup",
+      "Universal Device Support",
+      "Secure PIN Authorization",
     ],
   },
   {
-    num: "02", title: "Customer Web App", sub: "Frictionless Engagement", highlighted: true, icon: Smartphone,
+    num: "02", title: "Customer", sub: "Frictionless Engagement", highlighted: true, icon: Smartphone,
     features: [
-      "Flexible access via Mobile App or Web browser",
-      "Real-time point balance & transaction history",
-      "Smart Wallet auto-surfaces the best vouchers",
-      "Refer & Earn program built in - no plugins required",
+      "No App Install Required",
+      "Real-Time Points Tracker",
+      "Smart Reward Wallet",
+      "Built-in Referrals",
     ],
   },
   {
-    num: "03", title: "Admin Dashboard", sub: "The Command Center", highlighted: false, icon: LayoutDashboard,
+    num: "03", title: "Admin", sub: "The Command Center", highlighted: false, icon: LayoutDashboard,
     features: [
-      "Voucher usage, Earn/Spend trend reporting built in",
-      "Multi-store management - 10 to 100+ locations",
-      "Dynamic config with no redeployment needed",
-      "New account growth tracking with retention metrics",
+      "Live Performance Analytics",
+      "Multi-Store Control",
+      "Instant Rule Updates",
+      "Retention Tracking",
     ],
   },
 ];
@@ -146,88 +147,6 @@ function PlatformSection() {
   );
 }
 
-// ─── Section 2 - Error Correction & Edge Cases ────────────────────────────────
-function EdgeCasesSection() {
-  const { ref, visible } = useReveal();
-  return (
-    <section ref={ref} id="killer-feature" className="py-20 sm:py-28 relative overflow-hidden" style={{ background: "linear-gradient(140deg, #2d2469 0%, var(--loyawin-primary) 50%, #6254e8 100%)" }}>
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 60% at 30% 40%, rgba(255,255,255,0.07) 0%, transparent 60%)" }} />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] pointer-events-none" style={{ background: "radial-gradient(circle at bottom right, rgba(0,0,0,0.2) 0%, transparent 60%)" }} />
-
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          <div className="transition-all duration-700" style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(28px)" }}>
-            <SectionLabel light>The Killer Feature</SectionLabel>
-            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-5" style={{ fontFamily: "var(--font-head)", letterSpacing: "-0.025em" }}>
-              Error Correction &amp; Edge Cases
-            </h2>
-            <p className="text-base sm:text-lg leading-relaxed mb-10" style={{ color: "rgba(255,255,255,0.8)" }}>
-              The reason generic apps fall at the counter - and why LoyaWin wins. Built to handle real-world chaos, not just happy paths.
-            </p>
-            <div className="space-y-6">
-              {[
-                { Icon: Store, title: "Context-Aware Operation", desc: "Storefront devices are hardware-bound to specific locations. No manual brand selection or store selection is required by staff-simply scan and reward." },
-                { Icon: Smartphone, title: "Two-Phase Verification", desc: "Read-only scans for checking point balances require no login to maximize speed. Entering a staff PIN is only prompted when writing transactions, securing audit trails." },
-                { Icon: Lock, title: "Online-Only Verification", desc: "Every transaction is verified by the server in real-time. Offline point buffering is blocked entirely to eliminate point duplication or fraud." },
-              ].map(({ Icon, title, desc }, i) => (
-                <div key={i} className="flex gap-4 transition-all duration-500" style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: `opacity 0.6s ease ${0.15 + i * 0.1}s, transform 0.6s ease ${0.15 + i * 0.1}s` }}>
-                  <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(255,255,255,0.15)", backdropFilter: "blur(12px)" }}>
-                    <Icon className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-white mb-1" style={{ fontFamily: "var(--font-head)" }}>{title}</h4>
-                    <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.75)" }}>{desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="space-y-4 transition-all duration-700 delay-200" style={{ opacity: visible ? 1 : 0, transform: visible ? "translateX(0)" : "translateX(32px)" }}>
-            {[
-              {
-                icon: Store, title: "Context-Aware Transactions",
-                body: "Hardware-bound devices automatically inject the store and brand context. No manual brand selection or store selection is required by the storefront staff.",
-                tags: [{ label: "Auto store context", solid: true }, { label: "Zero manual selection", solid: false }],
-              },
-              {
-                icon: ShieldOff, title: "Fraud & Offline Prevention",
-                body: "Online-only verification. The system blocks offline point buffer storage to completely prevent point duplication or double-spending fraud at the storefront. Every stamp is server-confirmed before it counts.",
-                tags: [{ label: "Zero offline buffer", solid: true }, { label: "Real-time server auth", solid: false }],
-              },
-            ].map((card, i) => (
-              <div key={i} className="rounded-2xl p-6 border" style={{ background: i === 0 ? "rgba(255,255,255,0.1)" : "rgba(255,255,255,0.08)", borderColor: i === 0 ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.15)", backdropFilter: "blur(16px)", boxShadow: "0 8px 32px rgba(0,0,0,0.1)" }}>
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(255,255,255,0.15)" }}>
-                    <card.icon className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="font-bold text-white text-lg leading-snug pt-1.5" style={{ fontFamily: "var(--font-head)" }}>{card.title}</h3>
-                </div>
-                <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(255,255,255,0.82)" }}>{card.body}</p>
-                <div className="flex flex-wrap gap-2">
-                  {card.tags.map((t) => (
-                    <span key={t.label} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-regular" style={{ background: t.solid ? "rgba(255,255,255,0.18)" : "rgba(255,255,255,0.12)", color: t.solid ? "white" : "rgba(255,255,255,0.85)" }}>
-                      {t.solid && <Check className="w-3 h-3" strokeWidth={3} />}
-                      {t.label}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-            <div className="grid grid-cols-3 gap-3">
-              {[{ val: "< 3s", label: "Check-in time" }, { val: "100%", label: "Online verified" }, { val: "0", label: "Fraud incidents" }].map((s) => (
-                <div key={s.label} className="rounded-xl p-4 text-center border" style={{ background: "rgba(255,255,255,0.08)", borderColor: "rgba(255,255,255,0.12)" }}>
-                  <div className="text-xl font-extrabold text-white mb-0.5" style={{ fontFamily: "var(--font-head)" }}>{s.val}</div>
-                  <div className="text-sm font-medium leading-tight" style={{ color: "rgba(255,255,255,0.55)" }}>{s.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 // ─── Section 3 — Self-Serve Ad Campaign Manager ───────────────────────────────
 const AD_STEPS = [
@@ -249,84 +168,71 @@ function AdCampaignSection() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-          {/* Left copy */}
+          {/* Left Column — Title + Sub + 4 Blocks stacked vertically */}
           <div
-            className="transition-all duration-700"
+            className="flex flex-col gap-8 transition-all duration-700"
             style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(28px)" }}
           >
-            <SectionLabel><Megaphone className="w-3 h-3" /> Merchant Marketing</SectionLabel>
-            <h2
-              className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-5"
-              style={{ color: "var(--loyawin-neutral-900)", fontFamily: "var(--font-head)", letterSpacing: "-0.025em" }}
-            >
-              Self-Serve Ad Campaign Manager
-            </h2>
-            <p className="text-base sm:text-lg leading-relaxed mb-8" style={{ color: "var(--loyawin-neutral-500)" }}>
-              Every merchant on LoyaWin can publish ads directly to the Customer App's homepage feed - no external agency, no waiting. Launch a campaign in minutes, measure it in real time.
-            </p>
-
-            {/* Direct Reach callout */}
-            <div
-              className="flex items-start gap-4 p-5 rounded-2xl border"
-              style={{
-                background: "var(--loyawin-primary-xlight)",
-                borderColor: "rgba(87,74,219,0.18)",
-              }}
-            >
-              <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{ background: "var(--loyawin-primary)" }}
+            {/* Copy */}
+            <div>
+              <SectionLabel>Merchant Marketing</SectionLabel>
+              <h2
+                className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-5"
+                style={{ color: "var(--loyawin-neutral-900)", fontFamily: "var(--font-head)", letterSpacing: "-0.025em" }}
               >
-                <TrendingUp className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <div className="font-bold text-sm mb-1" style={{ color: "var(--loyawin-neutral-900)", fontFamily: "var(--font-head)" }}>
-                  Direct Reach to Active Users
+                Self-Serve Ad Manager
+              </h2>
+              <p className="text-base sm:text-lg leading-relaxed" style={{ color: "var(--loyawin-neutral-500)" }}>
+                Publish ads directly to the Customer App in real time — no agencies, no waiting.
+              </p>
+            </div>
+
+            {/* 4 Blocks in 2x2 grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {AD_STEPS.map(({ Icon, step, title, desc }) => (
+                <div
+                  key={step}
+                  className="rounded-2xl p-5 border group transition-all duration-200 hover:shadow-lg hover:translate-y-[-2px]"
+                  style={{
+                    background: "white",
+                    borderColor: "rgba(87,74,219,0.1)",
+                    boxShadow: "0 2px 12px rgba(87,74,219,0.06)",
+                  }}
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <div
+                      className="w-9 h-9 rounded-lg flex items-center justify-center"
+                      style={{ background: "var(--loyawin-primary-xlight)" }}
+                    >
+                      <Icon className="w-4.5 h-4.5" style={{ color: "var(--loyawin-primary)" }} />
+                    </div>
+                    <span className="text-[11px] font-bold tracking-widest" style={{ color: "var(--loyawin-neutral-300)" }}>
+                      {step}
+                    </span>
+                  </div>
+                  <h4 className="font-bold text-m mb-1.5" style={{ color: "var(--loyawin-neutral-900)", fontFamily: "var(--font-head)" }}>
+                    {title}
+                  </h4>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--loyawin-neutral-500)" }}>
+                    {desc}
+                  </p>
                 </div>
-                <p className="text-sm leading-relaxed" style={{ color: "var(--loyawin-neutral-600)" }}>
-                  Banners display directly on the Customer App's homepage feed - the first screen every loyalty user sees when they open the app. Zero intermediaries between your brand and your audience.
-                </p>
-              </div>
+              ))}
             </div>
           </div>
 
-          {/* Right — 4-step flow */}
+          {/* Right Column — Illustration */}
           <div
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4 transition-all duration-700 delay-150"
+            className="flex items-center justify-center transition-all duration-700 delay-300 h-full w-full"
             style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(32px)" }}
           >
-            {AD_STEPS.map(({ Icon, step, title, desc }, i) => (
-              <div
-                key={step}
-                className="rounded-2xl p-5 border group transition-all duration-200 hover:shadow-lg hover:translate-y-[-2px]"
-                style={{
-                  background: "white",
-                  borderColor: "rgba(87,74,219,0.1)",
-                  boxShadow: "0 2px 12px rgba(87,74,219,0.06)",
-                  opacity: visible ? 1 : 0,
-                  transition: `opacity 0.5s ease ${i * 0.08}s, transform 0.5s ease ${i * 0.08}s, box-shadow 0.2s, translate 0.2s`,
-                }}
-              >
-                <div className="flex items-center justify-between mb-3">
-                  <div
-                    className="w-9 h-9 rounded-lg flex items-center justify-center"
-                    style={{ background: "var(--loyawin-primary-xlight)" }}
-                  >
-                    <Icon className="w-4.5 h-4.5" style={{ color: "var(--loyawin-primary)" }} />
-                  </div>
-                  <span className="text-[11px] font-bold tracking-widest" style={{ color: "var(--loyawin-neutral-300)" }}>
-                    {step}
-                  </span>
-                </div>
-                <h4 className="font-bold text-m mb-1.5" style={{ color: "var(--loyawin-neutral-900)", fontFamily: "var(--font-head)" }}>
-                  {title}
-                </h4>
-                <p className="text-sm leading-relaxed" style={{ color: "var(--loyawin-neutral-500)" }}>
-                  {desc}
-                </p>
-              </div>
-            ))}
+            <img
+              src={image_productIllus}
+              alt="Product Ad Campaign Illustration"
+              className="w-full h-auto object-contain max-h-[680px] scale-110 lg:scale-[1.15] transition-transform duration-300 drop-shadow-[0_10px_30px_rgba(118,81,252,0.15)]"
+            />
           </div>
+
         </div>
       </div>
     </section>
@@ -335,10 +241,10 @@ function AdCampaignSection() {
 
 // ─── Section 4 - Earning & Voucher Rules ──────────────────────────────────────
 const RULES = [
-  { Icon: Clock, title: "Flexible Expiry Policy", desc: "Configure point reset cycles at 90, 180, or 365-day intervals. Cycles are auto-processed based on the brand's local timezone – no manual intervention needed.", tags: ["90 days", "180 days", "365 days", "Auto-timezone"], color: "var(--loyawin-primary)", bg: "var(--loyawin-primary-xlight)" },
-  { Icon: Tag, title: "Voucher Inventory Control", desc: "Cap total voucher issuance, set per-user redemption limits, and restrict specific vouchers to selected store locations for exclusive offline rewards.", tags: ["Total cap", "Per-user limit", "Location-specific"], color: "#059669", bg: "rgba(5,150,105,0.07)" },
-  { Icon: Users, title: "Flexible Earning Methods", desc: "Configure how your customers earn points: via Staff scanning membership QR at register, Customer self-scanning receipts, or run both methods in Dual Mode.", tags: ["Staff Scan", "Customer Scan", "Dual Mode"], color: "#D97706", bg: "rgba(217,119,6,0.07)" },
-  { Icon: MapPin, title: "Location-Targeted Campaigns", desc: "Run promotions only at specific branches - restrict a seasonal voucher to flagship stores or selected locations.", tags: ["Branch-specific", "Launch promos", "Location rules"], color: "#DC2626", bg: "rgba(220,38,38,0.07)" },
+  { Icon: Clock, title: "Flexible Expiry Policy", color: "var(--loyawin-primary)", bg: "var(--loyawin-primary-xlight)" },
+  { Icon: Tag, title: "Voucher Inventory Control", color: "#059669", bg: "rgba(5,150,105,0.07)" },
+  { Icon: Users, title: "Flexible Earning Methods", color: "#D97706", bg: "rgba(217,119,6,0.07)" },
+  { Icon: MapPin, title: "Location-Targeted Campaigns", color: "#DC2626", bg: "rgba(220,38,38,0.07)" },
 ];
 
 function EarningRulesSection() {
@@ -356,17 +262,24 @@ function EarningRulesSection() {
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {RULES.map(({ Icon, title, desc, tags, color, bg }, i) => (
-            <div key={i} className="rounded-2xl p-6 border transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px]" style={{ background: "white", borderColor: "rgba(87,74,219,0.08)", boxShadow: "0 2px 12px rgba(87,74,219,0.05)", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(28px)", transition: `opacity 0.6s ease ${i * 0.1}s, transform 0.6s ease ${i * 0.1}s, box-shadow 0.2s, translate 0.2s` }}>
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ background: bg }}>
-                <Icon className="w-6 h-6" style={{ color }} />
-              </div>
-              <h3 className="font-bold text-base mb-2" style={{ color: "var(--loyawin-neutral-900)", fontFamily: "var(--font-head)" }}>{title}</h3>
-              <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--loyawin-neutral-500)" }}>{desc}</p>
-              <div className="flex flex-wrap gap-1.5">
-                {tags.map((tag) => (
-                  <span key={tag} className="text-[11px] font-semibold px-2.5 py-1 rounded-full" style={{ background: bg, color }}>{tag}</span>
-                ))}
+          {RULES.map(({ Icon, title, color, bg }, i) => (
+            <div
+              key={i}
+              className="rounded-2xl p-5 border transition-all duration-300 hover:shadow-md"
+              style={{
+                background: "white",
+                borderColor: "rgba(87,74,219,0.08)",
+                boxShadow: "0 2px 12px rgba(87,74,219,0.04)",
+                opacity: visible ? 1 : 0,
+                transform: visible ? "translateY(0)" : "translateY(28px)",
+                transition: `opacity 0.6s ease ${i * 0.1}s, transform 0.6s ease ${i * 0.1}s, box-shadow 0.2s`,
+              }}
+            >
+              <div className="flex items-center gap-4">
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: bg }}>
+                  <Icon className="w-5 h-5" style={{ color }} />
+                </div>
+                <h3 className="font-bold text-base text-gray-900" style={{ fontFamily: "var(--font-head)" }}>{title}</h3>
               </div>
             </div>
           ))}
@@ -378,61 +291,48 @@ function EarningRulesSection() {
 
 // ─── Section 5 - Security & Trust ────────────────────────────────────────────
 const SECURITY_ITEMS = [
-  { Icon: Lock, title: "Isolated Tenant Security", desc: "Strict database isolation ensures each brand's customer data is completely siloed. No cross-tenant data leakage - your members belong only to you.", detail: "Row-level security enforced at the database layer. Brand A cannot query Brand B's data under any circumstance.", accent: "var(--loyawin-primary)" },
-  { Icon: CreditCard, title: "Secure Billing via Stripe", desc: "Instant merchant onboarding backed by Stripe Checkout with recurring subscription management. PCI-compliant payments, zero card data stored on LoyaWin servers.", detail: "Stripe handles all card tokenisation. Webhooks confirm subscription status before dashboard access is granted.", accent: "#059669" },
-  { Icon: ShieldOff, title: "Fraud-Proof Transaction Layer", desc: "Every point award or redemption is validated server-side before it is written to the ledger. Offline transactions and duplicate stamps are architecturally impossible.", detail: "Idempotency keys on every write operation prevent race conditions and retry-based fraud.", accent: "#D97706" },
-  { Icon: BarChart2, title: "Full Audit Ledger", desc: "Every action - stamps, refunds, manual entries, PIN overrides - is logged with staff ID, timestamp, and device fingerprint. Uneditable audit trail.", detail: "Logs are append-only. No staff member, including admins, can delete or alter historical records.", accent: "#DC2626" },
+  { Icon: Lock, title: "Isolated Database Security", accent: "var(--loyawin-primary)" },
+  { Icon: CreditCard, title: "Secure Payments", accent: "#059669" },
+  { Icon: ShieldOff, title: "Fraud-Proof Transaction Layer", accent: "#D97706" },
+  { Icon: BarChart2, title: "Immutable Audit Ledger", accent: "#DC2626" },
 ];
 
 function SecuritySection() {
   const { ref, visible } = useReveal();
-  const [expanded, setExpanded] = useState<number | null>(null);
   return (
     <section ref={ref} className="py-20 sm:py-28 relative overflow-hidden" style={{ background: "#0F0E24" }}>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] pointer-events-none" style={{ background: "radial-gradient(ellipse at center, rgba(87,74,219,0.1) 0%, transparent 65%)", filter: "blur(48px)" }} />
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 relative z-10">
         <div className="text-center mb-14 transition-all duration-700" style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(24px)" }}>
-          <SectionLabel light><Lock className="w-3 h-3" /> Security &amp; Trust</SectionLabel>
+          <SectionLabel light>Security &amp; Trust</SectionLabel>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4" style={{ fontFamily: "var(--font-head)", letterSpacing: "-0.025em" }}>
-            Enterprise-Grade Architecture
+            Enterprise Security
           </h2>
           <p className="text-base sm:text-lg max-w-xl mx-auto leading-relaxed" style={{ color: "rgba(148,163,184,0.9)" }}>
-            Security isn't a feature we added - it's how the system was designed from day one.
+            Built with security at the core, protecting your business and customers.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {SECURITY_ITEMS.map(({ Icon, title, desc, detail, accent }, i) => (
-            <button
+          {SECURITY_ITEMS.map(({ Icon, title, accent }, i) => (
+            <div
               key={i}
-              onClick={() => setExpanded(expanded === i ? null : i)}
-              className="text-left rounded-2xl p-6 border transition-all duration-300 group"
+              className="rounded-2xl p-6 border transition-all duration-300"
               style={{
                 background: "rgba(255,255,255,0.04)",
-                borderColor: expanded === i ? `${accent}55` : "rgba(255,255,255,0.08)",
-                boxShadow: expanded === i ? `0 0 0 1px ${accent}33, 0 8px 32px rgba(0,0,0,0.3)` : "none",
+                borderColor: "rgba(255,255,255,0.08)",
                 opacity: visible ? 1 : 0,
                 transform: visible ? "translateY(0)" : "translateY(28px)",
                 transition: `opacity 0.6s ease ${i * 0.1}s, transform 0.6s ease ${i * 0.1}s, border-color 0.2s, box-shadow 0.2s`,
-                cursor: "pointer",
               }}
             >
-              <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors" style={{ background: expanded === i ? `${accent}22` : "rgba(255,255,255,0.08)" }}>
-                  <Icon className="w-5 h-5" style={{ color: expanded === i ? accent : "rgba(255,255,255,0.7)" }} />
+              <div className="flex items-center gap-4">
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(255,255,255,0.08)" }}>
+                  <Icon className="w-5 h-5" style={{ color: accent }} />
                 </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between gap-2">
-                    <h3 className="font-bold text-base text-white" style={{ fontFamily: "var(--font-head)" }}>{title}</h3>
-                    <ChevronRight className="w-4 h-4 flex-shrink-0 transition-transform duration-200" style={{ color: "rgba(255,255,255,0.35)", transform: expanded === i ? "rotate(90deg)" : "rotate(0deg)" }} />
-                  </div>
-                  <p className="text-sm leading-relaxed mt-1.5" style={{ color: "rgba(148,163,184,0.85)" }}>{desc}</p>
-                  <div className="overflow-hidden transition-all duration-300" style={{ maxHeight: expanded === i ? 80 : 0 }}>
-                    <p className="text-xs leading-relaxed mt-3 pt-3 border-t" style={{ color: accent, borderColor: `${accent}33` }}>{detail}</p>
-                  </div>
-                </div>
+                <h3 className="font-bold text-base text-white" style={{ fontFamily: "var(--font-head)" }}>{title}</h3>
               </div>
-            </button>
+            </div>
           ))}
         </div>
 
@@ -490,7 +390,6 @@ export function ProductPage() {
   return (
     <div className="pt-14 md:pt-[60px]">
       <PlatformSection />
-      <EdgeCasesSection />
       <AdCampaignSection />
       <EarningRulesSection />
       <SecuritySection />

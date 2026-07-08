@@ -1,3 +1,8 @@
+// AI Coding
+/**
+ * @file MarketingToolPage.tsx
+ * @description Trang giới thiệu công cụ Marketing tự động hóa bài viết mạng xã hội LoyaWin.
+ */
 import { useNavigate } from "react-router";
 import { Sparkles, Calendar, TrendingUp, ArrowRight, Check } from "lucide-react";
 
@@ -39,7 +44,6 @@ export function MarketingToolPage() {
                 className="reveal inline-flex items-center gap-2 text-xs font-semibold tracking-[0.12em] uppercase px-3.5 py-1.5 rounded-full mb-5 border"
                 style={{ color: "var(--loyawin-primary)", background: "var(--loyawin-primary-xlight)", borderColor: "rgba(87,74,219,0.2)" }}
               >
-                <Sparkles className="w-3 h-3" />
                 Marketing Tool - AI Suite
               </div>
 

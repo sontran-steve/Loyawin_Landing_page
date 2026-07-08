@@ -164,21 +164,13 @@ export function Contact() {
 
           {/* Right - Contact Form */}
           <div
-            className="reveal reveal-delay-2 backdrop-blur-[24px] border rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 relative overflow-hidden"
+            className="reveal reveal-delay-2 border rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 relative overflow-hidden"
             style={{
-              background: 'var(--loyawin-glass-bg)',
-              borderColor: 'var(--loyawin-glass-border)',
-              boxShadow: '0 8px 32px rgba(87, 74, 219, 0.12)',
+              background: 'white',
+              borderColor: 'rgba(87,74,219,0.1)',
+              boxShadow: '0 8px 32px rgba(87, 74, 219, 0.06)',
             }}
           >
-            {/* Form Decorative Element */}
-            <div 
-              className="absolute -top-10 -right-10 w-40 h-40 rounded-full opacity-20 blur-3xl pointer-events-none"
-              style={{
-                background: 'var(--loyawin-primary)',
-              }}
-            />
-
             <form onSubmit={handleSubmit} className="relative flex flex-col h-full">
               {/* Name */}
               <div className="flex flex-col gap-2">
