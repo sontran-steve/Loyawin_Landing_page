@@ -141,10 +141,16 @@ export function Footer() {
               Legal
             </h4>
             <ul className="list-none flex flex-col gap-2.5">
-              {['Terms of Service', 'Privacy Policy', 'Cookie Policy'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-sm text-white/45 no-underline transition-colors duration-200 hover:text-[var(--loyawin-primary-light)]">
-                    {item}
+              {[
+                { name: 'Pricing', href: '/pricing.md' },
+                { name: 'Privacy Policy', href: '/privacy-policy.md' },
+                { name: 'Refund Policy', href: '/refund-policy.md' },
+                { name: 'Terms of Service', href: '/terms-of-service.md' },
+                { name: 'Cookie Policy', href: '#' },
+              ].map((item) => (
+                <li key={item.name}>
+                  <a href={item.href} className="text-sm text-white/45 no-underline transition-colors duration-200 hover:text-[var(--loyawin-primary-light)]">
+                    {item.name}
                   </a>
                 </li>
               ))}
