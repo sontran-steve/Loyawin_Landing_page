@@ -1,3 +1,9 @@
+// AI Coding
+/**
+ * @file GastroHubPage.tsx
+ * @description Trang giới thiệu hệ điều hành vận hành nhà hàng GastroHub.
+ */
+import image_gasillus from "@/imports/gasillus.png";
 import {
   Languages,
   Image,
@@ -226,95 +232,14 @@ export function GastroHubPage() {
               </div>
             </div>
 
-            {/* Right - dark terminal card */}
-            <div className="reveal reveal-delay-2">
-              <div
-                className="rounded-3xl p-6 overflow-hidden"
-                style={{
-                  background: "#0f0e1a",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  boxShadow: "0 24px 64px rgba(0,0,0,0.35)",
-                }}
-              >
-                <div
-                  className="flex items-center justify-between pb-4 mb-6"
-                  style={{
-                    borderBottom:
-                      "1px solid rgba(255,255,255,0.08)",
-                  }}
-                >
-                  <div className="flex items-center gap-2">
-                    <div className="flex gap-1.5">
-                      <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
-                      <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
-                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
-                    </div>
-                    <span className="text-[9px] font-bold text-white/40 uppercase tracking-wider ml-1">
-                      GastroHub Operational Deck
-                    </span>
-                  </div>
-                  <span className="text-[8px] font-black bg-emerald-500/15 text-emerald-400 px-2 py-0.5 rounded uppercase tracking-wider flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    Live Sync
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-2 gap-2.5 mb-6">
-                  {modules.map((m) => (
-                    <div
-                      key={m.label}
-                      className="flex items-center gap-2.5 p-3 rounded-xl"
-                      style={{
-                        background: "rgba(255,255,255,0.04)",
-                        border:
-                          "1px solid rgba(255,255,255,0.06)",
-                      }}
-                    >
-                      <div
-                        className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
-                        style={{
-                          background: "rgba(255,255,255,0.06)",
-                        }}
-                      >
-                        <m.icon
-                          className="w-3.5 h-3.5"
-                          style={{ color: m.color }}
-                        />
-                      </div>
-                      <span className="text-[10px] font-semibold text-white/70 leading-tight">
-                        {m.label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                <div
-                  className="pt-4 flex items-center justify-between text-[11px] font-bold"
-                  style={{
-                    borderTop:
-                      "1px solid rgba(255,255,255,0.08)",
-                  }}
-                >
-                  <span className="flex items-center gap-1.5 text-white/60">
-                    <Activity
-                      className="w-3.5 h-3.5"
-                      style={{
-                        color: "var(--loyawin-primary-light)",
-                      }}
-                    />
-                    14 Integrated Modules
-                  </span>
-                  <span
-                    className="flex items-center gap-1 font-bold opacity-50"
-                    style={{
-                      color: "var(--loyawin-primary-light)",
-                    }}
-                  >
-                    Open Platform
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </span>
-                </div>
-              </div>
+            {/* Right - visual illustration */}
+            <div className="reveal reveal-delay-2 flex justify-center items-center relative w-full max-w-[740px] lg:max-w-none mx-auto lg:scale-110 transition-all duration-500">
+              <img
+                src={image_gasillus}
+                alt="GastroHub Illustration"
+                className="w-full h-auto object-contain block filter drop-shadow-[0_10px_30px_rgba(118,81,252,0.15)]"
+                draggable={false}
+              />
             </div>
           </div>
         </div>
