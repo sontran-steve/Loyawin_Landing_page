@@ -30,7 +30,7 @@ export function Footer() {
       />
       
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr_1fr] gap-8 sm:gap-10 md:gap-12 lg:gap-[40px] mb-10 sm:mb-12 md:mb-[60px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_2fr] gap-8 sm:gap-10 md:gap-12 lg:gap-[60px] mb-10 sm:mb-12 md:mb-[60px]">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <a
@@ -132,49 +132,41 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Policies */}
-          <div>
-            <h4
-              className="text-sm font-semibold text-white/80 mb-4 sm:mb-[18px] tracking-[0.04em]"
-              style={{ fontFamily: 'var(--font-head)' }}
-            >
-              Policies
-            </h4>
-            <ul className="list-none flex flex-col gap-2.5">
-              {[
-                { name: 'Pricing', href: '/pricing.md' },
-                { name: 'Privacy Policy', href: '/privacy-policy.md' },
-                { name: 'Refund Policy', href: '/refund-policy.md' },
-              ].map((item) => (
-                <li key={item.name}>
-                  <a href={item.href} className="text-sm text-white/45 no-underline transition-colors duration-200 hover:text-[var(--loyawin-primary-light)]">
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Legal */}
-          <div>
+          <div className="sm:col-span-2 lg:col-span-1">
             <h4
               className="text-sm font-semibold text-white/80 mb-4 sm:mb-[18px] tracking-[0.04em]"
               style={{ fontFamily: 'var(--font-head)' }}
             >
               Legal
             </h4>
-            <ul className="list-none flex flex-col gap-2.5">
-              {[
-                { name: 'Terms of Service', href: '/terms-of-service.md' },
-                { name: 'Cookie Policy', href: '#' },
-              ].map((item) => (
-                <li key={item.name}>
-                  <a href={item.href} className="text-sm text-white/45 no-underline transition-colors duration-200 hover:text-[var(--loyawin-primary-light)]">
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+              <ul className="list-none flex flex-col gap-2.5">
+                {[
+                  { name: 'Pricing', href: '/pricing.md' },
+                  { name: 'Privacy Policy', href: '/privacy-policy.md' },
+                  { name: 'Refund Policy', href: '/refund-policy.md' },
+                ].map((item) => (
+                  <li key={item.name}>
+                    <a href={item.href} className="text-sm text-white/45 no-underline transition-colors duration-200 hover:text-[var(--loyawin-primary-light)]">
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <ul className="list-none flex flex-col gap-2.5">
+                {[
+                  { name: 'Terms of Service', href: '/terms-of-service.md' },
+                  { name: 'Cookie Policy', href: '#' },
+                ].map((item) => (
+                  <li key={item.name}>
+                    <a href={item.href} className="text-sm text-white/45 no-underline transition-colors duration-200 hover:text-[var(--loyawin-primary-light)]">
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
