@@ -48,12 +48,12 @@ export const translations = {
         {
           number: '02',
           title: 'Enterprise Tools are Overkill',
-          description: 'Too expensive and too complex for local Spas, Cafés, Restaurants, and Boutiques. Built for Fortune 500 — not the high street.',
+          description: 'Too expensive and too complex for local Spas, Cafés, Restaurants, and Boutiques. Built for Fortune 500 - not the high street.',
         },
         {
           number: '03',
           title: 'Operational Friction',
-          description: 'Existing loyalty apps fail on day-to-day edge cases — Returns, Refunds, Manual Entry Mistakes — causing queue buildups at the counter.',
+          description: 'Existing loyalty apps fail on day-to-day edge cases - Returns, Refunds, Manual Entry Mistakes - causing queue buildups at the counter.',
         },
       ],
     },
@@ -102,7 +102,7 @@ export const translations = {
     platform: {
       badge: 'THE PLATFORM',
       title: 'A Complete Multi-touchpoint Ecosystem',
-      subtitle: 'Three purpose-built products working together — your staff, your customers, and your business all in sync.',
+      subtitle: 'Three purpose-built products working together - your staff, your customers, and your business all in sync.',
       products: [
         {
           number: '01',
@@ -112,7 +112,7 @@ export const translations = {
             'QR / Phone check-in in under 3 seconds',
             'Split Bills, Refunds & Manual Entry support',
             'New staff master the system in 15 minutes',
-            'Works on any device — smartphone, tablet, PC',
+            'Works on any device - smartphone, tablet, PC',
             'PIN-protected actions with full audit trails',
           ],
         },
@@ -121,7 +121,7 @@ export const translations = {
           title: 'Customer Web App',
           subtitle: 'Frictionless Engagement',
           features: [
-            'PWA — instant access via browser, no install needed',
+            'PWA - instant access via browser, no install needed',
             'Real-time point balance & tier progress view',
             'Smart Wallet auto-surfaces best savers',
             'Birthday & expiry reminders via notifications',
@@ -136,8 +136,8 @@ export const translations = {
           features: [
             'Set earning rates, tier rules & campaigns in clicks',
             'Voucher Usage, Earn/Spend Trends reporting',
-            'Multi-store management — 10 to 100+ locations',
-            'Dynamic config — no developer required',
+            'Multi-store management - 10 to 100+ locations',
+            'Dynamic config - no developer required',
             'New Account Growth tracking across all branches',
           ],
         },
@@ -148,7 +148,7 @@ export const translations = {
     killerFeature: {
       badge: 'THE KILLER FEATURE',
       title: 'Error Correction & Edge Cases',
-      subtitle: 'The reason generic apps fail at the counter — and why LoyaWin wins. Built to handle real-world chaos, not just happy paths.',
+      subtitle: 'The reason generic apps fail at the counter - and why LoyaWin wins. Built to handle real-world chaos, not just happy paths.',
       features: [
         {
           title: 'Void / Edit Workflow',
@@ -167,14 +167,14 @@ export const translations = {
         {
           icon: 'users',
           title: 'Split Bill scenario',
-          description: 'Table of 4 at a German restaurant — each paying separately. LoyaWin handles split bills natively, awarding points proportionally to each person\'s spend.',
+          description: 'Table of 4 at a German restaurant - each paying separately. LoyaWin handles split bills natively, awarding points proportionally to each person\'s spend.',
           badge: 'Getrennte Rechnung ready',
           color: 'blue',
         },
         {
           icon: 'undo',
           title: 'Return & Refund scenario',
-          description: 'Customer returns a product 3 days later. Points are automatically clawed back, vouchers restored, transaction log updated — zero manual work.',
+          description: 'Customer returns a product 3 days later. Points are automatically clawed back, vouchers restored, transaction log updated - zero manual work.',
           badge: 'EU Consumer law Compliant',
           color: 'orange',
         },
@@ -199,7 +199,7 @@ export const translations = {
       standardLicense: {
         badge: 'STANDARD LICENSE',
         title: 'The "Buy-Once" Model',
-        subtitle: 'Own the license forever — no surprise price hikes',
+        subtitle: 'Own the license forever - no surprise price hikes',
         price: '€2,000',
         period: 'One-time payment · includes your first store',
         targetTitle: 'Target',
@@ -212,7 +212,7 @@ export const translations = {
           '+€300 per additional store',
           '€10/month maintenance fee (billed annually)',
         ],
-        note: 'Clients own the license with minimal monthly operating costs — significantly cheaper than traditional SaaS in the long run.',
+        note: 'Clients own the license with minimal monthly operating costs - significantly cheaper than traditional SaaS in the long run.',
         cta: 'Get the License →',
       },
       enterpriseCore: {
@@ -229,9 +229,9 @@ export const translations = {
         ],
         includesTitle: 'Includes',
         includesItems: [
-          'Core Source Code License — full ownership',
+          'Core Source Code License - full ownership',
           'Custom Development & Integration to your spec',
-          'Private Server Deployment — complete data isolation',
+          'Private Server Deployment - complete data isolation',
         ],
         note: 'Data sovereignty, full customization, and separation from the shared SaaS infrastructure.',
         cta: 'Get a Free Quote →',
@@ -309,7 +309,7 @@ export const translations = {
           rating: 5,
         },
         {
-          text: 'The edge case handling is phenomenal. Split bills, refunds, manual entries — everything works flawlessly. Our checkout flow is faster and customers love the seamless experience.',
+          text: 'The edge case handling is phenomenal. Split bills, refunds, manual entries - everything works flawlessly. Our checkout flow is faster and customers love the seamless experience.',
           author: 'Thomas Müller',
           role: 'Director · Restaurant Group, 8 locations',
           rating: 5,
@@ -366,7 +366,7 @@ export const translations = {
         planOptions: [
           'Standard License (Buy-Once)',
           'Enterprise Core (Custom / White-label)',
-          'Not sure yet — need consultation',
+          'Not sure yet - need consultation',
         ],
         message: 'How can we help?',
         messagePlaceholder: "Tell us about your business and what you're looking to achieve...",
@@ -477,12 +477,12 @@ export const translations = {
         {
           number: '02',
           title: 'Enterprise-Tools sind überdimensioniert',
-          description: 'Zu teuer und zu komplex für lokale Spas, Cafés, Restaurants und Boutiquen. Gebaut für Fortune 500 — nicht für den Einzelhandel.',
+          description: 'Zu teuer und zu komplex für lokale Spas, Cafés, Restaurants und Boutiquen. Gebaut für Fortune 500 - nicht für den Einzelhandel.',
         },
         {
           number: '03',
           title: 'Operative Reibungen',
-          description: 'Bestehende Loyalty-Apps scheitern an täglichen Sonderfällen — Retouren, Rückerstattungen, manuelle Eingabefehler — und verursachen Warteschlangen an der Kasse.',
+          description: 'Bestehende Loyalty-Apps scheitern an täglichen Sonderfällen - Retouren, Rückerstattungen, manuelle Eingabefehler - und verursachen Warteschlangen an der Kasse.',
         },
       ],
     },
@@ -531,7 +531,7 @@ export const translations = {
     platform: {
       badge: 'DIE PLATTFORM',
       title: 'Ein vollständiges Mehrkanal-Ekosystem',
-      subtitle: 'Drei speziell entwickelte Produkte arbeiten zusammen — Ihr Personal, Ihre Kunden und Ihr Geschäft sind synchronisiert.',
+      subtitle: 'Drei speziell entwickelte Produkte arbeiten zusammen - Ihr Personal, Ihre Kunden und Ihr Geschäft sind synchronisiert.',
       products: [
         {
           number: '01',
@@ -541,7 +541,7 @@ export const translations = {
             'QR / Telefon-Check-In in weniger als 3 Sekunden',
             'Unterstützung für Aufteilung von Rechnungen, Rückerstattungen & manuelle Eingaben',
             'Neues Personal erlernt das System in 15 Minuten',
-            'Funktioniert auf jedem Gerät — Smartphone, Tablet, PC',
+            'Funktioniert auf jedem Gerät - Smartphone, Tablet, PC',
             'PIN-geschützte Aktionen mit vollständigen Überwachungsprotokollen',
           ],
         },
@@ -550,7 +550,7 @@ export const translations = {
           title: 'Kunden-Web-App',
           subtitle: 'Reibungsloses Engagement',
           features: [
-            'PWA — sofortiger Zugriff über Browser, keine Installation erforderlich',
+            'PWA - sofortiger Zugriff über Browser, keine Installation erforderlich',
             'Echtzeit-Punktebilanz & Stufenfortschritt-Ansicht',
             'Smart Wallet zeigt automatisch die besten Spender an',
             'Geburtstags- & Ablauf-Erinnerungen über Benachrichtigungen',
@@ -565,8 +565,8 @@ export const translations = {
           features: [
             'Einnahmenraten, Stufenregeln & Kampagnen mit Klicks festlegen',
             'Berichterstattung zur Gutscheinverwendung, Gewinn-/Ausgaben-Trends',
-            'Multi-Geschäftsverwaltung — 10 bis 100+ Standorte',
-            'Dynamische Konfiguration — kein Entwickler erforderlich',
+            'Multi-Geschäftsverwaltung - 10 bis 100+ Standorte',
+            'Dynamische Konfiguration - kein Entwickler erforderlich',
             'Neukundengewinnung über alle Standorte hinweg verfolgen',
           ],
         },
@@ -577,7 +577,7 @@ export const translations = {
     killerFeature: {
       badge: 'THE KILLER FEATURE',
       title: 'Fehlerbehebung & Randfälle',
-      subtitle: 'Der Grund, warum generische Apps am Kassepunkt fehlschlagen — und warum LoyaWin gewinnt. Entwickelt, um echte Weltchaos zu bewältigen, nicht nur glückliche Pfade.',
+      subtitle: 'Der Grund, warum generische Apps am Kassepunkt fehlschlagen - und warum LoyaWin gewinnt. Entwickelt, um echte Weltchaos zu bewältigen, nicht nur glückliche Pfade.',
       features: [
         {
           title: 'Void / Edit Workflow',
@@ -596,14 +596,14 @@ export const translations = {
         {
           icon: 'users',
           title: 'Getrennte Rechnungsszenario',
-          description: 'Tisch für 4 Personen in einem deutschen Restaurant — jeder zahlt separat. LoyaWin behandelt getrennte Rechnungen nativ, verteilt Punkte proportional zu jedem Einzelspenden.',
+          description: 'Tisch für 4 Personen in einem deutschen Restaurant - jeder zahlt separat. LoyaWin behandelt getrennte Rechnungen nativ, verteilt Punkte proportional zu jedem Einzelspenden.',
           badge: 'Getrennte Rechnung bereit',
           color: 'blue',
         },
         {
           icon: 'undo',
           title: 'Rückgabe & Rückerstattungsszenario',
-          description: 'Kunde gibt ein Produkt 3 Tage später zurück. Punkte werden automatisch zurückgezogen, Gutscheine wiederhergestellt, Transaktionsprotokoll aktualisiert — keine manuelle Arbeit.',
+          description: 'Kunde gibt ein Produkt 3 Tage später zurück. Punkte werden automatisch zurückgezogen, Gutscheine wiederhergestellt, Transaktionsprotokoll aktualisiert - keine manuelle Arbeit.',
           badge: 'EU-Konsumerschutzgesetz konform',
           color: 'orange',
         },
@@ -628,7 +628,7 @@ export const translations = {
       standardLicense: {
         badge: 'STANDARD-LIZENZ',
         title: 'Das "Buy-Once"-Modell',
-        subtitle: 'Lizenz für immer — keine unerwarteten Preissteigerungen',
+        subtitle: 'Lizenz für immer - keine unerwarteten Preissteigerungen',
         price: '€2.000',
         period: 'Einmalige Zahlung · inklusive Ihres ersten Geschäftsstandorts',
         targetTitle: 'Zielgruppe',
@@ -641,7 +641,7 @@ export const translations = {
           '+€300 pro zusätzlicher Geschäftsstandort',
           '€10/Monat Wartungsgebühr (jährlich berechnet)',
         ],
-        note: 'Kunden besitzen die Lizenz mit minimalen monatlichen Betriebskosten — im langfristigen Vergleich erheblich günstiger als traditionelles SaaS.',
+        note: 'Kunden besitzen die Lizenz mit minimalen monatlichen Betriebskosten - im langfristigen Vergleich erheblich günstiger als traditionelles SaaS.',
         cta: 'Lizenz erhalten →',
       },
       enterpriseCore: {
@@ -658,9 +658,9 @@ export const translations = {
         ],
         includesTitle: 'Inklusive',
         includesItems: [
-          'Kern-Quellcode-Lizenz — vollständige Besitzung',
+          'Kern-Quellcode-Lizenz - vollständige Besitzung',
           'Benutzerdefinierte Entwicklung & Integration nach Ihren Spezifikationen',
-          'Private Server-Bereitstellung — vollständige Datenisolation',
+          'Private Server-Bereitstellung - vollständige Datenisolation',
         ],
         note: 'Datenverwaltung, vollständige Anpassung und Trennung von der gemeinsamen SaaS-Infrastruktur.',
         cta: 'Kostenloses Angebot erhalten →',
@@ -738,7 +738,7 @@ export const translations = {
           rating: 5,
         },
         {
-          text: 'Die Handhabung von Sonderfällen ist phänomenal. Getrennte Rechnungen, Rückerstattungen, manuelle Eingaben — alles funktioniert einwandfrei. Unser Checkout-Ablauf ist schneller und Kunden lieben das nahtlose Erlebnis.',
+          text: 'Die Handhabung von Sonderfällen ist phänomenal. Getrennte Rechnungen, Rückerstattungen, manuelle Eingaben - alles funktioniert einwandfrei. Unser Checkout-Ablauf ist schneller und Kunden lieben das nahtlose Erlebnis.',
           author: 'Thomas Müller',
           role: 'Direktor · Restaurant-Gruppe, 8 Standorte',
           rating: 5,
@@ -795,7 +795,7 @@ export const translations = {
         planOptions: [
           'Standard-Lizenz (Buy-Once)',
           'Enterprise Core (Benutzerdefiniert / White-label)',
-          'Noch nicht sicher — brauche Beratung',
+          'Noch nicht sicher - brauche Beratung',
         ],
         message: 'Wie können wir helfen?',
         messagePlaceholder: 'Erzählen Sie uns kurz über Ihr Geschäft und was Sie erreichen möchten...',
@@ -892,12 +892,12 @@ export const translations = {
         {
           number: '02',
           title: 'Công Cụ Doanh Nghiệp Quá Phức Tạp',
-          description: 'Quá đắt và quá phức tạp cho các Spa, Quán cà phê, Nhà hàng và Cửa hàng địa phương. Được xây dựng cho Fortune 500 — không phải cho các cửa hàng nhỏ.',
+          description: 'Quá đắt và quá phức tạp cho các Spa, Quán cà phê, Nhà hàng và Cửa hàng địa phương. Được xây dựng cho Fortune 500 - không phải cho các cửa hàng nhỏ.',
         },
         {
           number: '03',
           title: 'Ma Sát Vận Hành',
-          description: 'Các ứng dụng khách hàng thân thiết hiện tại thất bại với các trường hợp đặc biệt hàng ngày — Trả hàng, Hoàn tiền, Lỗi nhập liệu thủ công — gây ra hàng đợi tại quầy.',
+          description: 'Các ứng dụng khách hàng thân thiết hiện tại thất bại với các trường hợp đặc biệt hàng ngày - Trả hàng, Hoàn tiền, Lỗi nhập liệu thủ công - gây ra hàng đợi tại quầy.',
         },
       ],
     },
@@ -946,7 +946,7 @@ export const translations = {
     platform: {
       badge: 'NỀN TẢNG',
       title: 'Một Hệ Thống Đa Điểm Tiếp Tục Hoạt Động',
-      subtitle: 'Ba sản phẩm được xây dựng riêng biệt hoạt động cùng nhau — nhân viên, khách hàng và doanh nghiệp của bạn đều đồng bộ.',
+      subtitle: 'Ba sản phẩm được xây dựng riêng biệt hoạt động cùng nhau - nhân viên, khách hàng và doanh nghiệp của bạn đều đồng bộ.',
       products: [
         {
           number: '01',
@@ -956,7 +956,7 @@ export const translations = {
             'Kiểm tra vào dưới 3 giây bằng QR / Điện thoại',
             'Hỗ trợ chia hóa đơn, hoàn tiền & nhập liệu thủ công',
             'Nhân viên mới nắm bắt hệ thống trong 15 phút',
-            'Hoạt động trên bất kỳ thiết bị nào — điện thoại thông minh, máy tính bảng, PC',
+            'Hoạt động trên bất kỳ thiết bị nào - điện thoại thông minh, máy tính bảng, PC',
             'Hành động bảo vệ bằng mã PIN với các bản ghi kiểm toán đầy đủ',
           ],
         },
@@ -965,7 +965,7 @@ export const translations = {
           title: 'Ứng Dụng Web Khách Hàng',
           subtitle: 'Tương Tác Mượt Mái',
           features: [
-            'PWA — truy cập tức thì qua trình duyệt, không cần cài đặt',
+            'PWA - truy cập tức thì qua trình duyệt, không cần cài đặt',
             'Xem số dư điểm và tiến trình cấp bậc thời gian thực',
             'Ví Thông Minh tự động hiển thị những người tiết kiệm nhiều nhất',
             'Nhắc nhở sinh nhật & hết hạn qua thông báo',
@@ -980,8 +980,8 @@ export const translations = {
           features: [
             'Đặt tỷ lệ thu nhập, quy tắc cấp bậc & chiến dịch bằng cách nhấp chuột',
             'Báo cáo về việc sử dụng phiếu giảm giá, xu hướng Thu nhập/Sử dụng',
-            'Quản lý nhiều cửa hàng — từ 10 đến 100+ địa điểm',
-            'Cấu hình động — không cần nhà phát triển',
+            'Quản lý nhiều cửa hàng - từ 10 đến 100+ địa điểm',
+            'Cấu hình động - không cần nhà phát triển',
             'Theo dõi tăng trưởng tài khoản mới trên tất cả các chi nhánh',
           ],
         },
@@ -992,7 +992,7 @@ export const translations = {
     killerFeature: {
       badge: 'THE KILLER FEATURE',
       title: 'Sửa Lỗi & Các Trạng Thái Đặc Biệt',
-      subtitle: 'Lý do các ứng dụng chung không thành công tại quầy bán hàng — và lý do LoyaWin thắng. Được xây dựng để xử lý hỗn loạn thực tế, không chỉ các đường dẫn hạnh phúc.',
+      subtitle: 'Lý do các ứng dụng chung không thành công tại quầy bán hàng - và lý do LoyaWin thắng. Được xây dựng để xử lý hỗn loạn thực tế, không chỉ các đường dẫn hạnh phúc.',
       features: [
         {
           title: 'Luồng Làm Việc Hủy / Sửa',
@@ -1011,14 +1011,14 @@ export const translations = {
         {
           icon: 'users',
           title: 'Trạng Thái Hóa Đơn Tách',
-          description: 'Bàn 4 người tại một nhà hàng Đức — mỗi người trả riêng. LoyaWin xử lý hóa đơn tách bản gốc, phân phối điểm tỷ lệ theo chi tiêu của mỗi người.',
+          description: 'Bàn 4 người tại một nhà hàng Đức - mỗi người trả riêng. LoyaWin xử lý hóa đơn tách bản gốc, phân phối điểm tỷ lệ theo chi tiêu của mỗi người.',
           badge: 'Hóa đơn tách sẵn sàng',
           color: 'blue',
         },
         {
           icon: 'undo',
           title: 'Trạng Thái Trả Lại & Hoàn Tiền',
-          description: 'Khách hàng trả lại sản phẩm 3 ngày sau. Điểm được thu hồi tự động, phiếu giảm giá được khôi phục, nhật ký giao dịch được cập nhật — không cần công việc thủ công.',
+          description: 'Khách hàng trả lại sản phẩm 3 ngày sau. Điểm được thu hồi tự động, phiếu giảm giá được khôi phục, nhật ký giao dịch được cập nhật - không cần công việc thủ công.',
           badge: 'Tuân thủ Luật Người tiêu dùng EU',
           color: 'orange',
         },
@@ -1043,7 +1043,7 @@ export const translations = {
       standardLicense: {
         badge: 'GIẤY PHÉT TIÊN HÀNH TIÊN HÀNH',
         title: 'Mô hình "Mua Một Lần"',
-        subtitle: 'Sở hữu giấy phép mãi mãi — không có tăng giá bất ngờ',
+        subtitle: 'Sở hữu giấy phép mãi mãi - không có tăng giá bất ngờ',
         price: '€2.000',
         period: 'Thanh toán một lần · bao gồm cửa hàng đầu tiên của bạn',
         targetTitle: 'Mục tiêu',
@@ -1056,7 +1056,7 @@ export const translations = {
           '+€300 cho mỗi cửa hàng bổ sung',
           'Phí bảo trì €10/tháng (được tính theo năm)',
         ],
-        note: 'Khách hàng sở hữu giấy phép với chi phí vận hành hàng tháng tối thiểu — đáng rẻ hơn nhiều so với SaaS truyền thống trong dài hạn.',
+        note: 'Khách hàng sở hữu giấy phép với chi phí vận hành hàng tháng tối thiểu - đáng rẻ hơn nhiều so với SaaS truyền thống trong dài hạn.',
         cta: 'Nhận Giấy Phép →',
       },
       enterpriseCore: {
@@ -1073,9 +1073,9 @@ export const translations = {
         ],
         includesTitle: 'Bao gồm',
         includesItems: [
-          'Giấy phép mã nguồn cốt lõi — sở hữu hoàn toàn',
+          'Giấy phép mã nguồn cốt lõi - sở hữu hoàn toàn',
           'Phát triển và tích hợp tùy chỉnh theo yêu cầu của bạn',
-          'Triển khai máy chủ riêng tư — cách ly dữ liệu hoàn toàn',
+          'Triển khai máy chủ riêng tư - cách ly dữ liệu hoàn toàn',
         ],
         note: 'Quyền sở hữu dữ liệu, tùy chỉnh hoàn toàn và cách ly khỏi cơ sở hạ tầng SaaS chia sẻ.',
         cta: 'Nhận Báo Giá Miễn Phí →',
@@ -1153,7 +1153,7 @@ export const translations = {
           rating: 5,
         },
         {
-          text: 'Việc xử lý các trường hợp đặc biệt thật tuyệt vời. Chia hóa đơn, hoàn tiền, nhập liệu thủ công — mọi thứ hoạt động hoàn hảo. Quy trình thanh toán của chúng tôi nhanh hơn và khách hàng yêu thích trải nghiệm liền mạch.',
+          text: 'Việc xử lý các trường hợp đặc biệt thật tuyệt vời. Chia hóa đơn, hoàn tiền, nhập liệu thủ công - mọi thứ hoạt động hoàn hảo. Quy trình thanh toán của chúng tôi nhanh hơn và khách hàng yêu thích trải nghiệm liền mạch.',
           author: 'Thomas Müller',
           role: 'Giám đốc · Nhóm Nhà hàng, 8 địa điểm',
           rating: 5,
@@ -1210,7 +1210,7 @@ export const translations = {
         planOptions: [
           'Giấy Phép Tiêu Chuẩn (Mua Một Lần)',
           'Core Doanh Nghiệp (Tùy chỉnh / White-label)',
-          'Chưa chắc chắn — cần tư vấn',
+          'Chưa chắc chắn - cần tư vấn',
         ],
         message: 'Chúng tôi có thể giúp gì?',
         messagePlaceholder: "Nhắn cho chúng tôi biết về doanh nghiệp của bạn và những gì bạn muốn đạt được...",

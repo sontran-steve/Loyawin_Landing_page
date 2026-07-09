@@ -74,7 +74,7 @@ function CheckItem({ text, light = false }: { text: string; light?: boolean }) {
   );
 }
 
-// ─── Section 1 — Platform Overview ───────────────────────────────────────────
+// ─── Section 1 - Platform Overview ───────────────────────────────────────────
 const PLATFORM_CARDS = [
   {
     num: "01",
@@ -85,7 +85,7 @@ const PLATFORM_CARDS = [
     features: [
       "QR / Phone check-in completed in under 3 seconds",
       "New staff master the flow in 15 minutes or less",
-      "Works on any device — tablet, phone, or desktop browser",
+      "Works on any device - tablet, phone, or desktop browser",
       "PIN-protected actions with full audit trails",
     ],
   },
@@ -99,7 +99,7 @@ const PLATFORM_CARDS = [
       "Flexible access via Mobile App or PWA browser",
       "Real-time point balance & transaction history",
       "Smart Wallet auto-surfaces the best vouchers",
-      "Refer & Earn program built in — no plugins required",
+      "Refer & Earn program built in - no plugins required",
     ],
   },
   {
@@ -110,7 +110,7 @@ const PLATFORM_CARDS = [
     icon: LayoutDashboard,
     features: [
       "Voucher usage, Earn/Spend trend reporting built in",
-      "Multi-store management — 10 to 100+ locations",
+      "Multi-store management - 10 to 100+ locations",
       "Dynamic config with no redeployment needed",
       "New account growth tracking with retention metrics",
     ],
@@ -140,7 +140,7 @@ function PlatformSection() {
             A Complete Multi-touchpoint Ecosystem
           </h2>
           <p className="text-base sm:text-lg max-w-2xl mx-auto leading-relaxed" style={{ color: "var(--loyawin-neutral-500)" }}>
-            Three purpose-built products working together — your staff, your customers, and your business all in sync.
+            Three purpose-built products working together - your staff, your customers, and your business all in sync.
           </p>
         </div>
 
@@ -224,7 +224,7 @@ function PlatformSection() {
   );
 }
 
-// ─── Section 2 — Error Correction & Edge Cases ────────────────────────────────
+// ─── Section 2 - Error Correction & Edge Cases ────────────────────────────────
 function EdgeCasesSection() {
   const { ref, visible } = useReveal();
   return (
@@ -249,7 +249,7 @@ function EdgeCasesSection() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
-          {/* Left — copy */}
+          {/* Left - copy */}
           <div
             className="transition-all duration-700"
             style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(28px)" }}
@@ -262,7 +262,7 @@ function EdgeCasesSection() {
               Error Correction &amp; Edge Cases
             </h2>
             <p className="text-base sm:text-lg leading-relaxed mb-10" style={{ color: "rgba(255,255,255,0.8)" }}>
-              The reason generic apps fall at the counter — and why LoyaWin wins. Built to handle real-world chaos, not just happy paths.
+              The reason generic apps fall at the counter - and why LoyaWin wins. Built to handle real-world chaos, not just happy paths.
             </p>
 
             {/* Feature list */}
@@ -271,7 +271,7 @@ function EdgeCasesSection() {
                 {
                   Icon: Store,
                   title: "Context-Aware Operation",
-                  desc: "Storefront devices are hardware-bound to specific locations. No manual brand selection or store selection is required by staff—simply scan and reward.",
+                  desc: "Storefront devices are hardware-bound to specific locations. No manual brand selection or store selection is required by staff-simply scan and reward.",
                 },
                 {
                   Icon: Smartphone,
@@ -308,7 +308,7 @@ function EdgeCasesSection() {
             </div>
           </div>
 
-          {/* Right — scenario cards */}
+          {/* Right - scenario cards */}
           <div
             className="space-y-4 transition-all duration-700 delay-200"
             style={{ opacity: visible ? 1 : 0, transform: visible ? "translateX(0)" : "translateX(32px)" }}
@@ -419,12 +419,12 @@ function EdgeCasesSection() {
   );
 }
 
-// ─── Section 3 — Self-Serve Ad Campaign Manager ───────────────────────────────
+// ─── Section 3 - Self-Serve Ad Campaign Manager ───────────────────────────────
 const AD_STEPS = [
   { Icon: Megaphone, step: "01", title: "Upload Banner", desc: "Brands upload marketing creatives in standard aspect ratios directly from the dashboard." },
   { Icon: Store, step: "02", title: "Choose Placement", desc: "Select from Top Banner, Hot Deals carousel, or Popular section inside the Customer App feed." },
   { Icon: CreditCard, step: "03", title: "Pay via Stripe", desc: "Secure one-click checkout. Campaigns activate instantly once payment is confirmed." },
-  { Icon: BarChart2, step: "04", title: "Track Performance", desc: "Real-time impressions, click-through rate, and spend analytics — all visible on the dashboard." },
+  { Icon: BarChart2, step: "04", title: "Track Performance", desc: "Real-time impressions, click-through rate, and spend analytics - all visible on the dashboard." },
 ];
 
 function AdCampaignSection() {
@@ -451,7 +451,7 @@ function AdCampaignSection() {
               Self-Serve Ad Campaign Manager
             </h2>
             <p className="text-base sm:text-lg leading-relaxed mb-8" style={{ color: "var(--loyawin-neutral-500)" }}>
-              Every merchant on LoyaWin can publish ads directly to the Customer App's homepage feed — no external agency, no waiting. Launch a campaign in minutes, measure it in real time.
+              Every merchant on LoyaWin can publish ads directly to the Customer App's homepage feed - no external agency, no waiting. Launch a campaign in minutes, measure it in real time.
             </p>
 
             {/* Direct Reach callout */}
@@ -473,13 +473,13 @@ function AdCampaignSection() {
                   Direct Reach to Active Users
                 </div>
                 <p className="text-sm leading-relaxed" style={{ color: "var(--loyawin-neutral-600)" }}>
-                  Banners display directly on the Customer App's homepage feed — the first screen every loyalty user sees when they open the app. Zero intermediaries between your brand and your audience.
+                  Banners display directly on the Customer App's homepage feed - the first screen every loyalty user sees when they open the app. Zero intermediaries between your brand and your audience.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Right — 4-step flow */}
+          {/* Right - 4-step flow */}
           <div
             className="grid grid-cols-1 sm:grid-cols-2 gap-4 transition-all duration-700 delay-150"
             style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(32px)" }}
@@ -522,7 +522,7 @@ function AdCampaignSection() {
   );
 }
 
-// ─── Section 4 — Earning & Voucher Rules ──────────────────────────────────────
+// ─── Section 4 - Earning & Voucher Rules ──────────────────────────────────────
 const RULES = [
   {
     Icon: Clock,
@@ -551,7 +551,7 @@ const RULES = [
   {
     Icon: MapPin,
     title: "Location-Targeted Campaigns",
-    desc: "Run promotions only at specific branches — restrict a seasonal voucher to flagship stores or selected locations.",
+    desc: "Run promotions only at specific branches - restrict a seasonal voucher to flagship stores or selected locations.",
     tags: ["Branch-specific", "Launch promos", "Location rules"],
     color: "#DC2626",
     bg: "rgba(220,38,38,0.07)",
@@ -580,7 +580,7 @@ function EarningRulesSection() {
             Advanced Earning &amp; Voucher Rules
           </h2>
           <p className="text-base sm:text-lg leading-relaxed" style={{ color: "var(--loyawin-neutral-500)" }}>
-            Your loyalty programme is as unique as your brand. Granular controls let you design a programme that fits your business model exactly — not the other way around.
+            Your loyalty programme is as unique as your brand. Granular controls let you design a programme that fits your business model exactly - not the other way around.
           </p>
         </div>
 
@@ -629,12 +629,12 @@ function EarningRulesSection() {
   );
 }
 
-// ─── Section 5 — Security & Trust ────────────────────────────────────────────
+// ─── Section 5 - Security & Trust ────────────────────────────────────────────
 const SECURITY_ITEMS = [
   {
     Icon: Lock,
     title: "Isolated Tenant Security",
-    desc: "Strict database isolation ensures each brand's customer data is completely siloed. No cross-tenant data leakage — your members belong only to you.",
+    desc: "Strict database isolation ensures each brand's customer data is completely siloed. No cross-tenant data leakage - your members belong only to you.",
     detail: "Row-level security enforced at the database layer. Brand A cannot query Brand B's data under any circumstance.",
     accent: "#6366F1",
   },
@@ -655,7 +655,7 @@ const SECURITY_ITEMS = [
   {
     Icon: BarChart2,
     title: "Full Audit Ledger",
-    desc: "Every action — stamps, refunds, manual entries, PIN overrides — is logged with staff ID, timestamp, and device fingerprint. Uneditable audit trail.",
+    desc: "Every action - stamps, refunds, manual entries, PIN overrides - is logged with staff ID, timestamp, and device fingerprint. Uneditable audit trail.",
     detail: "Logs are append-only. No staff member, including admins, can delete or alter historical records.",
     accent: "#DC2626",
   },
@@ -691,7 +691,7 @@ function SecuritySection() {
             Enterprise-Grade Architecture
           </h2>
           <p className="text-base sm:text-lg max-w-xl mx-auto leading-relaxed" style={{ color: "rgba(148,163,184,0.9)" }}>
-            Security isn't a feature we added — it's how the system was designed from day one.
+            Security isn't a feature we added - it's how the system was designed from day one.
           </p>
         </div>
 
@@ -802,7 +802,7 @@ function ProductCTA() {
           Ready to run loyalty like a pro?
         </h2>
         <p className="text-base sm:text-lg mb-10 max-w-lg mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.85)" }}>
-          Set up your merchant account in minutes. No developer, no POS, no fuss — just results.
+          Set up your merchant account in minutes. No developer, no POS, no fuss - just results.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-4">
           <a

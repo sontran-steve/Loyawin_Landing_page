@@ -98,7 +98,7 @@ const LIVE_ADS = [
   {
     brand: "BrewCo",
     headline: "Buy 4, Get the 5th Free",
-    sub: "Stamp your card digitally. No paper, no hassle — just great coffee.",
+    sub: "Stamp your card digitally. No paper, no hassle - just great coffee.",
     badge: "Loyalty Deal",
     color: "#5C4033",
     bg: "linear-gradient(135deg, #EFEBE9 0%, #D7CCC8 100%)",
@@ -106,7 +106,7 @@ const LIVE_ADS = [
   },
   {
     brand: "BubbleTea+",
-    headline: "Refer a Friend — Both Get Rewarded",
+    headline: "Refer a Friend - Both Get Rewarded",
     sub: "Invite a friend to join LoyaWin via your referral link. You both receive 200 bonus points.",
     badge: "Referral",
     color: "#6A1B9A",
@@ -620,7 +620,7 @@ function ComparisonSection() {
             </span>
           </h2>
           <p className="text-base sm:text-lg max-w-xl mx-auto" style={{ color: "#64748B" }}>
-            See exactly what you leave behind — and what you gain.
+            See exactly what you leave behind - and what you gain.
           </p>
         </div>
 
@@ -640,7 +640,7 @@ function ComparisonSection() {
           {/* Column headers */}
           {cols.map((col) =>
             col.isWinner ? (
-              /* Winner header — inside glow wrapper top */
+              /* Winner header - inside glow wrapper top */
               <div
                 key={col.id}
                 className="flex flex-col items-center gap-2 pt-5 pb-4 rounded-t-[18px]"
@@ -731,7 +731,7 @@ function ComparisonSection() {
                   <span style={{ color: "#64748B" }}>{row.paper}</span>
                 </div>
 
-                {/* LoyaWin cell — winner */}
+                {/* LoyaWin cell - winner */}
                 <div
                   className="flex items-center gap-2.5 px-5 py-[14px] text-sm font-semibold"
                   style={{
@@ -773,7 +773,7 @@ function ComparisonSection() {
               borderTop: "none",
             }}
           />
-          {/* LoyaWin footer — CTA */}
+          {/* LoyaWin footer - CTA */}
           <div
             className="rounded-b-[18px] px-5 pt-4 pb-6 flex flex-col items-stretch"
             style={{
@@ -942,7 +942,7 @@ const B2B_FEATURES = [
   {
     icon: Megaphone,
     title: "Self-serve Marketing",
-    sub: "Design vouchers, set birthday triggers, and launch ad campaigns — all from your merchant dashboard.",
+    sub: "Design vouchers, set birthday triggers, and launch ad campaigns - all from your merchant dashboard.",
     color: "#DC2626",
     bg: "rgba(220,38,38,0.1)",
   },
@@ -1112,7 +1112,7 @@ const BRAND_STEPS = [
 ];
 
 const CUSTOMER_STEPS = [
-  { num: "1", title: "Download", desc: "Access LoyaWin for free — no credit card, no commitment." },
+  { num: "1", title: "Download", desc: "Access LoyaWin for free - no credit card, no commitment." },
   { num: "2", title: "Scan QR", desc: "Show your personal QR code at checkout. The cashier taps to stamp." },
   { num: "3", title: "Redeem", desc: "Earn points with every visit and claim vouchers from partner brands." },
 ];
@@ -1256,7 +1256,7 @@ function PricingSection() {
     "Automatic birthday rewards",
     "GPS-powered nearby deals",
     "No third-party ads",
-    "No hidden fees — ever",
+    "No hidden fees - ever",
   ];
   return (
     <section
@@ -1494,7 +1494,7 @@ function AppDownloadSection() {
                 style={{ background: "rgba(255,255,255,0.15)" }}
               />
               <p className="text-sm text-white/50">
-                Or scan the QR code to open the web app instantly — no download required.
+                Or scan the QR code to open the web app instantly - no download required.
               </p>
             </div>
           </div>

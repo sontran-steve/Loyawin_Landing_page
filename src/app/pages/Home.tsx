@@ -424,7 +424,7 @@ const WHY_TABS = {
     { icon: Monitor, title: "No POS Integration Needed", sub: "Works on any browser-enabled device at the counter. Go live in under a minute with zero hardware.", color: "var(--loyawin-primary)", bg: "var(--loyawin-primary-xlight)" },
     { icon: Banknote, title: "€5 Flat-Rate, No Surprises", sub: "One price covers unlimited locations, staff, and customers. No transaction fees, no tier upgrades.", color: "#059669", bg: "rgba(5,150,105,0.1)" },
     { icon: ShieldCheck, title: "Fraud-Proof Ledger", sub: "Every stamp is verified online and logged. No offline loopholes, no duplicate points, no abuse.", color: "#D97706", bg: "rgba(217,119,6,0.1)" },
-    { icon: Megaphone, title: "Self-Serve Marketing", sub: "Design vouchers, trigger birthday rewards, and run ad campaigns — all from your dashboard.", color: "#DC2626", bg: "rgba(220,38,38,0.1)" },
+    { icon: Megaphone, title: "Self-Serve Marketing", sub: "Design vouchers, trigger birthday rewards, and run ad campaigns - all from your dashboard.", color: "#DC2626", bg: "rgba(220,38,38,0.1)" },
   ],
   customer: [
     { icon: WalletCards, title: "All Cards, One App", sub: "Every loyalty stamp card in your pocket. Never lose a card or miss a stamp again.", color: "var(--loyawin-primary)", bg: "var(--loyawin-primary-xlight)" },
@@ -490,7 +490,7 @@ function WhyLoyaWinSection() {
                 </div>
                 <div>
                   <h3 className="text-base font-bold mb-1" style={{ color: "var(--loyawin-neutral-900)", fontFamily: "var(--font-head)" }}>{f.title}</h3>
-                  <p className="text-sm leading-[1.6]" style={{ color: "var(--loyawin-neutral-500)" }}>{f.sub}</p>
+                  <p className="text-base leading-[1.6]" style={{ color: "var(--loyawin-neutral-500)" }}>{f.sub}</p>
                 </div>
               </div>
             );
@@ -510,7 +510,7 @@ const HOW_STEPS = [
   },
   {
     icon: QrCode, label: "Customer Scans", stepLabel: "STEP 02",
-    desc: "Shoppers show their personal QR at the counter. Staff scan it to stamp — the whole check-in takes 3 seconds.",
+    desc: "Shoppers show their personal QR at the counter. Staff scan it to stamp - the whole check-in takes 3 seconds.",
     color: "#059669", bg: "rgba(5,150,105,0.12)",
   },
   {
@@ -529,7 +529,7 @@ function HowItWorksSection() {
         <div className="text-center mb-14 transition-all duration-700" style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(24px)" }}>
           <SectionLabel>How It Works</SectionLabel>
           <h2 className="text-3xl sm:text-4xl font-extrabold" style={{ color: "var(--loyawin-neutral-900)", fontFamily: "var(--font-head)", letterSpacing: "-0.03em" }}>Three Steps. Infinite Visits.</h2>
-          <p className="mt-3 text-base max-w-sm mx-auto" style={{ color: "var(--loyawin-neutral-500)" }}>The complete loyalty loop — from sign-up to first redemption.</p>
+          <p className="mt-3 text-base max-w-sm mx-auto" style={{ color: "var(--loyawin-neutral-500)" }}>The complete loyalty loop - from sign-up to first redemption.</p>
         </div>
 
         {/* Icon row */}
@@ -578,7 +578,7 @@ function HowItWorksSection() {
             >
               <div className="text-[12px] font-extrabold tracking-[0.12em] uppercase mb-2" style={{ color: step.color }}>{step.stepLabel}</div>
               <h3 className="text-md font-extrabold mb-1.5" style={{ color: "var(--loyawin-neutral-900)", fontFamily: "var(--font-head)" }}>{step.label}</h3>
-              <p className="text-sm leading-[1.6] px-1" style={{ color: "var(--loyawin-neutral-500)" }}>{step.desc}</p>
+              <p className="text-base leading-[1.6] px-1" style={{ color: "var(--loyawin-neutral-500)" }}>{step.desc}</p>
             </div>
           ))}
         </div>

@@ -395,7 +395,7 @@ export function GastroHubPage() {
           <img
             src={image_functions1}
             alt="GastroHub Modules"
-            className="reveal mx-auto mt-8 w-full max-w-[800px] h-auto drop-shadow-[0_10px_30px_rgba(118,81,252,0.15)]"
+            className="reveal mx-auto mt-8 w-full max-w-[600px] h-auto drop-shadow-[0_10px_30px_rgba(118,81,252,0.15)]"
           />
         </div>
       </section>

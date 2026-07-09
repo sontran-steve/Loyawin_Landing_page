@@ -12,6 +12,21 @@ import {
 } from "lucide-react";
 import { Link } from "react-router";
 import image_productIllus from "@/imports/productIllus.png";
+import image_ruleExpiry from "@/imports/image-2.png";
+import image_ruleInventory from "@/imports/image-3.png";
+import image_ruleEarning from "@/imports/image-4.png";
+import image_ruleLocation from "@/imports/image-7.png";
+import image_flexible from "@/imports/flexible.png";
+import image_voucher from "@/imports/voucher.png";
+import image_earningmethod from "@/imports/earningmethod.png";
+import image_location from "@/imports/location.png";
+import image_securityIllus from "@/imports/SecurityIllus.png";
+
+
+
+
+
+
 
 // ─── Scroll-reveal hook ───────────────────────────────────────────────────────
 function useReveal() {
@@ -148,12 +163,11 @@ function PlatformSection() {
 }
 
 
-// ─── Section 3 — Self-Serve Ad Campaign Manager ───────────────────────────────
+// ─── Section 3 - Self-Serve Ad Campaign Manager ───────────────────────────────
 const AD_STEPS = [
-  { Icon: Megaphone, step: "01", title: "Upload Banner", desc: "Brands upload marketing creatives in standard aspect ratios directly from the dashboard." },
-  { Icon: Store, step: "02", title: "Choose Placement", desc: "Select from Top Banner, Hot Deals carousel, or Popular section inside the Customer App feed." },
-  { Icon: CreditCard, step: "03", title: "Pay via Paddle", desc: "Secure one-click checkout. Campaigns activate instantly once payment is confirmed." },
-  { Icon: BarChart2, step: "04", title: "Track Performance", desc: "Real-time impressions, click-through rate, and spend analytics - all visible on the dashboard." },
+  { step: "01", Icon: Megaphone, title: "Create Campaign", color: "var(--loyawin-primary)", bg: "var(--loyawin-primary-xlight)" },
+  { step: "02", Icon: Zap, title: "Launch Ad", color: "#059669", bg: "rgba(5,150,105,0.07)" },
+  { step: "03", Icon: BarChart2, title: "Track Performance", color: "#D97706", bg: "rgba(217,119,6,0.07)" },
 ];
 
 
@@ -168,7 +182,7 @@ function AdCampaignSection() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-          {/* Left Column — Title + Sub + 4 Blocks stacked vertically */}
+          {/* Left Column - Title + Sub + 3 Blocks stacked vertically */}
           <div
             className="flex flex-col gap-8 transition-all duration-700"
             style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(28px)" }}
@@ -180,48 +194,45 @@ function AdCampaignSection() {
                 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-5"
                 style={{ color: "var(--loyawin-neutral-900)", fontFamily: "var(--font-head)", letterSpacing: "-0.025em" }}
               >
-                Self-Serve Ad Manager
+                Self-Serve Ads
               </h2>
               <p className="text-base sm:text-lg leading-relaxed" style={{ color: "var(--loyawin-neutral-500)" }}>
-                Publish ads directly to the Customer App in real time — no agencies, no waiting.
+                Promote your business directly to customers in real time.
               </p>
             </div>
 
-            {/* 4 Blocks in 2x2 grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {AD_STEPS.map(({ Icon, step, title, desc }) => (
+            {/* 3 Blocks stacked horizontally as compact premium cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {AD_STEPS.map(({ step, Icon, title, color, bg }) => (
                 <div
                   key={step}
-                  className="rounded-2xl p-5 border group transition-all duration-200 hover:shadow-lg hover:translate-y-[-2px]"
+                  className="rounded-3xl p-4 border group transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px] flex flex-col justify-between overflow-hidden"
                   style={{
                     background: "white",
-                    borderColor: "rgba(87,74,219,0.1)",
-                    boxShadow: "0 2px 12px rgba(87,74,219,0.06)",
+                    borderColor: "rgba(87,74,219,0.06)",
+                    boxShadow: "0 8px 24px rgba(87,74,219,0.04)",
                   }}
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <div
-                      className="w-9 h-9 rounded-lg flex items-center justify-center"
-                      style={{ background: "var(--loyawin-primary-xlight)" }}
-                    >
-                      <Icon className="w-4.5 h-4.5" style={{ color: "var(--loyawin-primary)" }} />
-                    </div>
-                    <span className="text-[11px] font-bold tracking-widest" style={{ color: "var(--loyawin-neutral-300)" }}>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-bold tracking-widest text-slate-300">
                       {step}
                     </span>
+                    <div
+                      className="w-9 h-9 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
+                      style={{ background: bg }}
+                    >
+                      <Icon className="w-4.5 h-4.5" style={{ color }} />
+                    </div>
                   </div>
-                  <h4 className="font-bold text-m mb-1.5" style={{ color: "var(--loyawin-neutral-900)", fontFamily: "var(--font-head)" }}>
+                  <h4 className="font-extrabold text-[12px] sm:text-[13px] lg:text-sm whitespace-nowrap overflow-hidden text-ellipsis" style={{ color: "var(--loyawin-neutral-900)", fontFamily: "var(--font-head)" }}>
                     {title}
                   </h4>
-                  <p className="text-sm leading-relaxed" style={{ color: "var(--loyawin-neutral-500)" }}>
-                    {desc}
-                  </p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Right Column — Illustration */}
+          {/* Right Column - Illustration */}
           <div
             className="flex items-center justify-center transition-all duration-700 delay-300 h-full w-full"
             style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(32px)" }}
@@ -241,10 +252,10 @@ function AdCampaignSection() {
 
 // ─── Section 4 - Earning & Voucher Rules ──────────────────────────────────────
 const RULES = [
-  { Icon: Clock, title: "Flexible Expiry Policy", color: "var(--loyawin-primary)", bg: "var(--loyawin-primary-xlight)" },
-  { Icon: Tag, title: "Voucher Inventory Control", color: "#059669", bg: "rgba(5,150,105,0.07)" },
-  { Icon: Users, title: "Flexible Earning Methods", color: "#D97706", bg: "rgba(217,119,6,0.07)" },
-  { Icon: MapPin, title: "Location-Targeted Campaigns", color: "#DC2626", bg: "rgba(220,38,38,0.07)" },
+  { Icon: Clock, title: "Flexible Expiry Policy", color: "var(--loyawin-primary)", bg: "var(--loyawin-primary-xlight)", image: image_flexible },
+  { Icon: Tag, title: "Voucher Inventory Control", color: "#059669", bg: "rgba(5,150,105,0.07)", image: image_voucher },
+  { Icon: Users, title: "Flexible Earning Methods", color: "#D97706", bg: "rgba(217,119,6,0.07)", image: image_earningmethod },
+  { Icon: MapPin, title: "Location-Targeted Campaigns", color: "#DC2626", bg: "rgba(220,38,38,0.07)", image: image_location },
 ];
 
 function EarningRulesSection() {
@@ -261,25 +272,47 @@ function EarningRulesSection() {
             Your loyalty programme is as unique as your brand. Granular controls let you design a programme that fits your business model exactly - not the other way around.
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {RULES.map(({ Icon, title, color, bg }, i) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {RULES.map(({ Icon, title, color, bg, image }, i) => (
             <div
               key={i}
-              className="rounded-2xl p-5 border transition-all duration-300 hover:shadow-md"
+              className="rounded-3xl p-6 border group transition-all duration-300 hover:shadow-lg hover:translate-y-[-4px] flex flex-col justify-between w-full"
               style={{
                 background: "white",
-                borderColor: "rgba(87,74,219,0.08)",
-                boxShadow: "0 2px 12px rgba(87,74,219,0.04)",
+                borderColor: "rgba(87,74,219,0.06)",
+                boxShadow: "0 10px 30px rgba(87,74,219,0.04)",
                 opacity: visible ? 1 : 0,
                 transform: visible ? "translateY(0)" : "translateY(28px)",
-                transition: `opacity 0.6s ease ${i * 0.1}s, transform 0.6s ease ${i * 0.1}s, box-shadow 0.2s`,
+                transition: `opacity 0.6s ease ${i * 0.12}s, transform 0.6s ease ${i * 0.12}s, box-shadow 0.3s, transform 0.3s`,
               }}
             >
+              {/* Illustration Area without gray container - matches style exactly */}
+              <div className="w-full h-56 sm:h-64 flex items-center justify-center mb-5 overflow-hidden relative">
+                {image ? (
+                  <img
+                    src={image}
+                    alt={title}
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03] drop-shadow-[0_10px_24px_rgba(118,81,252,0.05)]"
+                  />
+                ) : (
+                  <>
+                    <div className="absolute inset-0 bg-gradient-to-tr from-indigo-50/30 to-purple-50/30 opacity-70" />
+                    <Icon className="w-16 h-16 opacity-[0.15] transition-transform duration-500 group-hover:scale-110" style={{ color }} />
+                    <span className="absolute bottom-3 text-[11px] font-bold tracking-widest uppercase opacity-30" style={{ color }}>
+                      Placeholder
+                    </span>
+                  </>
+                )}
+              </div>
+
+              {/* Card Footer Info */}
               <div className="flex items-center gap-4">
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: bg }}>
                   <Icon className="w-5 h-5" style={{ color }} />
                 </div>
-                <h3 className="font-bold text-base text-gray-900" style={{ fontFamily: "var(--font-head)" }}>{title}</h3>
+                <h3 className="font-extrabold text-base text-slate-900" style={{ fontFamily: "var(--font-head)" }}>
+                  {title}
+                </h3>
               </div>
             </div>
           ))}
@@ -303,42 +336,66 @@ function SecuritySection() {
     <section ref={ref} className="py-20 sm:py-28 relative overflow-hidden" style={{ background: "#0F0E24" }}>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] pointer-events-none" style={{ background: "radial-gradient(ellipse at center, rgba(87,74,219,0.1) 0%, transparent 65%)", filter: "blur(48px)" }} />
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 relative z-10">
-        <div className="text-center mb-14 transition-all duration-700" style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(24px)" }}>
-          <SectionLabel light>Security &amp; Trust</SectionLabel>
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4" style={{ fontFamily: "var(--font-head)", letterSpacing: "-0.025em" }}>
-            Enterprise Security
-          </h2>
-          <p className="text-base sm:text-lg max-w-xl mx-auto leading-relaxed" style={{ color: "rgba(148,163,184,0.9)" }}>
-            Built with security at the core, protecting your business and customers.
-          </p>
-        </div>
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {SECURITY_ITEMS.map(({ Icon, title, accent }, i) => (
-            <div
-              key={i}
-              className="rounded-2xl p-6 border transition-all duration-300"
-              style={{
-                background: "rgba(255,255,255,0.04)",
-                borderColor: "rgba(255,255,255,0.08)",
-                opacity: visible ? 1 : 0,
-                transform: visible ? "translateY(0)" : "translateY(28px)",
-                transition: `opacity 0.6s ease ${i * 0.1}s, transform 0.6s ease ${i * 0.1}s, border-color 0.2s, box-shadow 0.2s`,
-              }}
-            >
-              <div className="flex items-center gap-4">
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(255,255,255,0.08)" }}>
-                  <Icon className="w-5 h-5" style={{ color: accent }} />
-                </div>
-                <h3 className="font-bold text-base text-white" style={{ fontFamily: "var(--font-head)" }}>{title}</h3>
-              </div>
+          {/* Left Column - Title + Sub + Cards Grid */}
+          <div
+            className="flex flex-col gap-8 transition-all duration-700"
+            style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(28px)" }}
+          >
+            <div>
+              <SectionLabel light>Security &amp; Trust</SectionLabel>
+              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-5" style={{ fontFamily: "var(--font-head)", letterSpacing: "-0.025em" }}>
+                Enterprise Security
+              </h2>
+              <p className="text-base sm:text-lg leading-relaxed" style={{ color: "rgba(148,163,184,0.9)" }}>
+                Built with security at the core, protecting your business and customers.
+              </p>
             </div>
-          ))}
+
+            {/* 4 Cards in 2x2 Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {SECURITY_ITEMS.map(({ Icon, title, accent }, i) => (
+                <div
+                  key={i}
+                  className="rounded-2xl p-5 border transition-all duration-300 hover:bg-white/[0.06]"
+                  style={{
+                    background: "rgba(255,255,255,0.03)",
+                    borderColor: "rgba(255,255,255,0.06)",
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
+                  }}
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(255,255,255,0.08)" }}>
+                      <Icon className="w-5 h-5" style={{ color: accent }} />
+                    </div>
+                    <h3 className="font-extrabold text-sm sm:text-base text-white leading-snug" style={{ fontFamily: "var(--font-head)" }}>{title}</h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Column - Security Illustration */}
+          <div
+            className="flex items-center justify-center transition-all duration-700 delay-300 w-full"
+            style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(32px)" }}
+          >
+            <div className="w-full aspect-[4/3] rounded-3xl flex items-center justify-center overflow-hidden relative">
+              <img
+                src={image_securityIllus}
+                alt="Enterprise Security Illustration"
+                className="w-full h-full object-contain drop-shadow-[0_12px_36px_rgba(118,81,252,0.1)]"
+              />
+            </div>
+          </div>
+
         </div>
 
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-6 transition-all duration-700 delay-300" style={{ opacity: visible ? 1 : 0 }}>
+        {/* Centered badges at the bottom of the section */}
+        <div className="mt-16 flex flex-wrap items-center justify-center gap-6 sm:gap-8 transition-all duration-700 delay-300" style={{ opacity: visible ? 1 : 0 }}>
           {["Stripe-certified billing", "Row-level DB isolation", "Append-only audit logs", "Server-side TX validation"].map((badge) => (
-            <div key={badge} className="flex items-center gap-2 text-xs font-semibold" style={{ color: "rgba(148,163,184,0.7)" }}>
+            <div key={badge} className="flex items-center gap-2 text-xs sm:text-sm font-semibold" style={{ color: "rgba(148,163,184,0.7)" }}>
               <div className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(87,74,219,0.7)" }} />
               {badge}
             </div>
