@@ -222,9 +222,9 @@ function AdCampaignSection() {
                       <Icon className="w-4.5 h-4.5" style={{ color }} />
                     </div>
                   </div>
-                  <h4 className="font-medium text-[12px] sm:text-[13px] lg:text-sm whitespace-nowrap overflow-hidden text-ellipsis" style={{ color: "var(--loyawin-neutral-900)", fontFamily: "var(--font-body)" }}>
+                  <h3 className="font-semibold text-sm whitespace-nowrap overflow-hidden text-ellipsis" style={{ color: "var(--loyawin-neutral-900)", fontFamily: "var(--font-body)" }}>
                     {title}
-                  </h4>
+                  </h3>
                 </div>
               ))}
             </div>
@@ -259,7 +259,7 @@ const RULES = [
 function EarningRulesSection() {
   const { ref, visible } = useReveal();
   return (
-    <section ref={ref} className="py-20 sm:py-28 relative" style={{ background: "linear-gradient(180deg, #F8F9FF 0%, white 100%)" }}>
+    <section ref={ref} className="py-20 sm:py-28 relative">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
 
         {/* Section Header */}
@@ -326,18 +326,18 @@ function EarningRulesSection() {
 }
 
 // ─── Section 5 - Security & Trust ────────────────────────────────────────────
+// ─── Section 5 - Security & Trust ────────────────────────────────────────────
 const SECURITY_ITEMS = [
-  { Icon: Lock, title: "Isolated Database Security", accent: "var(--loyawin-primary)" },
-  { Icon: CreditCard, title: "Secure Payments", accent: "#059669" },
-  { Icon: ShieldOff, title: "Fraud-Proof Transaction Layer", accent: "#D97706" },
-  { Icon: BarChart2, title: "Immutable Audit Ledger", accent: "#DC2626" },
+  { Icon: Lock, title: "Isolated Database Security", accent: "var(--loyawin-primary)", bg: "var(--loyawin-primary-xlight)" },
+  { Icon: CreditCard, title: "Secure Payments", accent: "#059669", bg: "rgba(5,150,105,0.07)" },
+  { Icon: ShieldOff, title: "Fraud-Proof Transaction Layer", accent: "#D97706", bg: "rgba(217,119,6,0.07)" },
+  { Icon: BarChart2, title: "Immutable Audit Ledger", accent: "#DC2626", bg: "rgba(220,38,38,0.07)" },
 ];
 
 function SecuritySection() {
   const { ref, visible } = useReveal();
   return (
-    <section ref={ref} className="py-20 sm:py-28 relative overflow-hidden" style={{ background: "#0F0E24" }}>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] pointer-events-none" style={{ background: "radial-gradient(ellipse at center, rgba(87,74,219,0.1) 0%, transparent 65%)", filter: "blur(48px)" }} />
+    <section ref={ref} className="py-20 sm:py-28 relative overflow-hidden" style={{ background: "white" }}>
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
@@ -347,32 +347,32 @@ function SecuritySection() {
             style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(28px)" }}
           >
             <div>
-              <SectionLabel light>Security &amp; Trust</SectionLabel>
-              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-5" style={{ fontFamily: "var(--font-head)", letterSpacing: "-0.025em" }}>
+              <SectionLabel>Security &amp; Trust</SectionLabel>
+              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-5" style={{ color: "var(--loyawin-neutral-900)", fontFamily: "var(--font-head)", letterSpacing: "-0.025em" }}>
                 Enterprise Security
               </h2>
-              <p className="text-base sm:text-lg leading-relaxed" style={{ color: "rgba(148,163,184,0.9)" }}>
+              <p className="text-base sm:text-lg leading-relaxed" style={{ color: "var(--loyawin-neutral-500)" }}>
                 Built with security at the core, protecting your business and customers.
               </p>
             </div>
 
             {/* 4 Cards in 2x2 Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {SECURITY_ITEMS.map(({ Icon, title, accent }, i) => (
+              {SECURITY_ITEMS.map(({ Icon, title, accent, bg }, i) => (
                 <div
                   key={i}
-                  className="rounded-2xl p-5 border transition-all duration-300 hover:bg-white/[0.06]"
+                  className="rounded-2xl p-5 border group transition-all duration-300 hover:shadow-md hover:translate-y-[-2px]"
                   style={{
-                    background: "rgba(255,255,255,0.03)",
-                    borderColor: "rgba(255,255,255,0.06)",
-                    boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
+                    background: "white",
+                    borderColor: "rgba(87,74,219,0.08)",
+                    boxShadow: "0 4px 20px rgba(87,74,219,0.04)",
                   }}
                 >
                   <div className="flex items-center gap-4">
-                    <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(255,255,255,0.08)" }}>
+                    <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: bg }}>
                       <Icon className="w-5 h-5" style={{ color: accent }} />
                     </div>
-                    <h3 className="font-extrabold text-sm sm:text-base text-white leading-snug" style={{ fontFamily: "var(--font-head)" }}>{title}</h3>
+                    <h3 className="font-medium text-sm sm:text-base text-slate-900 leading-snug" style={{ fontFamily: "var(--font-head)" }}>{title}</h3>
                   </div>
                 </div>
               ))}
@@ -388,7 +388,7 @@ function SecuritySection() {
               <img
                 src={image_securityIllus}
                 alt="Enterprise Security Illustration"
-                className="w-full h-full object-contain drop-shadow-[0_12px_36px_rgba(118,81,252,0.1)]"
+                className="w-full h-full object-contain drop-shadow-[0_12px_36px_rgba(118,81,252,0.08)]"
               />
             </div>
           </div>
@@ -398,8 +398,8 @@ function SecuritySection() {
         {/* Centered badges at the bottom of the section */}
         <div className="mt-16 flex flex-wrap items-center justify-center gap-6 sm:gap-8 transition-all duration-700 delay-300" style={{ opacity: visible ? 1 : 0 }}>
           {["Stripe-certified billing", "Row-level DB isolation", "Append-only audit logs", "Server-side TX validation"].map((badge) => (
-            <div key={badge} className="flex items-center gap-2 text-xs sm:text-sm font-semibold" style={{ color: "rgba(148,163,184,0.7)" }}>
-              <div className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(87,74,219,0.7)" }} />
+            <div key={badge} className="flex items-center gap-2 text-xs sm:text-sm font-semibold" style={{ color: "var(--loyawin-neutral-500)" }}>
+              <div className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--loyawin-primary)" }} />
               {badge}
             </div>
           ))}
