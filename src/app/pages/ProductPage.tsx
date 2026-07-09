@@ -8,7 +8,7 @@ import {
   Check, Zap, Smartphone, LayoutDashboard,
   ShieldOff, Megaphone, ShieldCheck, Zap as ZapIcon,
   TrendingUp, Clock, Store, Lock, CreditCard,
-  ChevronRight, BarChart2, Tag, MapPin, Users, ArrowRight,
+  ChevronRight, BarChart2, Tag, MapPin, Users, ArrowRight, Sliders,
 } from "lucide-react";
 import { Link } from "react-router";
 import image_productIllus from "@/imports/productIllus.png";
@@ -21,6 +21,7 @@ import image_voucher from "@/imports/voucher.png";
 import image_earningmethod from "@/imports/earningmethod.png";
 import image_location from "@/imports/location.png";
 import image_securityIllus from "@/imports/SecurityIllus.png";
+import image_customRules from "@/imports/CustomRules.png";
 
 
 
@@ -213,10 +214,7 @@ function AdCampaignSection() {
                     boxShadow: "0 8px 24px rgba(87,74,219,0.04)",
                   }}
                 >
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-bold tracking-widest text-slate-300">
-                      {step}
-                    </span>
+                  <div className="mb-4">
                     <div
                       className="w-9 h-9 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
                       style={{ background: bg }}
@@ -224,7 +222,7 @@ function AdCampaignSection() {
                       <Icon className="w-4.5 h-4.5" style={{ color }} />
                     </div>
                   </div>
-                  <h4 className="font-extrabold text-[12px] sm:text-[13px] lg:text-sm whitespace-nowrap overflow-hidden text-ellipsis" style={{ color: "var(--loyawin-neutral-900)", fontFamily: "var(--font-head)" }}>
+                  <h4 className="font-medium text-[12px] sm:text-[13px] lg:text-sm whitespace-nowrap overflow-hidden text-ellipsis" style={{ color: "var(--loyawin-neutral-900)", fontFamily: "var(--font-body)" }}>
                     {title}
                   </h4>
                 </div>
@@ -252,10 +250,10 @@ function AdCampaignSection() {
 
 // ─── Section 4 - Earning & Voucher Rules ──────────────────────────────────────
 const RULES = [
-  { Icon: Clock, title: "Flexible Expiry Policy", color: "var(--loyawin-primary)", bg: "var(--loyawin-primary-xlight)", image: image_flexible },
-  { Icon: Tag, title: "Voucher Inventory Control", color: "#059669", bg: "rgba(5,150,105,0.07)", image: image_voucher },
-  { Icon: Users, title: "Flexible Earning Methods", color: "#D97706", bg: "rgba(217,119,6,0.07)", image: image_earningmethod },
-  { Icon: MapPin, title: "Location-Targeted Campaigns", color: "#DC2626", bg: "rgba(220,38,38,0.07)", image: image_location },
+  { Icon: Clock, title: "Flexible Expiry Policy", color: "var(--loyawin-primary)", bg: "var(--loyawin-primary-xlight)" },
+  { Icon: Tag, title: "Voucher Inventory Control", color: "#059669", bg: "rgba(5,150,105,0.07)" },
+  { Icon: Users, title: "Flexible Earning Methods", color: "#D97706", bg: "rgba(217,119,6,0.07)" },
+  { Icon: MapPin, title: "Location-Targeted Campaigns", color: "#DC2626", bg: "rgba(220,38,38,0.07)" },
 ];
 
 function EarningRulesSection() {
@@ -263,6 +261,8 @@ function EarningRulesSection() {
   return (
     <section ref={ref} className="py-20 sm:py-28 relative" style={{ background: "linear-gradient(180deg, #F8F9FF 0%, white 100%)" }}>
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
+
+        {/* Section Header */}
         <div className="max-w-2xl mb-14 transition-all duration-700" style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(24px)" }}>
           <SectionLabel>Custom Rules</SectionLabel>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4" style={{ color: "var(--loyawin-neutral-900)", fontFamily: "var(--font-head)", letterSpacing: "-0.025em" }}>
@@ -272,50 +272,53 @@ function EarningRulesSection() {
             Your loyalty programme is as unique as your brand. Granular controls let you design a programme that fits your business model exactly - not the other way around.
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {RULES.map(({ Icon, title, color, bg, image }, i) => (
-            <div
-              key={i}
-              className="rounded-3xl p-6 border group transition-all duration-300 hover:shadow-lg hover:translate-y-[-4px] flex flex-col justify-between w-full"
-              style={{
-                background: "white",
-                borderColor: "rgba(87,74,219,0.06)",
-                boxShadow: "0 10px 30px rgba(87,74,219,0.04)",
-                opacity: visible ? 1 : 0,
-                transform: visible ? "translateY(0)" : "translateY(28px)",
-                transition: `opacity 0.6s ease ${i * 0.12}s, transform 0.6s ease ${i * 0.12}s, box-shadow 0.3s, transform 0.3s`,
-              }}
-            >
-              {/* Illustration Area without gray container - matches style exactly */}
-              <div className="w-full h-56 sm:h-64 flex items-center justify-center mb-5 overflow-hidden relative">
-                {image ? (
-                  <img
-                    src={image}
-                    alt={title}
-                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03] drop-shadow-[0_10px_24px_rgba(118,81,252,0.05)]"
-                  />
-                ) : (
-                  <>
-                    <div className="absolute inset-0 bg-gradient-to-tr from-indigo-50/30 to-purple-50/30 opacity-70" />
-                    <Icon className="w-16 h-16 opacity-[0.15] transition-transform duration-500 group-hover:scale-110" style={{ color }} />
-                    <span className="absolute bottom-3 text-[11px] font-bold tracking-widest uppercase opacity-30" style={{ color }}>
-                      Placeholder
-                    </span>
-                  </>
-                )}
-              </div>
 
-              {/* Card Footer Info */}
-              <div className="flex items-center gap-4">
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: bg }}>
-                  <Icon className="w-5 h-5" style={{ color }} />
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+          {/* Left Column - Cards Grid */}
+          <div
+            className="transition-all duration-700 delay-100 w-full max-w-[480px] mx-auto"
+            style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(28px)" }}
+          >
+            {/* 4 Cards in 2x2 Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {RULES.map(({ Icon, title, color, bg }, i) => (
+                <div
+                  key={i}
+                  className="rounded-2xl p-5 border group transition-all duration-300 hover:shadow-md hover:translate-y-[-2px] flex flex-col justify-between min-h-[128px]"
+                  style={{
+                    background: "white",
+                    borderColor: "rgba(87,74,219,0.08)",
+                    boxShadow: "0 4px 20px rgba(87,74,219,0.04)",
+                  }}
+                >
+                  <div className="mb-3">
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: bg }}>
+                      <Icon className="w-5 h-5" style={{ color }} />
+                    </div>
+                  </div>
+                  <h3 className="font-medium text-sm sm:text-base text-slate-900 leading-snug" style={{ fontFamily: "var(--font-body)" }}>
+                    {title}
+                  </h3>
                 </div>
-                <h3 className="font-extrabold text-base text-slate-900" style={{ fontFamily: "var(--font-head)" }}>
-                  {title}
-                </h3>
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Right Column - Illustration Placeholder (to be supplied later) */}
+          <div
+            className="flex items-center justify-center transition-all duration-700 delay-200 w-full"
+            style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(32px)" }}
+          >
+            <div className="w-full aspect-[4/3] rounded-3xl flex items-center justify-center overflow-hidden relative">
+              <img
+                src={image_customRules}
+                alt="Custom Earning Rules Illustration"
+                className="w-full h-full object-contain drop-shadow-[0_12px_36px_rgba(118,81,252,0.08)]"
+              />
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

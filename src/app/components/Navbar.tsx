@@ -251,7 +251,7 @@ export function Navbar() {
             {/* Desktop Buttons Group */}
             <div className="hidden lg:flex items-center gap-4">
               <button
-                onClick={() => window.alert("Login functionality to be implemented")}
+                onClick={() => window.alert("Customer portal to be implemented")}
                 className="bg-transparent border cursor-pointer px-4 xl:px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 hover:bg-[var(--loyawin-primary-xlight)] whitespace-nowrap"
                 style={{
                   borderColor: "var(--loyawin-primary)",
@@ -260,7 +260,7 @@ export function Navbar() {
                   fontFamily: "var(--font-body)",
                 }}
               >
-                {t.nav.login}
+                {t.nav.startTrial}
               </button>
               <button
                 onClick={() => navigate("/contact")}
@@ -271,7 +271,7 @@ export function Navbar() {
                   fontFamily: "var(--font-body)",
                 }}
               >
-                {t.nav.startTrial}
+                {t.nav.login}
               </button>
             </div>
 
@@ -300,16 +300,16 @@ export function Navbar() {
                 {navLinks.map((link) => (
                   <li key={link.path}>
                     <Link
-                      to={link.path}
-                      className="w-full text-left px-5 py-3 text-sm font-medium transition-colors no-underline block"
-                      style={{
-                        color: isActive(link.path)
-                          ? "var(--loyawin-primary)"
-                          : "var(--loyawin-neutral-700)",
-                        background: isActive(link.path)
-                          ? "var(--loyawin-primary-xlight)"
-                          : "transparent",
-                      }}
+                       to={link.path}
+                       className="w-full text-left px-5 py-3 text-sm font-medium transition-colors no-underline block"
+                       style={{
+                         color: isActive(link.path)
+                           ? "var(--loyawin-primary)"
+                           : "var(--loyawin-neutral-700)",
+                         background: isActive(link.path)
+                           ? "var(--loyawin-primary-xlight)"
+                           : "transparent",
+                       }}
                     >
                       {link.label}
                     </Link>
@@ -326,7 +326,7 @@ export function Navbar() {
                     fontFamily: "var(--font-body)",
                   }}
                 >
-                  {t.nav.startTrial}
+                  {t.nav.login}
                 </button>
               </div>
             </div>

@@ -369,7 +369,7 @@ function ComparisonSection() {
                   className="block w-full text-center text-sm font-bold py-3.5 rounded-xl no-underline text-white transition-all hover:scale-[1.02] hover:shadow-lg whitespace-nowrap"
                   style={{ background: "linear-gradient(135deg, var(--loyawin-primary) 0%, var(--loyawin-primary-light) 100%)", boxShadow: "0 6px 24px var(--loyawin-primary-glow)" }}
                 >
-                  Start for €5/mo →
+                  Start Your Trial →
                 </a>
               </div>
             </div>
@@ -600,28 +600,9 @@ function PricingSection() {
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight" style={{ color: "var(--loyawin-neutral-900)", fontFamily: "var(--font-head)" }}>Transparent Pricing. Zero Surprises.</h2>
           <p className="mt-3 text-base max-w-md mx-auto" style={{ color: "var(--loyawin-neutral-500)" }}>One flat-rate for merchants. Forever free for customers.</p>
         </div>
-        <div className="grid lg:grid-cols-2 gap-6 max-w-[860px] mx-auto items-stretch">
-          {/* Merchant */}
-          <div className="rounded-2xl overflow-hidden border flex flex-col" style={{ borderColor: "rgba(87,74,219,0.2)", boxShadow: "0 16px 60px rgba(87,74,219,0.14)", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(28px)", transition: "opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s" }}>
-            <div className="px-6 pt-8 pb-6" style={{ background: "linear-gradient(160deg, var(--loyawin-bg3) 0%, white 100%)" }}>
-              <div className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "var(--loyawin-primary)" }}>Merchant Plan</div>
-              <div className="flex items-end gap-1 mb-1">
-                <span className="text-5xl font-extrabold" style={{ color: "var(--loyawin-neutral-900)", fontFamily: "var(--font-head)" }}>€5</span>
-                <span className="text-lg font-medium mb-2" style={{ color: "var(--loyawin-neutral-500)" }}>/ month</span>
-              </div>
-              <p className="text-sm" style={{ color: "var(--loyawin-neutral-500)" }}>Flat-rate. No transaction fees. No tier upgrades.</p>
-            </div>
-            <div className="px-6 pb-6 flex flex-col flex-1" style={{ background: "white" }}>
-              <ul className="space-y-2.5 mt-5 flex-1">
-                {MERCHANT_FEATURES.map((f) => (<li key={f} className="flex items-center gap-2.5 text-sm" style={{ color: "var(--loyawin-neutral-700)" }}><Check className="w-4 h-4 flex-shrink-0" style={{ color: "var(--loyawin-primary)" }} />{f}</li>))}
-              </ul>
-              <a href="https://brand.loyawin.com/register" target="_blank" rel="noopener noreferrer" className="block w-full text-center text-white font-semibold py-3.5 rounded-full no-underline transition-all hover:translate-y-[-1px] whitespace-nowrap mt-6" style={{ background: "linear-gradient(135deg, var(--loyawin-primary), var(--loyawin-primary-light))", boxShadow: "0 6px 20px var(--loyawin-primary-glow)", fontFamily: "var(--font-body)" }}>
-                Start Your Trial
-              </a>
-            </div>
-          </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-[860px] mx-auto items-stretch">
           {/* Customer */}
-          <div className="rounded-2xl overflow-hidden border flex flex-col" style={{ borderColor: "rgba(87,74,219,0.1)", boxShadow: "0 4px 24px rgba(87,74,219,0.06)", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(28px)", transition: "opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s" }}>
+          <div className="rounded-2xl overflow-hidden border flex flex-col" style={{ borderColor: "rgba(87,74,219,0.1)", boxShadow: "0 4px 24px rgba(87,74,219,0.06)", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(28px)", transition: "opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s" }}>
             <div className="px-6 pt-8 pb-6" style={{ background: "linear-gradient(160deg, #f0fdf4 0%, white 100%)" }}>
               <div className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#059669" }}>Customer Plan</div>
               <div className="flex items-end gap-1 mb-1">
@@ -636,6 +617,25 @@ function PricingSection() {
               </ul>
               <a href="https://app.loyawin.com" target="_blank" rel="noopener noreferrer" className="block w-full text-center font-semibold py-3.5 rounded-full no-underline transition-all hover:translate-y-[-1px] whitespace-nowrap mt-6" style={{ border: "1.5px solid #059669", color: "#059669", fontFamily: "var(--font-body)", background: "white" }}>
                 Download Free App
+              </a>
+            </div>
+          </div>
+          {/* Merchant */}
+          <div className="rounded-2xl overflow-hidden border flex flex-col" style={{ borderColor: "rgba(87,74,219,0.2)", boxShadow: "0 16px 60px rgba(87,74,219,0.14)", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(28px)", transition: "opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s" }}>
+            <div className="px-6 pt-8 pb-6" style={{ background: "linear-gradient(160deg, var(--loyawin-bg3) 0%, white 100%)" }}>
+              <div className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "var(--loyawin-primary)" }}>Merchant Plan</div>
+              <div className="flex items-end gap-1 mb-1">
+                <span className="text-5xl font-extrabold" style={{ color: "var(--loyawin-neutral-900)", fontFamily: "var(--font-head)" }}>€5</span>
+                <span className="text-lg font-medium mb-2" style={{ color: "var(--loyawin-neutral-500)" }}>/ month</span>
+              </div>
+              <p className="text-sm" style={{ color: "var(--loyawin-neutral-500)" }}>Flat-rate. No transaction fees. No tier upgrades.</p>
+            </div>
+            <div className="px-6 pb-6 flex flex-col flex-1" style={{ background: "white" }}>
+              <ul className="space-y-2.5 mt-5 flex-1">
+                {MERCHANT_FEATURES.map((f) => (<li key={f} className="flex items-center gap-2.5 text-sm" style={{ color: "var(--loyawin-neutral-700)" }}><Check className="w-4 h-4 flex-shrink-0" style={{ color: "var(--loyawin-primary)" }} />{f}</li>))}
+              </ul>
+              <a href="https://brand.loyawin.com/register" target="_blank" rel="noopener noreferrer" className="block w-full text-center text-white font-semibold py-3.5 rounded-full no-underline transition-all hover:translate-y-[-1px] whitespace-nowrap mt-6" style={{ background: "linear-gradient(135deg, var(--loyawin-primary), var(--loyawin-primary-light))", boxShadow: "0 6px 20px var(--loyawin-primary-glow)", fontFamily: "var(--font-body)" }}>
+                Start Your Trial
               </a>
             </div>
           </div>
