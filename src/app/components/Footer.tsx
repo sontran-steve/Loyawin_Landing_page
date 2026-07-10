@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { Link } from 'react-router';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useTranslation } from '../translations';
 import type { Language } from '../contexts/LanguageContext';
@@ -143,26 +144,33 @@ export function Footer() {
             <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
               <ul className="list-none flex flex-col gap-2.5">
                 {[
-                  { name: 'Pricing', href: '/pricing.md' },
-                  { name: 'Privacy Policy', href: '/privacy-policy.md' },
-                  { name: 'Refund Policy', href: '/refund-policy.md' },
+                  { name: 'Pricing', href: '/pricing' },
+                  { name: 'Privacy Policy', href: '/privacy-policy' },
+                  { name: 'Refund Policy', href: '/refund-policy' },
                 ].map((item) => (
                   <li key={item.name}>
-                    <a href={item.href} className="text-sm text-white/45 no-underline transition-colors duration-200 hover:text-[var(--loyawin-primary-light)]">
+                    <Link to={item.href} className="text-sm text-white/45 no-underline transition-colors duration-200 hover:text-[var(--loyawin-primary-light)]">
                       {item.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
               <ul className="list-none flex flex-col gap-2.5">
                 {[
-                  { name: 'Terms of Service', href: '/terms-of-service.md' },
+                  { name: 'Terms of Service', href: '/terms-of-service' },
                   { name: 'Cookie Policy', href: '#' },
+                  { name: 'Legal Notice', href: '/legal-notice' },
                 ].map((item) => (
                   <li key={item.name}>
-                    <a href={item.href} className="text-sm text-white/45 no-underline transition-colors duration-200 hover:text-[var(--loyawin-primary-light)]">
-                      {item.name}
-                    </a>
+                    {item.href === '#' ? (
+                      <a href={item.href} className="text-sm text-white/45 no-underline transition-colors duration-200 hover:text-[var(--loyawin-primary-light)]">
+                        {item.name}
+                      </a>
+                    ) : (
+                      <Link to={item.href} className="text-sm text-white/45 no-underline transition-colors duration-200 hover:text-[var(--loyawin-primary-light)]">
+                        {item.name}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
