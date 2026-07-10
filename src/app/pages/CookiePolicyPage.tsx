@@ -6,7 +6,14 @@
 import { useState } from "react";
 import { Link } from "react-router";
 import { Globe, X, ChevronDown, ChevronUp, Check, ShieldCheck, AlertCircle, Info } from "lucide-react";
-import { LegalLayout, LegalParagraph } from "../components/LegalLayout";
+import {
+  LegalLayout,
+  LegalParagraph,
+  LegalHeading2,
+  LegalHeading3,
+  LegalList,
+  LegalListItem
+} from "../components/LegalLayout";
 
 interface ServiceItem {
   id: string;
