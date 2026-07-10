@@ -158,7 +158,7 @@ export function Footer() {
               <ul className="list-none flex flex-col gap-2.5">
                 {[
                   { name: 'Terms of Service', href: '/terms-of-service' },
-                  { name: 'Cookie Policy', href: '#' },
+                  { name: 'Cookie Policy', href: '/cookie-policy' },
                   { name: 'Legal Notice', href: '/legal-notice' },
                 ].map((item) => (
                   <li key={item.name}>

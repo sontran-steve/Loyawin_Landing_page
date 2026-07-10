@@ -11,6 +11,7 @@ import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage";
 import { RefundPolicyPage } from "./pages/RefundPolicyPage";
 import { TermsOfServicePage } from "./pages/TermsOfServicePage";
 import { LegalNoticePage } from "./pages/LegalNoticePage";
+import { CookiePolicyPage } from "./pages/CookiePolicyPage";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ export const router = createBrowserRouter([
       { path: "refund-policy", Component: RefundPolicyPage },
       { path: "terms-of-service", Component: TermsOfServicePage },
       { path: "legal-notice", Component: LegalNoticePage },
+      { path: "cookie-policy", Component: CookiePolicyPage },
       { path: "*", element: <Navigate to="/" replace /> },
     ],
   },
