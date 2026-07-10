@@ -305,16 +305,16 @@ function EarningRulesSection() {
             </div>
           </div>
 
-          {/* Right Column - Illustration Placeholder (to be supplied later) */}
+          {/* Right Column - Illustration */}
           <div
-            className="flex items-center justify-center transition-all duration-700 delay-200 w-full"
+            className="flex items-center justify-center transition-all duration-700 delay-200 w-full relative"
             style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(32px)" }}
           >
-            <div className="w-full aspect-[4/3] rounded-3xl flex items-center justify-center overflow-hidden relative">
+            <div className="w-full aspect-[4/3] rounded-3xl flex items-center justify-center overflow-visible relative">
               <img
                 src={image_customRules}
                 alt="Custom Earning Rules Illustration"
-                className="w-full h-full object-contain drop-shadow-[0_12px_36px_rgba(118,81,252,0.08)]"
+                className="w-full h-full object-contain drop-shadow-[0_12px_36px_rgba(118,81,252,0.08)] lg:absolute lg:w-[125%] lg:h-[125%] lg:max-w-none lg:-right-16 lg:top-1/2 lg:-translate-y-1/2 z-10"
               />
             </div>
           </div>

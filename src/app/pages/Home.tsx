@@ -591,7 +591,13 @@ function HowItWorksSection() {
 function PricingSection() {
   const { ref, visible } = useReveal();
   const MERCHANT_FEATURES = ["Unlimited store locations", "Unlimited staff accounts", "Unlimited customer members", "Ad campaign tool", "Real-time audit ledger", "Dashboard analytics"];
-  const CUSTOMER_FEATURES = ["All loyalty cards in one app", "Instant welcome coupon", "Automatic birthday rewards", "GPS-powered nearby deals", "No third-party ads", "No hidden fees - ever"];
+  const CUSTOMER_FEATURES = [
+    "All loyalty cards in one wallet",
+    "Instant scan-to-collect points",
+    "Easy gift redemptions",
+    "No third-party ads",
+    "Always 100% free for customers"
+  ];
   return (
     <section ref={ref} className="py-16 sm:py-24" style={{ background: "linear-gradient(180deg, var(--loyawin-bg2) 0%, white 100%)" }}>
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
@@ -616,7 +622,7 @@ function PricingSection() {
                 {CUSTOMER_FEATURES.map((f) => (<li key={f} className="flex items-center gap-2.5 text-sm" style={{ color: "var(--loyawin-neutral-700)" }}><Check className="w-4 h-4 flex-shrink-0" style={{ color: "#059669" }} />{f}</li>))}
               </ul>
               <a href="https://app.loyawin.com" target="_blank" rel="noopener noreferrer" className="block w-full text-center font-semibold py-3.5 rounded-full no-underline transition-all hover:translate-y-[-1px] whitespace-nowrap mt-6" style={{ border: "1.5px solid #059669", color: "#059669", fontFamily: "var(--font-body)", background: "white" }}>
-                Download Free App
+                Get Free Wallet
               </a>
             </div>
           </div>
