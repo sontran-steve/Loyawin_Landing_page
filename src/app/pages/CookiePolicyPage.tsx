@@ -5,14 +5,14 @@
  */
 import { useState } from "react";
 import { Link } from "react-router";
-import { Globe, X, ChevronDown, ChevronUp, Check, ShieldCheck, AlertCircle, Info } from "lucide-react";
+import { Globe, Check, ShieldCheck, ChevronDown, ChevronUp } from "lucide-react";
 import {
   LegalLayout,
   LegalParagraph,
   LegalHeading2,
   LegalHeading3,
   LegalList,
-  LegalListItem
+  LegalListItem,
 } from "../components/LegalLayout";
 
 interface ServiceItem {
@@ -108,7 +108,7 @@ export function CookiePolicyPage() {
   };
 
   const handleSave = () => {
-    showToast("Settings saved successfully! / Đã lưu cài đặt thành công!");
+    showToast("Settings saved successfully!");
   };
 
   const handleAcceptAll = () => {
@@ -118,7 +118,7 @@ export function CookiePolicyPage() {
       Marketing: true,
       "External Media": true
     });
-    showToast("All technologies accepted! / Đã đồng ý với toàn bộ điều khoản!");
+    showToast("All technologies accepted!");
   };
 
   return (
@@ -128,8 +128,16 @@ export function CookiePolicyPage() {
       effectiveDate="July 10, 2026"
     >
       <LegalParagraph>
-        LoyaWin commits to protecting your data and maintaining trust. Below you can read the details of the cookies, local storage keys, and third-party trackers we use. You can configure your preferences directly inside this dashboard.
+        This Cookie and Local Storage Policy (&quot;Policy&quot;) describes how LoyaWin (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) uses cookies, local storage, session storage, and similar web tracking technologies (collectively, &quot;Tracking Technologies&quot;) when you access or use our platforms, services, and websites. This includes:
       </LegalParagraph>
+
+      <LegalList>
+        <LegalListItem>The LoyaWin Admin Portal</LegalListItem>
+        <LegalListItem>The LoyaWin Brand Portal</LegalListItem>
+        <LegalListItem>The LoyaWin Staff Web App</LegalListItem>
+        <LegalListItem>The LoyaWin Customer Web App</LegalListItem>
+        <LegalListItem>Any related mobile applications, APIs, and subdomains.</LegalListItem>
+      </LegalList>
 
       {/* Interactive Privacy Panel */}
       <div className="border border-slate-200/80 rounded-2xl shadow-lg shadow-slate-100/50 bg-white overflow-hidden my-10 max-w-[900px] mx-auto relative">
@@ -139,7 +147,7 @@ export function CookiePolicyPage() {
             <div className="flex items-center gap-2 mb-1.5">
               <ShieldCheck className="w-5 h-5 text-[var(--loyawin-primary)]" />
               <h4 className="text-lg font-extrabold text-slate-900 m-0" style={{ fontFamily: "var(--font-head)" }}>
-                Privacy Settings (Cài đặt Quyền riêng tư)
+                Privacy Settings
               </h4>
             </div>
             <p className="text-xs text-slate-500 m-0">
@@ -186,7 +194,7 @@ export function CookiePolicyPage() {
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-base font-bold text-slate-800">Essential (Bắt buộc)</span>
+                      <span className="text-base font-bold text-slate-800">Essential</span>
                       <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-600 uppercase tracking-wider">Required</span>
                     </div>
                     <p className="text-sm text-slate-500 leading-relaxed mb-0">
@@ -215,11 +223,11 @@ export function CookiePolicyPage() {
 
                 {expandedCategories["Essential"] && (
                   <div className="mt-4 pt-4 border-t border-slate-100/80 text-xs text-slate-500 leading-relaxed space-y-2 bg-slate-50/50 p-4 rounded-lg">
-                    <p className="font-bold text-slate-700 mb-1">Dịch vụ thuộc danh mục này bao gồm:</p>
+                    <p className="font-bold text-slate-700 mb-1">Services in this category include:</p>
                     <ul className="list-disc pl-4 space-y-1">
-                      <li><strong>LoyaWin Core Auth:</strong> Mã hóa JWT bảo mật để duy trì phiên làm việc cho Staff và Merchant.</li>
-                      <li><strong>Paddle Billing:</strong> Lưu cookie bảo mật giao dịch, kiểm soát thanh toán và tính thuế VAT hợp lệ.</li>
-                      <li><strong>Cloudflare Turnstile:</strong> Hệ thống xác thực chống Spam/Bot độc hại trên toàn bộ các biểu mẫu.</li>
+                      <li><strong>LoyaWin Core Auth:</strong> Secure JWT encryption to maintain authentication states for Staff and Merchant.</li>
+                      <li><strong>Paddle Billing:</strong> Cookie protection for transaction flows, checkouts, and valid VAT calculations.</li>
+                      <li><strong>Cloudflare Turnstile:</strong> Bot detection and spam protection mechanisms across form submissions.</li>
                     </ul>
                   </div>
                 )}
@@ -230,7 +238,7 @@ export function CookiePolicyPage() {
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-base font-bold text-slate-800">Functional (Chức năng & Phân tích)</span>
+                      <span className="text-base font-bold text-slate-800">Functional &amp; Analytics</span>
                     </div>
                     <p className="text-sm text-slate-500 leading-relaxed mb-0">
                       These technologies enable us to analyze website usage to measure and optimize user interface performance.
@@ -258,10 +266,10 @@ export function CookiePolicyPage() {
 
                 {expandedCategories["Functional"] && (
                   <div className="mt-4 pt-4 border-t border-slate-100/80 text-xs text-slate-500 leading-relaxed space-y-2 bg-slate-50/50 p-4 rounded-lg">
-                    <p className="font-bold text-slate-700 mb-1">Dịch vụ thuộc danh mục này bao gồm:</p>
+                    <p className="font-bold text-slate-700 mb-1">Services in this category include:</p>
                     <ul className="list-disc pl-4 space-y-1">
-                      <li><strong>Google Analytics:</strong> Đo lường lưu lượng truy cập ẩn danh, phân tích thiết bị và luồng tương tác của người dùng để cải thiện kiến trúc.</li>
-                      <li><strong>UI Configuration Memory:</strong> Lưu cấu hình giao diện cục bộ (như ngôn ngữ ưa thích, sidebar đóng/mở).</li>
+                      <li><strong>Google Analytics:</strong> Collects anonymous usage trends, device analytics, and paths to optimize page speed and layout.</li>
+                      <li><strong>UI Configuration Memory:</strong> Stores local interface states (such as language configurations or sidebar states).</li>
                     </ul>
                   </div>
                 )}
@@ -272,7 +280,7 @@ export function CookiePolicyPage() {
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-base font-bold text-slate-800">Marketing (Quảng cáo)</span>
+                      <span className="text-base font-bold text-slate-800">Marketing</span>
                     </div>
                     <p className="text-sm text-slate-500 leading-relaxed mb-0">
                       These technologies are used by advertisers to serve ads that are relevant to your business interests.
@@ -300,7 +308,7 @@ export function CookiePolicyPage() {
 
                 {expandedCategories["Marketing"] && (
                   <div className="mt-4 pt-4 border-t border-slate-100/80 text-xs text-slate-500 leading-relaxed bg-slate-50/50 p-4 rounded-lg">
-                    Hiện tại LoyaWin <strong>không liên kết</strong> với bất kỳ mạng lưới phân phối quảng cáo bên thứ ba nào (như Facebook Pixel hay AdSense) trên landing page. Mọi hoạt động quảng cáo nội bộ (Merchant Ads) hoàn toàn được lưu giữ và xử lý nội bộ an toàn.
+                    Currently, LoyaWin <strong>does not use</strong> or integrate third-party marketing trackers (such as Facebook Pixel or Google AdSense) on this landing page.
                   </div>
                 )}
               </div>
@@ -310,7 +318,7 @@ export function CookiePolicyPage() {
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-base font-bold text-slate-800">External Media (Phương tiện ngoại vi)</span>
+                      <span className="text-base font-bold text-slate-800">External Media</span>
                     </div>
                     <p className="text-sm text-slate-500 leading-relaxed mb-0">
                       These technologies are used by us to display external media elements such as maps or embedded product videos.
@@ -338,7 +346,7 @@ export function CookiePolicyPage() {
 
                 {expandedCategories["External Media"] && (
                   <div className="mt-4 pt-4 border-t border-slate-100/80 text-xs text-slate-500 leading-relaxed bg-slate-50/50 p-4 rounded-lg">
-                    Sử dụng để tải các dịch vụ bản đồ (như Google Maps tìm chi nhánh cửa hàng) hoặc video hướng dẫn sử dụng sản phẩm dạng nhúng.
+                    Used to load interactive maps (e.g. Google Maps for locating branches) or product tutorial videos embedded from platforms like YouTube or Vimeo.
                   </div>
                 )}
               </div>
@@ -457,6 +465,113 @@ export function CookiePolicyPage() {
           </div>
         )}
       </div>
+
+      <LegalHeading2>1. What Are Cookies and Local Storage?</LegalHeading2>
+      
+      <LegalHeading3>1.1 Cookies</LegalHeading3>
+      <LegalParagraph>
+        Cookies are small text files containing a string of alphanumeric characters that are downloaded to your browser or device when you visit a website. Cookies allow websites to recognize your device, maintain active sessions, remember user preferences, and securely transmit information between pages.
+      </LegalParagraph>
+      <LegalList>
+        <LegalListItem>
+          <strong>Session Cookies:</strong> Temporary cookies that expire and are automatically deleted when you close your web browser.
+        </LegalListItem>
+        <LegalListItem>
+          <strong>Persistent Cookies:</strong> Cookies that remain on your device for a specified duration or until you manually clear them.
+        </LegalListItem>
+      </LegalList>
+
+      <LegalHeading3>1.2 Local Storage and Session Storage</LegalHeading3>
+      <LegalParagraph>
+        Web storage technologies (HTML5 Local Storage and Session Storage) enable websites to store structured data locally in your browser. Unlike cookies:
+      </LegalParagraph>
+      <LegalList>
+        <LegalListItem>
+          Web storage has a significantly larger storage capacity (typically 5MB vs. 4KB for cookies).
+        </LegalListItem>
+        <LegalListItem>
+          The stored data is not automatically sent to the server with every HTTP request, reducing network overhead and improving performance.
+        </LegalListItem>
+        <LegalListItem>
+          Session Storage is cleared when the tab is closed, whereas Local Storage persists across browser sessions.
+        </LegalListItem>
+      </LegalList>
+
+      <LegalHeading2>2. Legal Basis for Processing Cookie Data (GDPR &amp; ePrivacy Directive)</LegalHeading2>
+      <LegalParagraph>
+        In accordance with the <strong>EU General Data Protection Regulation (GDPR)</strong> and the <strong>EU ePrivacy Directive (Directive 2002/58/EC)</strong>, we process data via Tracking Technologies based on the following legal grounds:
+      </LegalParagraph>
+      <LegalList>
+        <LegalListItem>
+          <strong>Strictly Necessary (Legitimate Interests):</strong> For essential cookies required for the security, system integrity, and primary operational functionality of the platform, the legal basis is <strong>Article 6(1)(f) of the GDPR</strong> (processing is necessary for our legitimate interest in providing a secure, stable, and functional SaaS product).
+        </LegalListItem>
+        <LegalListItem>
+          <strong>Consent:</strong> For analytical, performance, and third-party advertising cookies, the legal basis is <strong>Article 6(1)(a) of the GDPR</strong> (consent). These non-essential cookies are disabled by default and will only be activated after your explicit opt-in choice on our Cookie Consent Banner.
+        </LegalListItem>
+      </LegalList>
+
+      <LegalHeading2>3. Categories of Cookies and Local Storage in Use</LegalHeading2>
+      <LegalParagraph>
+        LoyaWin utilizes Tracking Technologies classified under the following categories:
+      </LegalParagraph>
+
+      <LegalHeading3>3.1 Strictly Necessary (Essential) Cookies &amp; Storage</LegalHeading3>
+      <LegalParagraph>
+        These technologies are critical for the primary operation and security of the LoyaWin platform. Without these, core services (such as secure login authentication, portal access, and cashier integrations) cannot be provided.
+      </LegalParagraph>
+      <LegalList>
+        <LegalListItem>
+          <strong>Authentication &amp; Session State:</strong> We use securely signed and encrypted tokens (JWT) stored in secure cookies or local storage. These retain your active session as you navigate across dashboard modules, preventing you from having to log in repeatedly on every subpage.
+        </LegalListItem>
+        <LegalListItem>
+          <strong>Hardware Binding:</strong> On our Staff Web App, we utilize local storage to store a secure, cryptographically signed <code>Device_Token</code> linked to the browser&apos;s fingerprint. This locks the terminal to a specific physical store location for up to 180 days to prevent transactional fraud and track cashier audit trails.
+        </LegalListItem>
+        <LegalListItem>
+          <strong>Security &amp; Anti-Fraud:</strong> We place CSRF (Cross-Site Request Forgery) protection tokens in session storage to verify the legitimacy of API requests and block malicious script attacks.
+        </LegalListItem>
+        <LegalListItem>
+          <strong>Cookie Preference Storage:</strong> We store your choices regarding cookie consent in a dedicated local storage key to ensure the banner is not repeatedly shown to you on subsequent visits.
+        </LegalListItem>
+      </LegalList>
+
+      <LegalHeading3>3.2 Preference &amp; Functionality Cookies &amp; Storage</LegalHeading3>
+      <LegalParagraph>
+        These technologies allow our systems to remember choices you make, enhancing personalization and usability.
+      </LegalParagraph>
+      <LegalList>
+        <LegalListItem>
+          <strong>Persistent Login (&quot;Remember Me&quot;):</strong> If you actively tick the &quot;Remember Me&quot; box during login, a persistent cookie is created on your device. This keeps your Brand or Admin portal session active for up to 7 days.
+        </LegalListItem>
+        <LegalListItem>
+          <strong>UI Layout Configuration:</strong> We use Local Storage to store user preferences such as navigation sidebar states (collapsed/expanded), display themes (dark mode, light mode, or system default), and preferred application language.
+        </LegalListItem>
+      </LegalList>
+
+      <LegalHeading3>3.3 Analytics &amp; Performance Cookies</LegalHeading3>
+      <LegalParagraph>
+        These cookies collect aggregate information on how users interact with our platform. The data is anonymized and used exclusively to monitor performance, diagnose latency issues, identify error logs, and optimize the overall system architecture.
+      </LegalParagraph>
+      <LegalList>
+        <LegalListItem>
+          <strong>Performance Monitoring:</strong> Tracking page load speeds, active API latency, and layout render times.
+        </LegalListItem>
+        <LegalListItem>
+          <strong>Visitor Behavior Analysis:</strong> Utilizing analytics partners (such as Google Analytics) to measure total unique visitors, page view counts, click events, and traffic sources across our portals.
+        </LegalListItem>
+      </LegalList>
+
+      <LegalHeading3>3.4 Third-Party &amp; Transactional Billing Cookies</LegalHeading3>
+      <LegalParagraph>
+        Our subscription payment processor and merchant of record (<strong>Paddle.com</strong>) sets necessary cookies on the checkout and billing portals.
+      </LegalParagraph>
+      <LegalList>
+        <LegalListItem>
+          <strong>Billing Security:</strong> Paddle utilizes cookies to verify checkout security, prevent duplicate charging errors, and validate credit card fraud risk models during registration and plan renewal.
+        </LegalListItem>
+        <LegalListItem>
+          <strong>Customer Support Integration:</strong> If you interact with our integrated helpdesk widget, third-party functional cookies may be stored to maintain active chat sessions and trace support histories.
+        </LegalListItem>
+      </LegalList>
 
       <LegalHeading2>4. How You Can Control Cookies and Opt-Out</LegalHeading2>
       <LegalParagraph>
