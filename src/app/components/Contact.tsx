@@ -128,8 +128,6 @@ export function Contact() {
             <div className="space-y-3">
               {[
                 { Icon: Mail,   label: t.contact.leftSection.contactDetails[0].label, value: t.contact.leftSection.contactDetails[0].value, color: '#574ADB' },
-                { Icon: Phone,  label: t.contact.leftSection.contactDetails[1].label, value: t.contact.leftSection.contactDetails[1].value, color: '#7C3AED' },
-                { Icon: MapPin, label: t.contact.leftSection.contactDetails[2].label, value: t.contact.leftSection.contactDetails[2].value, color: '#574ADB' },
                 { Icon: Clock,  label: t.contact.leftSection.contactDetails[3].label, value: t.contact.leftSection.contactDetails[3].value, color: '#7C3AED' },
               ].map((detail) => (
                 <div
@@ -218,16 +216,40 @@ export function Contact() {
                 />
               </div>
 
+              {/* Subject */}
+              <div className="flex flex-col gap-2 mt-5">
+                <label
+                  className="text-[13px] font-semibold"
+                  style={{ color: 'var(--loyawin-neutral-700)' }}
+                >
+                  {t.contact.form.subject} <span style={{ color: 'var(--loyawin-primary)' }}>*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder={t.contact.form.placeholders.subject}
+                  required
+                  disabled={isSubmitted}
+                  className="px-4 py-3.5 border rounded-xl bg-white outline-none transition-all duration-200 focus:border-[var(--loyawin-primary)] focus:shadow-[0_0_0_4px_rgba(87,74,219,0.1)] disabled:opacity-50 disabled:cursor-not-allowed"
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '14px',
+                    color: 'var(--loyawin-neutral-900)',
+                    borderColor: '#E5E7EB',
+                  }}
+                />
+              </div>
+
               {/* Message */}
               <div className="flex flex-col gap-2 mt-5 flex-1">
                 <label
                   className="text-[13px] font-semibold"
                   style={{ color: 'var(--loyawin-neutral-700)' }}
                 >
-                  {t.contact.form.message}
+                  {t.contact.form.message} <span style={{ color: 'var(--loyawin-primary)' }}>*</span>
                 </label>
                 <textarea
                   placeholder={t.contact.form.messagePlaceholder}
+                  required
                   disabled={isSubmitted}
                   className="px-4 py-3.5 border rounded-xl bg-white outline-none resize-none flex-1 min-h-[160px] transition-all duration-200 focus:border-[var(--loyawin-primary)] focus:shadow-[0_0_0_4px_rgba(87,74,219,0.1)] disabled:opacity-50 disabled:cursor-not-allowed"
                   style={{

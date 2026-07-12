@@ -326,7 +326,7 @@ export const translations = {
         title: 'Get a free consultation',
         description: "LoyaWin's expert team will analyze your needs and recommend the best loyalty solution tailored to your business goals.",
         contactDetails: [
-          { label: 'Email', value: 'hello@loyawin.com' },
+          { label: 'Email', value: 'contact@loyawin.com' },
           { label: 'Phone', value: '+1 (800) 569-2468' },
           { label: 'Offices', value: 'San Francisco · London · Singapore' },
           { label: 'Business hours', value: 'Mon – Sat · 8:00 AM – 6:00 PM' },
@@ -341,7 +341,7 @@ export const translations = {
       form: {
         fullName: 'Full name',
         phone: 'Phone',
-        email: 'Business email',
+        email: 'Email',
         company: 'Business name',
         businessType: 'Business type',
         businessTypePlaceholder: 'Other',
@@ -372,11 +372,13 @@ export const translations = {
         messagePlaceholder: "Tell us about your business and what you're looking to achieve...",
         submit: 'Send my inquiry →',
         successMessage: 'Message sent successfully!',
+        subject: 'Subject',
         placeholders: {
           fullName: 'Anna Müller',
           phone: '+49 151 000 0000',
           email: 'anna@company.de',
           company: 'Your brand / company',
+          subject: 'How can we help you?',
         },
       },
       info: {
@@ -755,7 +757,7 @@ export const translations = {
         title: 'Kostenlose Beratung erhalten',
         description: 'Das Expertenteam von LoyaWin analysiert Ihre Bedürfnisse und empfiehlt die beste Loyalitätslösung, die auf Ihre Geschäftsziele zugeschnitten ist.',
         contactDetails: [
-          { label: 'Email', value: 'hallo@loyawin.de' },
+          { label: 'Email', value: 'contact@loyawin.com' },
           { label: 'Telefon', value: '+49 (30) 123-4567' },
           { label: 'Büros', value: 'Berlin · München · Hamburg' },
           { label: 'Geschäftszeiten', value: 'Mo – Sa · 8:00 – 18:00 Uhr' },
@@ -770,7 +772,7 @@ export const translations = {
       form: {
         fullName: 'Vollständiger Name',
         phone: 'Telefonnummer',
-        email: 'Geschäftliche E-Mail',
+        email: 'E-Mail',
         company: 'Firmenname',
         businessType: 'Geschäftsart',
         businessTypePlaceholder: 'Andere',
@@ -801,11 +803,13 @@ export const translations = {
         messagePlaceholder: 'Erzählen Sie uns kurz über Ihr Geschäft und was Sie erreichen möchten...',
         submit: 'Anfrage senden',
         successMessage: 'Nachricht erfolgreich gesendet!',
+        subject: 'Betreff',
         placeholders: {
           fullName: 'Max Mustermann',
           phone: '+49 (30) 000-0000',
           email: 'max@unternehmen.de',
           company: 'Ihr Unternehmen',
+          subject: 'Wie können wir Ihnen helfen?',
         },
       },
       info: {
@@ -1170,7 +1174,7 @@ export const translations = {
         title: 'Nhận tư vấn miễn phí',
         description: "Đội ngũ chuyên gia của LoyaWin sẽ phân tích nhu cầu của bạn và đề xuất giải pháp khách hàng thân thiết tốt nhất phù hợp với mục tiêu kinh doanh của bạn.",
         contactDetails: [
-          { label: 'Email', value: 'hello@loyawin.com' },
+          { label: 'Email', value: 'contact@loyawin.com' },
           { label: 'Phone', value: '+1 (800) 569-2468' },
           { label: 'Offices', value: 'San Francisco · London · Singapore' },
           { label: 'Business hours', value: 'Mon – Sat · 8:00 AM – 6:00 PM' },
@@ -1185,7 +1189,7 @@ export const translations = {
       form: {
         fullName: 'Họ và tên',
         phone: 'Số điện thoại',
-        email: 'Email công việc',
+        email: 'Email',
         company: 'Tên công ty',
         businessType: 'Loại hình kinh doanh',
         businessTypePlaceholder: 'Khác',
@@ -1216,11 +1220,13 @@ export const translations = {
         messagePlaceholder: "Nhắn cho chúng tôi biết về doanh nghiệp của bạn và những gì bạn muốn đạt được...",
         submit: 'Gửi yêu cầu của tôi →',
         successMessage: 'Đã gửi thông tin thành công!',
+        subject: 'Tiêu đề',
         placeholders: {
           fullName: 'Anna Müller',
           phone: '+49 151 000 0000',
           email: 'anna@company.de',
           company: 'Thương hiệu / công ty của bạn',
+          subject: 'Chúng tôi có thể giúp gì cho bạn?',
         },
       },
       info: {
