@@ -200,39 +200,23 @@ function HeroSection() {
             </div>
           </div>
           <div
-            className="relative transition-all duration-700 delay-150"
+            className="relative transition-all duration-700 delay-150 flex justify-center"
             style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(40px)" }}
           >
-            {/* Back image - desktop dashboard */}
-            <div
-              className="relative w-full rounded-2xl -top-8 overflow-hidden"
+            <img
+              src="https://i.postimg.cc/s2DCtpnx/HERORROO.png"
+              alt="LoyaWin Loyalty Platform Mockup"
+              className="w-full max-w-[540px] h-auto object-contain transition-all duration-300"
               style={{
-                boxShadow: "0 20px 64px rgba(87,74,219,0.15), 0 4px 16px rgba(0,0,0,0.08)",
-                border: "1px solid rgba(87,74,219,0.12)",
+                filter: "drop-shadow(0 20px 40px rgba(87,74,219,0.12))",
               }}
-            >
-              <img
-                src={image_Ads_1}
-                alt="LoyaWin Dashboard - Manage Ads"
-                className="w-full h-auto block"
-                draggable={false}
-              />
-            </div>
-
-            {/* Front image - mobile view, smaller, floating in front */}
-            <div
-              className="absolute -bottom-20 -right-12 w-[37%]"
-              style={{
-                zIndex: 10,
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-5px)";
               }}
-            >
-              <img
-                src={image_my_card}
-                alt="LoyaWin Customer App"
-                className="w-full h-auto block filter drop-shadow-[0_20px_40px_rgba(26,24,48,0.25)]"
-                draggable={false}
-              />
-            </div>
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+            />
           </div>
         </div>
       </div>

@@ -164,7 +164,7 @@ export function GastroHubPage() {
               </h1>
 
               <p
-                className="reveal reveal-delay-2 text-base sm:text-[17px] leading-[1.7] mb-8 max-w-[500px]"
+                className="reveal reveal-delay-2 text-base sm:text-[17px] leading-[1.7] mb-8 max-w-[500px] mx-auto"
                 style={{ color: "var(--loyawin-neutral-500)" }}
               >
                 GastroHub replaces 15 disconnected tools with
@@ -173,7 +173,7 @@ export function GastroHubPage() {
                 the DACH hospitality market.
               </p>
 
-              <div className="reveal reveal-delay-3 flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <div className="reveal reveal-delay-3 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-start w-full">
                 <button
                   className="px-8 py-4 rounded-full text-white border-none cursor-pointer text-base font-semibold inline-flex items-center justify-center gap-2 transition-all duration-[250ms] hover:translate-y-[-3px]"
                   style={{
@@ -187,20 +187,9 @@ export function GastroHubPage() {
                   Visit GastroHub
                   <ArrowUpRight className="w-4 h-4" />
                 </button>
-                <button
-                  className="px-7 py-4 rounded-full bg-transparent border-[1.5px] cursor-pointer text-base font-medium inline-flex items-center justify-center gap-2 transition-all duration-200 hover:bg-[var(--loyawin-primary-xlight)]"
-                  style={{
-                    borderColor: "var(--loyawin-neutral-300)",
-                    color: "var(--loyawin-neutral-700)",
-                    fontFamily: "var(--font-body)",
-                  }}
-                >
-                  Explore Features
-                  <ArrowRight className="w-4 h-4" />
-                </button>
               </div>
 
-              <div className="reveal reveal-delay-4 grid grid-cols-3 gap-4 sm:gap-6 md:gap-9 mt-8 sm:mt-12 pt-6 sm:pt-9 ">
+              <div className="reveal reveal-delay-4 grid grid-cols-3 gap-4 sm:gap-6 md:gap-9 mt-8 sm:mt-12 pt-6 sm:pt-9 border-t border-slate-100 justify-center w-full max-w-[540px] mx-auto">
                 {[
                   { num: "11,212+", label: "Active Venues" },
                   { num: "35%", label: "Operations Saved" },
@@ -232,8 +221,8 @@ export function GastroHubPage() {
               </div>
             </div>
 
-            {/* Right - visual illustration */}
-            <div className="reveal reveal-delay-2 flex justify-center items-center relative w-full max-w-[740px] lg:max-w-none mx-auto lg:scale-110 transition-all duration-500">
+            {/* Right - visual illustration (Desktop Only) */}
+            <div className="reveal reveal-delay-2 hidden lg:flex justify-center items-center relative w-full max-w-[740px] lg:max-w-none mx-auto lg:scale-110 transition-all duration-500">
               <img
                 src={image_gasillus}
                 alt="GastroHub Illustration"
@@ -395,7 +384,7 @@ export function GastroHubPage() {
           <img
             src={image_functions1}
             alt="GastroHub Modules"
-            className="reveal mx-auto mt-8 w-full max-w-[600px] h-auto drop-shadow-[0_10px_30px_rgba(118,81,252,0.15)]"
+            className="reveal mx-auto mt-8 w-full max-w-[600px] h-auto drop-shadow-[0_10px_30px_rgba(118,81,252,0.15)] hidden md:block"
           />
         </div>
       </section>
@@ -443,7 +432,7 @@ export function GastroHubPage() {
           </p>
           <div className="reveal reveal-delay-2 flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              className="px-9 py-4 rounded-full text-white cursor-pointer text-base font-semibold inline-flex items-center justify-center gap-2 border-none transition-all duration-300 hover:translate-y-[-2px]"
+              className="px-8 py-4 rounded-full text-white cursor-pointer text-base font-semibold inline-flex items-center justify-center gap-2 border-none transition-all duration-300 hover:translate-y-[-2px]"
               style={{
                 background:
                   "linear-gradient(135deg, var(--loyawin-primary), var(--loyawin-primary-light))",

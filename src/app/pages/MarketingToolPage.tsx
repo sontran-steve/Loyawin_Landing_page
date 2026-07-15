@@ -48,7 +48,7 @@ export function MarketingToolPage() {
               </div>
 
               <h1
-                className="reveal reveal-delay-1 text-[32px] sm:text-[44px] md:text-[52px] leading-[1.1] tracking-[-0.02em] mb-5"
+                className="reveal reveal-delay-1 text-[32px] sm:text-[44px] md:text-[52px] leading-[1.4] tracking-[-0.02em] mb-5"
                 style={{ fontFamily: "var(--font-head)", fontWeight: 800, color: "var(--loyawin-neutral-900)" }}
               >
                 From kitchen to{" "}
@@ -73,7 +73,7 @@ export function MarketingToolPage() {
                     fontFamily: "var(--font-body)",
                   }}
                 >
-                  Explore Live Demo
+                  Go to Marketing Tools
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
@@ -90,8 +90,8 @@ export function MarketingToolPage() {
               </div>
             </div>
 
-            {/* Right - social visual */}
-            <div className="reveal reveal-delay-2 flex justify-center items-center relative w-full max-w-[850px] lg:max-w-none mx-auto lg:scale-125 lg:translate-x-10 transition-all duration-500">
+            {/* Right - social visual (Desktop Only) */}
+            <div className="reveal reveal-delay-2 hidden lg:flex justify-center items-center relative w-full max-w-[850px] lg:max-w-none mx-auto lg:scale-125 lg:translate-x-10 transition-all duration-500">
               <img
                 src={image_marketing}
                 alt="Social Cross-Posting Visual Mockup"
@@ -114,7 +114,7 @@ export function MarketingToolPage() {
               Marketing Suite Features
             </div>
             <h2
-              className="reveal text-[26px] sm:text-[34px] md:text-[38px] leading-[1.1] tracking-[-0.02em] mb-4"
+              className="reveal text-[26px] sm:text-[34px] md:text-[38px] leading-[1.4] tracking-[-0.02em] mb-4"
               style={{ fontFamily: "var(--font-head)", fontWeight: 700, color: "var(--loyawin-neutral-900)" }}
             >
               Designed for visual growth & foodie engagement
@@ -164,7 +164,7 @@ export function MarketingToolPage() {
               Interactive Editor Preview
             </div>
             <h2
-              className="reveal text-[26px] sm:text-[32px] md:text-[36px] leading-[1.1] tracking-[-0.02em] mb-3 max-w-[700px]"
+              className="reveal text-[26px] sm:text-[32px] md:text-[36px] leading-[1.4] tracking-[-0.02em] mb-3 max-w-[700px]"
               style={{ fontFamily: "var(--font-head)", fontWeight: 700, color: "var(--loyawin-neutral-900)" }}
             >
               Craft beautiful updates in a unified dashboard
@@ -174,7 +174,7 @@ export function MarketingToolPage() {
             </p>
           </div>
 
-          <div className="reveal reveal-delay-1 flex justify-center items-center">
+          <div className="reveal reveal-delay-1 flex justify-center items-center hidden md:flex">
             <div className="w-full max-w-[960px] mx-auto">
               <img
                 src={image_sample}
@@ -192,7 +192,7 @@ export function MarketingToolPage() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full pointer-events-none" style={{ background: "var(--loyawin-primary)", opacity: 0.1, filter: "blur(100px)" }} />
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 relative z-10 text-center">
           <h2
-            className="reveal text-[28px] sm:text-[36px] md:text-[42px] leading-[1.15] tracking-[-0.02em] mb-4 text-white"
+            className="reveal text-[28px] sm:text-[36px] md:text-[42px] leading-[1.4] tracking-[-0.02em] mb-4 text-white"
             style={{ fontFamily: "var(--font-head)", fontWeight: 700 }}
           >
             Automate your social feeds effortlessly
@@ -210,7 +210,7 @@ export function MarketingToolPage() {
                 fontFamily: "var(--font-body)",
               }}
             >
-              Start Free Trial
+              Go to Marketing Tools
             </button>
 
           </div>

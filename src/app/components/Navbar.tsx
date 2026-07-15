@@ -16,6 +16,7 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
   const [ecosystemOpen, setEcosystemOpen] = useState(false);
+  const [mobileEcosystemOpen, setMobileEcosystemOpen] = useState(false);
   const ecosystemRef = useRef<HTMLLIElement>(null);
   const { language, setLanguage } = useLanguage();
   const t = useTranslation(language);
@@ -40,6 +41,7 @@ export function Navbar() {
     setMobileMenuOpen(false);
     setLangDropdownOpen(false);
     setEcosystemOpen(false);
+    setMobileEcosystemOpen(false);
   }, [location.pathname]);
 
   // Close ecosystem dropdown on outside click
@@ -275,15 +277,29 @@ export function Navbar() {
               </button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg transition-colors hover:bg-[var(--loyawin-primary-xlight)]"
-              style={{ color: "var(--loyawin-primary)" }}
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+            {/* Mobile Actions Group */}
+            <div className="flex lg:hidden items-center gap-2">
+              <button
+                onClick={() => window.alert("Customer portal to be implemented")}
+                className="bg-transparent border cursor-pointer px-3.5 py-2 rounded-full text-[14px] font-semibold transition-all duration-200 hover:bg-[var(--loyawin-primary-xlight)] whitespace-nowrap"
+                style={{
+                  borderColor: "var(--loyawin-primary)",
+                  borderWidth: "1.5px",
+                  color: "var(--loyawin-primary)",
+                  fontFamily: "var(--font-body)",
+                }}
+              >
+                {t.nav.startTrial}
+              </button>
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="p-2 rounded-lg transition-colors hover:bg-[var(--loyawin-primary-xlight)]"
+                style={{ color: "var(--loyawin-primary)" }}
+                aria-label="Toggle menu"
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu */}
@@ -297,24 +313,120 @@ export function Navbar() {
               }}
             >
               <ul className="list-none py-2">
-                {navLinks.map((link) => (
-                  <li key={link.path}>
-                    <Link
-                       to={link.path}
-                       className="w-full text-left px-5 py-3 text-sm font-medium transition-colors no-underline block"
-                       style={{
-                         color: isActive(link.path)
-                           ? "var(--loyawin-primary)"
-                           : "var(--loyawin-neutral-700)",
-                         background: isActive(link.path)
-                           ? "var(--loyawin-primary-xlight)"
-                           : "transparent",
-                       }}
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
+                {navLinks.map((link) => {
+                  if (link.path === "/ecosystem") {
+                    return (
+                      <li key={link.path} className="flex flex-col">
+                        <button
+                          onClick={() => setMobileEcosystemOpen(!mobileEcosystemOpen)}
+                          className="w-full text-left px-5 py-3 text-sm font-medium transition-colors border-none outline-none cursor-pointer bg-transparent flex items-center justify-between"
+                          style={{
+                            color: isActive(link.path) || mobileEcosystemOpen
+                              ? "var(--loyawin-primary)"
+                              : "var(--loyawin-neutral-700)",
+                            background: isActive(link.path)
+                              ? "var(--loyawin-primary-xlight)"
+                              : "transparent",
+                          }}
+                        >
+                          <span>{link.label}</span>
+                          <ChevronDown
+                            className="w-4 h-4 transition-transform duration-200"
+                            style={{
+                              transform: mobileEcosystemOpen ? "rotate(180deg)" : "rotate(0deg)",
+                              color: mobileEcosystemOpen ? "var(--loyawin-primary)" : "var(--loyawin-neutral-500)",
+                            }}
+                          />
+                        </button>
+
+                        {/* Submenu for Mobile Ecosystem */}
+                        {mobileEcosystemOpen && (
+                          <div
+                            className="px-5 pb-3 pt-1 flex flex-col gap-2"
+                            style={{ background: "rgba(87,74,219,0.02)" }}
+                          >
+                            {/* GastroHub */}
+                            <Link
+                              to="/gastrohub"
+                              className="flex items-start gap-3 p-2.5 rounded-xl no-underline transition-all duration-200 hover:bg-[var(--loyawin-primary-xlight)]"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              <div
+                                className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
+                                style={{
+                                  background: "linear-gradient(135deg, var(--loyawin-primary-xlight), rgba(255,255,255,0.9))",
+                                  border: "1px solid rgba(87,74,219,0.2)",
+                                }}
+                              >
+                                <UserCircle className="w-4 h-4" style={{ color: "var(--loyawin-primary)" }} />
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <span className="text-[16px] font-semibold block mb-0.5" style={{ color: "var(--loyawin-neutral-900)" }}>
+                                  GastroHub
+                                </span>
+                                <p className="text-[14px] leading-[1.4] m-0" style={{ color: "var(--loyawin-neutral-500)" }}>
+                                  Smart loyalty points, member tier management &amp; automated CRM.
+                                </p>
+                              </div>
+                            </Link>
+
+                            {/* Marketing Tool */}
+                            <Link
+                              to="/marketing-tool"
+                              className="flex items-start gap-3 p-2.5 rounded-xl no-underline transition-all duration-200 hover:bg-[var(--loyawin-primary-xlight)]"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              <div
+                                className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
+                                style={{
+                                  background: "linear-gradient(135deg, rgba(59,130,246,0.1), rgba(255,255,255,0.9))",
+                                  border: "1px solid rgba(59,130,246,0.2)",
+                                }}
+                              >
+                                <Megaphone className="w-4 h-4" style={{ color: "#3B82F6" }} />
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <div className="flex items-center gap-1.5 mb-0.5">
+                                  <span className="text-[16px] font-semibold" style={{ color: "var(--loyawin-neutral-900)" }}>
+                                    Marketing Tool
+                                  </span>
+                                  <span
+                                    className="text-[14px] font-bold px-1.5 py-0.5 rounded"
+                                    style={{ background: "rgba(59,130,246,0.1)", color: "#3B82F6", letterSpacing: "0.05em" }}
+                                  >
+                                    AI SUITE
+                                  </span>
+                                </div>
+                                <p className="text-[14px] leading-[1.4] m-0" style={{ color: "var(--loyawin-neutral-500)" }}>
+                                  Social Auto Post suite, SEO reach booster &amp; automated marketing.
+                                </p>
+                              </div>
+                            </Link>
+                          </div>
+                        )}
+                      </li>
+                    );
+                  }
+
+                  return (
+                    <li key={link.path}>
+                      <Link
+                        to={link.path}
+                        className="w-full text-left px-5 py-3 text-sm font-medium transition-colors no-underline block"
+                        style={{
+                          color: isActive(link.path)
+                            ? "var(--loyawin-primary)"
+                            : "var(--loyawin-neutral-700)",
+                          background: isActive(link.path)
+                            ? "var(--loyawin-primary-xlight)"
+                            : "transparent",
+                        }}
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
               <div className="p-4 border-t" style={{ borderColor: "var(--loyawin-neutral-100)" }}>
                 <button

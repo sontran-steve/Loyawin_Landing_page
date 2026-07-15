@@ -105,7 +105,7 @@ export function Contact() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-start">
           {/* Left - Contact Info */}
-          <div className="reveal reveal-delay-1 flex flex-col space-y-5">
+          <div className="reveal reveal-delay-1 flex flex-col space-y-5 order-2 lg:order-1">
             <div>
               <h3
                 className="text-xl sm:text-2xl md:text-[28px] font-bold mb-2"
@@ -148,10 +148,10 @@ export function Contact() {
                     <detail.Icon className="w-4 h-4" style={{ color: detail.color }} strokeWidth={2} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="text-[11px] font-medium" style={{ color: 'var(--loyawin-neutral-500)' }}>
+                    <div className="text-[14px] sm:text-[11px] font-medium" style={{ color: 'var(--loyawin-neutral-500)' }}>
                       {detail.label}
                     </div>
-                    <div className="text-sm font-semibold break-words" style={{ color: 'var(--loyawin-neutral-900)' }}>
+                    <div className="text-[15px] sm:text-sm font-semibold break-words" style={{ color: 'var(--loyawin-neutral-900)' }}>
                       {detail.value}
                     </div>
                   </div>
@@ -162,7 +162,7 @@ export function Contact() {
 
           {/* Right - Contact Form */}
           <div
-            className="reveal reveal-delay-2 border rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 relative overflow-hidden"
+            className="reveal reveal-delay-2 border rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 relative overflow-hidden order-1 lg:order-2"
             style={{
               background: 'white',
               borderColor: 'rgba(87,74,219,0.1)',

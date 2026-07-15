@@ -143,14 +143,15 @@ function PlatformSection() {
                 {card.highlighted && (
                   <div className="absolute top-0 right-0 w-48 h-48 pointer-events-none" style={{ background: "radial-gradient(circle at top right, rgba(255,255,255,0.12) 0%, transparent 60%)" }} />
                 )}
-                <div className="flex items-center justify-between mb-5">
-                  <span className="text-xs font-extrabold tracking-widest uppercase" style={{ color: card.highlighted ? "rgba(255,255,255,0.6)" : "var(--loyawin-neutral-300)" }}>{card.num}</span>
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: card.highlighted ? "rgba(255,255,255,0.2)" : "var(--loyawin-primary-xlight)" }}>
+                <div className="flex items-start justify-between mb-5">
+                  <div className="flex-1 min-w-0 pr-4">
+                    <h3 className="text-xl sm:text-2xl font-extrabold mb-1" style={{ color: card.highlighted ? "white" : "var(--loyawin-neutral-900)", fontFamily: "var(--font-head)" }}>{card.title}</h3>
+                    <p className="text-sm italic" style={{ color: card.highlighted ? "rgba(255,255,255,0.75)" : "var(--loyawin-neutral-500)" }}>{card.sub}</p>
+                  </div>
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: card.highlighted ? "rgba(255,255,255,0.2)" : "var(--loyawin-primary-xlight)" }}>
                     <Icon className="w-5 h-5" style={{ color: card.highlighted ? "white" : "var(--loyawin-primary)" }} />
                   </div>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-extrabold mb-1" style={{ color: card.highlighted ? "white" : "var(--loyawin-neutral-900)", fontFamily: "var(--font-head)" }}>{card.title}</h3>
-                <p className="text-sm mb-6 italic" style={{ color: card.highlighted ? "rgba(255,255,255,0.75)" : "var(--loyawin-neutral-500)" }}>{card.sub}</p>
                 <ul className="space-y-3 list-none">
                   {card.features.map((f, fi) => <CheckItem key={fi} text={f} light={card.highlighted} />)}
                 </ul>
@@ -203,26 +204,26 @@ function AdCampaignSection() {
             </div>
 
             {/* 3 Blocks stacked horizontally as compact premium cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3">
               {AD_STEPS.map(({ step, Icon, title, color, bg }) => (
                 <div
                   key={step}
-                  className="rounded-3xl p-4 border group transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px] flex flex-col justify-between overflow-hidden"
+                  className="rounded-3xl p-2.5 sm:p-4 border group transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px] flex flex-col items-center justify-start sm:items-start sm:justify-between text-center sm:text-left overflow-hidden"
                   style={{
                     background: "white",
                     borderColor: "rgba(87,74,219,0.06)",
                     boxShadow: "0 8px 24px rgba(87,74,219,0.04)",
                   }}
                 >
-                  <div className="mb-4">
+                  <div className="mb-1.5 sm:mb-4 w-full flex justify-center sm:block">
                     <div
-                      className="w-9 h-9 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
+                      className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
                       style={{ background: bg }}
                     >
-                      <Icon className="w-4.5 h-4.5" style={{ color }} />
+                      <Icon className="w-4 h-4 sm:w-4.5 sm:h-4.5" style={{ color }} />
                     </div>
                   </div>
-                  <h3 className="font-semibold text-sm whitespace-nowrap overflow-hidden text-ellipsis" style={{ color: "var(--loyawin-neutral-900)", fontFamily: "var(--font-body)" }}>
+                  <h3 className="font-semibold text-[14px] sm:text-sm text-center sm:text-left leading-tight" style={{ color: "var(--loyawin-neutral-900)", fontFamily: "var(--font-body)" }}>
                     {title}
                   </h3>
                 </div>
@@ -232,7 +233,7 @@ function AdCampaignSection() {
 
           {/* Right Column - Illustration */}
           <div
-            className="flex items-center justify-center transition-all duration-700 delay-300 h-full w-full"
+            className="hidden md:flex items-center justify-center transition-all duration-700 delay-300 h-full w-full"
             style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(32px)" }}
           >
             <img
@@ -281,23 +282,23 @@ function EarningRulesSection() {
             style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(28px)" }}
           >
             {/* 4 Cards in 2x2 Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {RULES.map(({ Icon, title, color, bg }, i) => (
                 <div
                   key={i}
-                  className="rounded-2xl p-5 border group transition-all duration-300 hover:shadow-md hover:translate-y-[-2px] flex flex-col justify-between min-h-[128px]"
+                  className="rounded-2xl p-3 sm:p-5 border group transition-all duration-300 hover:shadow-md hover:translate-y-[-2px] flex flex-col items-center justify-start sm:items-start sm:justify-between text-center sm:text-left min-h-[106px] sm:min-h-[128px]"
                   style={{
                     background: "white",
                     borderColor: "rgba(87,74,219,0.08)",
                     boxShadow: "0 4px 20px rgba(87,74,219,0.04)",
                   }}
                 >
-                  <div className="mb-3">
-                    <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: bg }}>
-                      <Icon className="w-5 h-5" style={{ color }} />
+                  <div className="mb-3 w-full flex justify-center sm:block">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: bg }}>
+                      <Icon className="w-4 h-4 sm:w-5 sm:h-5" style={{ color }} />
                     </div>
                   </div>
-                  <h3 className="font-medium text-sm sm:text-base text-slate-900 leading-snug" style={{ fontFamily: "var(--font-body)" }}>
+                  <h3 className="font-medium text-[14px] sm:text-base text-slate-900 leading-snug text-center sm:text-left" style={{ fontFamily: "var(--font-body)" }}>
                     {title}
                   </h3>
                 </div>
@@ -307,7 +308,7 @@ function EarningRulesSection() {
 
           {/* Right Column - Illustration */}
           <div
-            className="flex items-center justify-center transition-all duration-700 delay-200 w-full relative"
+            className="hidden md:flex items-center justify-center transition-all duration-700 delay-200 w-full relative"
             style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(32px)" }}
           >
             <div className="w-full aspect-[4/3] rounded-3xl flex items-center justify-center overflow-visible relative">
@@ -357,22 +358,22 @@ function SecuritySection() {
             </div>
 
             {/* 4 Cards in 2x2 Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {SECURITY_ITEMS.map(({ Icon, title, accent, bg }, i) => (
                 <div
                   key={i}
-                  className="rounded-2xl p-5 border group transition-all duration-300 hover:shadow-md hover:translate-y-[-2px]"
+                  className="rounded-2xl p-3 sm:p-5 border group transition-all duration-300 hover:shadow-md hover:translate-y-[-2px] flex items-start justify-center text-center sm:block sm:text-left"
                   style={{
                     background: "white",
                     borderColor: "rgba(87,74,219,0.08)",
                     boxShadow: "0 4px 20px rgba(87,74,219,0.04)",
                   }}
                 >
-                  <div className="flex items-center gap-4">
-                    <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: bg }}>
-                      <Icon className="w-5 h-5" style={{ color: accent }} />
+                  <div className="flex flex-col sm:flex-row items-center sm:items-center gap-2 sm:gap-4 w-full">
+                    <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: bg }}>
+                      <Icon className="w-4.5 h-4.5 sm:w-5 sm:h-5" style={{ color: accent }} />
                     </div>
-                    <h3 className="font-medium text-sm sm:text-base text-slate-900 leading-snug" style={{ fontFamily: "var(--font-head)" }}>{title}</h3>
+                    <h3 className="font-medium text-[14px] sm:text-base text-slate-900 leading-snug text-center sm:text-left" style={{ fontFamily: "var(--font-head)" }}>{title}</h3>
                   </div>
                 </div>
               ))}
@@ -381,7 +382,7 @@ function SecuritySection() {
 
           {/* Right Column - Security Illustration */}
           <div
-            className="flex items-center justify-center transition-all duration-700 delay-300 w-full"
+            className="hidden md:flex items-center justify-center transition-all duration-700 delay-300 w-full"
             style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(32px)" }}
           >
             <div className="w-full aspect-[4/3] rounded-3xl flex items-center justify-center overflow-hidden relative">
@@ -422,19 +423,19 @@ function ProductCTA() {
         <p className="text-base sm:text-lg mb-10 max-w-lg mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.85)" }}>
           Set up your merchant account in minutes. No developer, no POS, no fuss - just results.
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-4">
+        <div className="flex flex-nowrap sm:flex-wrap items-center justify-center gap-2 sm:gap-4">
           <a
             href="https://brand.loyawin.com/register"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-bold no-underline transition-all hover:scale-[1.03] hover:shadow-xl"
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base font-bold no-underline transition-all hover:scale-[1.03] hover:shadow-xl whitespace-nowrap"
             style={{ background: "white", color: "var(--loyawin-primary)", boxShadow: "0 8px 28px rgba(0,0,0,0.2)", fontFamily: "var(--font-body)" }}
           >
             Start for €5/mo <ArrowRight className="w-4 h-4" />
           </a>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-bold no-underline transition-all hover:bg-white/20"
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base font-bold no-underline transition-all hover:bg-white/20 whitespace-nowrap"
             style={{ border: "2px solid rgba(255,255,255,0.5)", color: "white", fontFamily: "var(--font-body)" }}
           >
             Talk to sales

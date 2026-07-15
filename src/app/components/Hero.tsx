@@ -89,108 +89,21 @@ export function Hero() {
           </div>
 
           {/* Right Side - Visual */}
-          <div className="reveal reveal-delay-2 relative mt-8 lg:mt-0">
-            {/* Float Card Top Right */}
-            <div
-              className="float-card fc1 absolute -top-2 sm:-top-4 md:-top-6 -right-2 sm:-right-3 md:-right-5 px-3 sm:px-4 md:px-[18px] py-2.5 sm:py-3 md:py-3.5 rounded-[var(--radius-sm)] backdrop-blur-[20px] border z-[3]"
+          <div className="reveal reveal-delay-2 relative mt-8 lg:mt-0 flex justify-center">
+            <img
+              src="https://i.postimg.cc/s2DCtpnx/HERORROO.png"
+              alt="LoyaWin Loyalty Platform Mockup"
+              className="w-full max-w-[540px] h-auto object-contain transition-all duration-300"
               style={{
-                background: "var(--loyawin-glass-bg)",
-                borderColor: "var(--loyawin-glass-border)",
-                boxShadow: "var(--loyawin-glass-shadow)",
+                filter: "drop-shadow(0 20px 40px rgba(87,74,219,0.12))",
               }}
-            >
-              <div className="text-base sm:text-lg md:text-[20px] mb-0.5 sm:mb-1">📈</div>
-              <div className="text-[10px] sm:text-[11px]" style={{ color: "var(--loyawin-neutral-500)" }}>
-                Revenue this month
-              </div>
-              <div
-                className="text-sm sm:text-base font-bold mt-0.5"
-                style={{ fontFamily: "var(--font-head)", color: "var(--loyawin-primary)" }}
-              >
-                +34.6%
-              </div>
-            </div>
-
-            {/* Float Card Bottom Left */}
-            <div
-              className="float-card fc2 absolute bottom-3 sm:bottom-4 md:bottom-5 -left-2 sm:-left-4 md:-left-8 px-3 sm:px-4 md:px-[18px] py-2.5 sm:py-3 md:py-3.5 rounded-[var(--radius-sm)] backdrop-blur-[20px] border z-[3]"
-              style={{
-                background: "var(--loyawin-glass-bg)",
-                borderColor: "var(--loyawin-glass-border)",
-                boxShadow: "var(--loyawin-glass-shadow)",
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-5px)";
               }}
-            >
-              <div className="text-base sm:text-lg md:text-[20px] mb-0.5 sm:mb-1">🎁</div>
-              <div className="text-[10px] sm:text-[11px]" style={{ color: "var(--loyawin-neutral-500)" }}>
-                Rewards redeemed
-              </div>
-              <div
-                className="text-sm sm:text-base font-bold mt-0.5"
-                style={{ fontFamily: "var(--font-head)", color: "var(--loyawin-primary)" }}
-              >
-                12,840
-              </div>
-            </div>
-
-            {/* Main Card */}
-            <div
-              className="backdrop-blur-[24px] border rounded-[var(--radius-lg)] p-5 sm:p-6 md:p-8 relative z-[2]"
-              style={{
-                background: "var(--loyawin-glass-bg)",
-                borderColor: "var(--loyawin-glass-border)",
-                boxShadow: "var(--loyawin-glass-shadow)",
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
               }}
-            >
-              {/* Loyalty Card */}
-              <div
-                className="rounded-[var(--radius-md)] p-5 sm:p-6 md:p-7 text-white mb-4 sm:mb-5 relative overflow-hidden"
-                style={{ background: "linear-gradient(135deg, var(--loyawin-primary), #8B82F0, #a89ef0)" }}
-              >
-                <div className="absolute -top-10 -right-10 w-32 sm:w-40 h-32 sm:h-40 rounded-full bg-white/10" />
-                <div className="absolute -bottom-[30px] -left-5 w-[100px] sm:w-[120px] h-[100px] sm:h-[120px] rounded-full bg-white/[0.07]" />
-                <div className="w-8 sm:w-10 h-6 sm:h-[30px] bg-white/25 rounded-md mb-4 sm:mb-5 grid place-items-center relative z-10">
-                  <div className="w-5 sm:w-6 h-[15px] sm:h-[18px] bg-white/40 rounded-[3px]" />
-                </div>
-                <div className="relative z-10">
-                  <div className="text-base sm:text-lg font-bold mb-1" style={{ fontFamily: "var(--font-head)" }}>
-                    Andrew Collins
-                  </div>
-                  <div className="text-xs opacity-80 mb-3 sm:mb-4">12,450 points earned</div>
-                  <div className="bg-white/20 rounded-full h-1.5">
-                    <div className="bg-white h-1.5 rounded-full w-[68%]" />
-                  </div>
-                  <div className="flex justify-between mt-2.5 sm:mt-3 text-[11px] sm:text-xs opacity-90">
-                    <span>Gold Member</span>
-                    <span>1,550 pts to Platinum</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Mini Stats */}
-              <div className="grid grid-cols-3 gap-2 sm:gap-3">
-                {[
-                  { num: "47", label: "Purchases" },
-                  { num: "$8.9K", label: "Total spent" },
-                  { num: "23", label: "Rewards used" },
-                ].map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="bg-white border rounded-[var(--radius-sm)] p-2.5 sm:p-3 md:p-3.5 text-center"
-                    style={{ borderColor: "var(--loyawin-neutral-100)" }}
-                  >
-                    <div
-                      className="text-lg sm:text-xl font-bold"
-                      style={{ fontFamily: "var(--font-head)", color: "var(--loyawin-primary)" }}
-                    >
-                      {stat.num}
-                    </div>
-                    <div className="text-[10px] sm:text-[11px] mt-0.5" style={{ color: "var(--loyawin-neutral-500)" }}>
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            />
           </div>
         </div>
       </div>

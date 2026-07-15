@@ -237,26 +237,10 @@ const faqData: FAQItem[] = [
 
 export function FAQ() {
   const { language } = useLanguage();
-  const [filter, setFilter] = useState<'all' | 'brand' | 'customer'>('all');
   const [expandedId, setExpandedId] = useState<number | null>(null);
 
   const toggleFaq = (id: number) => {
     setExpandedId(prevId => (prevId === id ? null : id));
-  };
-
-  const filteredFaqs = faqData.filter(
-    item => filter === 'all' || item.audience.toLowerCase() === filter
-  );
-
-  const getAudienceLabel = (audience: 'All' | 'Brand' | 'Customer') => {
-    if (language === 'vi') {
-      if (audience === 'All') return 'Tất cả';
-      if (audience === 'Brand') return 'Doanh nghiệp';
-      return 'Khách hàng';
-    }
-    if (audience === 'All') return 'All';
-    if (audience === 'Brand') return 'Businesses';
-    return 'Customers';
   };
 
   const labels = {
@@ -265,11 +249,6 @@ export function FAQ() {
     subtitle: language === 'vi' 
       ? 'Tìm câu trả lời nhanh chóng cho các câu hỏi phổ biến về giải pháp khách hàng thân thiết LoyaWin.' 
       : 'Find quick answers to common questions about LoyaWin\'s loyalty platform.',
-    filters: {
-      all: language === 'vi' ? 'Tất cả' : 'Show All',
-      brand: language === 'vi' ? 'Cho Doanh nghiệp' : 'For Businesses',
-      customer: language === 'vi' ? 'Cho Khách hàng' : 'For Customers'
-    }
   };
 
   return (
@@ -303,138 +282,79 @@ export function FAQ() {
           </p>
         </div>
 
-        {/* Filter Tabs */}
-        <div className="flex flex-wrap justify-center gap-2.5 mb-10 md:mb-12">
-          {(['all', 'brand', 'customer'] as const).map((type) => (
-            <button
-              key={type}
-              onClick={() => {
-                setFilter(type);
-                setExpandedId(null);
-              }}
-              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold border transition-all duration-200 active:scale-95`}
-              style={{
-                borderColor: filter === type ? 'var(--loyawin-primary)' : '#E5E7EB',
-                background: filter === type ? 'var(--loyawin-primary)' : '#ffffff',
-                color: filter === type ? '#ffffff' : 'var(--loyawin-neutral-600)',
-                boxShadow: filter === type ? '0 4px 14px var(--loyawin-primary-glow)' : 'none'
-              }}
-            >
-              {labels.filters[type]}
-            </button>
-          ))}
-        </div>
-
         {/* FAQ Accordion List */}
         <div className="max-w-[840px] mx-auto space-y-4">
-          {filteredFaqs.length > 0 ? (
-            filteredFaqs.map((faq) => {
-              const isExpanded = expandedId === faq.id;
-              const qText = language === 'vi' ? faq.question.vi : faq.question.en;
-              const aText = language === 'vi' ? faq.answer.vi : faq.answer.en;
-              const categoryText = language === 'vi' ? faq.category.vi : faq.category.en;
-              
-              return (
-                <div 
-                  key={faq.id}
-                  className="border rounded-2xl overflow-hidden transition-all duration-300 bg-white"
-                  style={{
-                    borderColor: isExpanded ? 'rgba(87,74,219,0.25)' : '#E5E7EB',
-                    boxShadow: isExpanded ? '0 6px 20px rgba(87,74,219,0.04)' : 'none'
-                  }}
+          {faqData.map((faq) => {
+            const isExpanded = expandedId === faq.id;
+            const qText = language === 'vi' ? faq.question.vi : faq.question.en;
+            const aText = language === 'vi' ? faq.answer.vi : faq.answer.en;
+            
+            return (
+              <div 
+                key={faq.id}
+                className="border rounded-2xl overflow-hidden transition-all duration-300 bg-white"
+                style={{
+                  borderColor: isExpanded ? 'rgba(87,74,219,0.25)' : '#E5E7EB',
+                  boxShadow: isExpanded ? '0 6px 20px rgba(87,74,219,0.04)' : 'none'
+                }}
+              >
+                <button
+                  onClick={() => toggleFaq(faq.id)}
+                  className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 transition-colors duration-200 hover:bg-slate-50/50"
                 >
-                  <button
-                    onClick={() => toggleFaq(faq.id)}
-                    className="w-full text-left p-5 sm:p-6 flex items-start justify-between gap-4 transition-colors duration-200 hover:bg-slate-50/50"
-                  >
-                    <div className="space-y-2">
-                      {/* Category and Audience Badges */}
-                      <div className="flex items-center flex-wrap gap-2">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                          {categoryText}
-                        </span>
-                        <span 
-                          className="text-[9px] font-bold px-2 py-0.5 rounded border uppercase"
-                          style={{
-                            background: faq.audience === 'Brand' 
-                              ? 'rgba(87,74,219,0.04)' 
-                              : faq.audience === 'Customer' 
-                              ? 'rgba(124,58,237,0.04)' 
-                              : 'rgba(100,116,139,0.04)',
-                            color: faq.audience === 'Brand' 
-                              ? 'var(--loyawin-primary)' 
-                              : faq.audience === 'Customer' 
-                              ? '#7C3AED' 
-                              : '#64748B',
-                            borderColor: faq.audience === 'Brand' 
-                              ? 'rgba(87,74,219,0.12)' 
-                              : faq.audience === 'Customer' 
-                              ? 'rgba(124,58,237,0.12)' 
-                              : 'rgba(100,116,139,0.12)'
-                          }}
-                        >
-                          {getAudienceLabel(faq.audience)}
-                        </span>
-                      </div>
-                      <h4 className="text-base sm:text-lg font-bold text-slate-800 transition-colors duration-200"
-                        style={{ 
-                          fontFamily: 'var(--font-head)',
-                          color: isExpanded ? 'var(--loyawin-primary)' : 'var(--loyawin-neutral-900)'
-                        }}
-                      >
-                        {qText}
-                      </h4>
-                    </div>
-                    <div className="mt-1 flex-shrink-0">
-                      <ChevronDown 
-                        className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${
-                          isExpanded ? 'transform rotate-180 text-[var(--loyawin-primary)]' : ''
-                        }`}
-                        strokeWidth={2.5}
-                      />
-                    </div>
-                  </button>
-
-                  {/* Expandable Panel */}
-                  <div 
-                    className="transition-all duration-300 ease-in-out overflow-hidden"
-                    style={{
-                      maxHeight: isExpanded ? '1000px' : '0px',
-                      opacity: isExpanded ? 1 : 0
+                  <h4 className="text-base sm:text-lg font-bold text-slate-800 transition-colors duration-200"
+                    style={{ 
+                      fontFamily: 'var(--font-head)',
+                      color: isExpanded ? 'var(--loyawin-primary)' : 'var(--loyawin-neutral-900)'
                     }}
                   >
-                    <div className="p-5 sm:p-6 pt-0 border-t border-slate-50 text-sm sm:text-[15px] leading-[1.7] text-slate-600 space-y-4">
-                      <p>{aText}</p>
-                      
-                      {faq.listItems && (
-                        <ol className="space-y-3.5 pl-1.5">
-                          {faq.listItems.map((item, idx) => {
-                            const itemTitle = language === 'vi' ? item.title.vi : item.title.en;
-                            const itemText = language === 'vi' ? item.text.vi : item.text.en;
-                            return (
-                              <li key={idx} className="flex items-start gap-3">
-                                <span className="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-50 border border-indigo-100 text-xs font-bold text-[var(--loyawin-primary)] flex items-center justify-center mt-0.5">
-                                  {idx + 1}
-                                </span>
-                                <div className="flex-1">
-                                  <strong className="text-slate-800 font-semibold">{itemTitle}: </strong>
-                                  <span className="text-slate-500 font-normal">{itemText}</span>
-                                </div>
-                              </li>
-                            );
-                          })}
-                        </ol>
-                      )}
-                    </div>
+                    {qText}
+                  </h4>
+                  <div className="flex-shrink-0">
+                    <ChevronDown 
+                      className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${
+                        isExpanded ? 'transform rotate-180 text-[var(--loyawin-primary)]' : ''
+                      }`}
+                      strokeWidth={2.5}
+                    />
+                  </div>
+                </button>
+
+                {/* Expandable Panel */}
+                <div 
+                  className="transition-all duration-300 ease-in-out overflow-hidden"
+                  style={{
+                    maxHeight: isExpanded ? '1000px' : '0px',
+                    opacity: isExpanded ? 1 : 0
+                  }}
+                >
+                  <div className="p-5 sm:p-6 pt-0 border-t border-slate-50 text-sm sm:text-[15px] leading-[1.7] text-slate-600 space-y-4">
+                    <p>{aText}</p>
+                    
+                    {faq.listItems && (
+                      <ol className="space-y-3.5 pl-1.5">
+                        {faq.listItems.map((item, idx) => {
+                          const itemTitle = language === 'vi' ? item.title.vi : item.title.en;
+                          const itemText = language === 'vi' ? item.text.vi : item.text.en;
+                          return (
+                            <li key={idx} className="flex items-start gap-3">
+                              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-50 border border-indigo-100 text-xs font-bold text-[var(--loyawin-primary)] flex items-center justify-center mt-0.5">
+                                {idx + 1}
+                              </span>
+                              <div className="flex-1">
+                                <strong className="text-slate-800 font-semibold">{itemTitle}: </strong>
+                                <span className="text-slate-500 font-normal">{itemText}</span>
+                              </div>
+                            </li>
+                          );
+                        })}
+                      </ol>
+                    )}
                   </div>
                 </div>
-              );
-            })
-          ) : (
-            <div className="text-center py-12 border border-dashed border-slate-200 rounded-2xl bg-slate-50/50">
-              <p className="text-slate-500 text-sm">No questions found matching your filter.</p>
-            </div>
-          )}
+              </div>
+            );
+          })}
         </div>
 
       </div>
