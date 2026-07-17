@@ -91,7 +91,7 @@ export function Hero() {
           {/* Right Side - Visual */}
           <div className="reveal reveal-delay-2 relative mt-8 lg:mt-0 flex justify-center">
             <img
-              src="https://i.postimg.cc/s2DCtpnx/HERORROO.png"
+              src="https://i.postimg.cc/QCW1Bt0W/HERORROO.png"
               alt="LoyaWin Loyalty Platform Mockup"
               className="w-full max-w-[540px] h-auto object-contain transition-all duration-300"
               style={{

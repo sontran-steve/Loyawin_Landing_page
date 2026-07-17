@@ -313,7 +313,7 @@ function EarningRulesSection() {
           >
             <div className="w-full aspect-[4/3] rounded-3xl flex items-center justify-center overflow-visible relative">
               <img
-                src={image_customRules}
+                src="https://i.postimg.cc/7h6G7L9K/new.png"
                 alt="Custom Earning Rules Illustration"
                 className="w-full h-full object-contain drop-shadow-[0_12px_36px_rgba(118,81,252,0.08)] lg:absolute lg:w-[125%] lg:h-[125%] lg:max-w-none lg:-right-16 lg:top-1/2 lg:-translate-y-1/2 z-10"
               />

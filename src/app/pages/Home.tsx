@@ -204,7 +204,7 @@ function HeroSection() {
             style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(40px)" }}
           >
             <img
-              src="https://i.postimg.cc/s2DCtpnx/HERORROO.png"
+              src="https://i.postimg.cc/QCW1Bt0W/HERORROO.png"
               alt="LoyaWin Loyalty Platform Mockup"
               className="w-full max-w-[540px] h-auto object-contain transition-all duration-300"
               style={{

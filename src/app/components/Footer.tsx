@@ -32,7 +32,7 @@ export function Footer() {
       />
 
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_2fr] gap-8 sm:gap-10 md:gap-12 lg:gap-[60px] mb-10 sm:mb-12 md:mb-[60px]">
+        <div className="grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_2fr] gap-8 sm:gap-10 md:gap-12 lg:gap-[60px] mb-5 sm:mb-6 md:mb-[30px]">
           {/* Brand */}
           <div className="col-span-2 lg:col-span-1">
             <a
@@ -46,7 +46,7 @@ export function Footer() {
                 viewBox="0 0 969 240"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-7 md:h-8 w-auto"
+                className="h-8 md:h-9 w-auto"
               >
                 <path
                   d="M52.1482 141.333C44.2934 141.333 37.9259 134.966 37.9259 127.111V60.7407H2.26056e-06V141.333C1.01209e-06 162.279 16.98 179.259 37.9259 179.259L75.8519 141.333H52.1482Z"
@@ -174,6 +174,32 @@ export function Footer() {
             </div>
           </div>
 
+          {/* Portals */}
+          <div>
+            <h4
+              className="text-sm font-semibold text-white/80 mb-4 sm:mb-[18px] tracking-[0.04em]"
+              style={{ fontFamily: "var(--font-head)" }}
+            >
+              Portals
+            </h4>
+            <ul className="list-none flex flex-col gap-2.5">
+              {[
+                "Merchant Portal",
+                "Staff Web App",
+                "Customer Web App",
+              ].map((item) => (
+                <li key={item}>
+                  <a
+                    href="#"
+                    className="text-sm text-white/45 no-underline transition-colors duration-200 hover:text-[var(--loyawin-primary-light)]"
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Support */}
           <div>
             <h4
@@ -255,56 +281,63 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-white/[0.08] pt-6 sm:pt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span className="text-xs sm:text-[13px] text-white/35 text-center sm:text-left">
-            © 2026 LoyaWin. All rights reserved. LoyaWin Inc.
-          </span>
+        <div className="border-t border-white/[0.08] pt-3 sm:pt-3.5 flex flex-col gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <span className="text-xs sm:text-[13px] text-white/35 text-center sm:text-left">
+              © 2026 LoyaWin. All rights reserved. LoyaWin Inc.
+            </span>
 
-          {/* Language Dropdown */}
-          <div className="relative inline-block">
-            <button
-              onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/15 text-xs font-medium transition-colors hover:border-white/30 hover:bg-white/10"
-              style={{ color: "rgba(255,255,255,0.5)" }}
-            >
-              <span>{currentLang.flag}</span>
-              <span>{currentLang.name}</span>
-              <ChevronDown className="w-3 h-3 opacity-60" />
-            </button>
-            {langOpen && (
-              <div
-                className="absolute bottom-full right-0 mb-2 rounded-xl overflow-hidden min-w-[160px] border"
-                style={{
-                  background: "rgba(26,24,48,0.98)",
-                  borderColor: "rgba(255,255,255,0.12)",
-                  boxShadow: "0 -8px 32px rgba(0,0,0,0.4)",
-                }}
+            {/* Language Dropdown */}
+            <div className="relative inline-block">
+              <button
+                onClick={() => setLangOpen(!langOpen)}
+                className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/15 text-xs font-medium transition-colors hover:border-white/30 hover:bg-white/10"
+                style={{ color: "rgba(255,255,255,0.5)" }}
               >
-                <ul className="list-none py-1">
-                  {languages.map((lang) => (
-                    <li key={lang.code}>
-                      <button
-                        onClick={() => {
-                          setLanguage(lang.code);
-                          setLangOpen(false);
-                        }}
-                        className="w-full text-left px-4 py-2.5 text-sm font-medium flex items-center gap-2 transition-colors hover:bg-white/10"
-                        style={{
-                          color:
-                            lang.code === language
-                              ? "white"
-                              : "rgba(255,255,255,0.55)",
-                        }}
-                      >
-                        <span>{lang.flag}</span>
-                        <span>{lang.name}</span>
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+                <span>{currentLang.flag}</span>
+                <span>{currentLang.name}</span>
+                <ChevronDown className="w-3 h-3 opacity-60" />
+              </button>
+              {langOpen && (
+                <div
+                  className="absolute bottom-full right-0 mb-2 rounded-xl overflow-hidden min-w-[160px] border"
+                  style={{
+                    background: "rgba(26,24,48,0.98)",
+                    borderColor: "rgba(255,255,255,0.12)",
+                    boxShadow: "0 -8px 32px rgba(0,0,0,0.4)",
+                  }}
+                >
+                  <ul className="list-none py-1">
+                    {languages.map((lang) => (
+                      <li key={lang.code}>
+                        <button
+                          onClick={() => {
+                            setLanguage(lang.code);
+                            setLangOpen(false);
+                          }}
+                          className="w-full text-left px-4 py-2.5 text-sm font-medium flex items-center gap-2 transition-colors hover:bg-white/10"
+                          style={{
+                            color:
+                              lang.code === language
+                                ? "white"
+                                : "rgba(255,255,255,0.55)",
+                          }}
+                        >
+                          <span>{lang.flag}</span>
+                          <span>{lang.name}</span>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
           </div>
+
+          {/* Disclaimer */}
+          <p className="text-[11px] sm:text-[13px] leading-[1.6] text-white/35 text-left max-w-full">
+            Disclaimer: LoyaWin is a B2B SaaS platform for physical merchant loyalty stamp programs. We do not issue cash-equivalent stored value, digital wallets, or sell physical gift cards. All stamps and rewards are non-monetary and managed directly by local stores.
+          </p>
         </div>
       </div>
     </footer>
